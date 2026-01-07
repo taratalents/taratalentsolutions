@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us | TARA Talent Solutions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact TARA Talent Solutions for recruitment, hiring, and talent partnerships across India.">
+
+  <style>
+    :root{
+      --navy:#0b1c33;
+      --blue:#123a6f;
+      --light:#f4f7fb;
+      --accent:#1e90ff;
+      --text:#333;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Inter',sans-serif;
+    }
+
+    body{
+      background:#fff;
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    nav{
+      position:sticky;
+      top:0;
+      background:#fff;
+      border-bottom:1px solid #eee;
+      padding:14px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      z-index:1000;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:var(--navy);
+      font-weight:600;
+      margin-left:22px;
+    }
+
+    nav a:hover{ color:var(--accent); }
+
+    .hero{
+      background:linear-gradient(rgba(11,28,51,.9),rgba(11,28,51,.9)),
+      url('https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=1600&q=80') center/cover;
+      color:#fff;
+      padding:100px 10%;
+      text-align:center;
+    }
+
+    .hero h1{
+      font-size:3rem;
+      margin-bottom:10px;
+    }
+
+    section{
+      padding:80px 10%;
+      max-width:1100px;
+      margin:auto;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+    }
+
+    h2{
+      color:var(--navy);
+      margin-bottom:14px;
+    }
+
+    form input, form textarea{
+      width:100%;
+      padding:14px;
+      margin-bottom:14px;
+      border-radius:8px;
+      border:1px solid #ccc;
+      font-size:1rem;
+    }
+
+    form textarea{
+      resize:none;
+      height:130px;
+    }
+
+    .btn{
+      background:var(--accent);
+      color:#fff;
+      padding:14px 30px;
+      border:none;
+      border-radius:30px;
+      font-weight:600;
+      cursor:pointer;
+    }
+
+    .info-box{
+      background:var(--light);
+      padding:30px;
+      border-radius:14px;
+    }
+
+    .info-box p{
+      margin-bottom:12px;
+    }
+
+    footer{
+      background:var(--navy);
+      color:#ccc;
+      text-align:center;
+      padding:30px 10%;
+      font-size:.9rem;
+      margin-top:80px;
+    }
+
+    @media(max-width:900px){
+      .grid{ grid-template-columns:1fr; }
+      .hero h1{ font-size:2.3rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <strong>TARA Talent Solutions</strong>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="careers.html">Careers</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>Get In Touch With Us</h1>
+  <p>Trusted recruitment partner for future-ready organizations</p>
+</div>
+
+<section>
+  <div class="grid">
+
+    <div>
+      <h2>Contact Form</h2>
+      <p>Share your requirement or query. Our team will connect with you shortly.</p>
+
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="text" placeholder="Company / Profile">
+        <textarea placeholder="Your Message"></textarea>
+        <button class="btn" type="submit">Submit</button>
+      </form>
+    </div>
+
+    <div class="info-box">
+      <h2>Our Presence</h2>
+      <p><strong>Coverage:</strong> PAN India</p>
+      <p><strong>Email:</strong> hr@taratalentsolutions.com</p>
+      <p><strong>Support:</strong> Recruitment | Hiring | Careers</p>
+      <p>
+        We work with organizations and professionals across India,
+        delivering trusted, scalable, and future-focused talent solutions.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 TARA Talent Solutions • Contact • Trusted Hiring Partner
+</footer>
+
+</body>
+</html>
