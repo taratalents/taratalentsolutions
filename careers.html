@@ -14,7 +14,7 @@
       --navy:#0b1c33;
       --blue:#123a6f;
       --light:#f4f7fb;
-      --accent:#1e90ff;
+      --accent:#4da3ff;
       --text:#333;
     }
 
@@ -31,24 +31,38 @@
       line-height:1.7;
     }
 
-    /* NAVBAR */
+    /* ================= NAVBAR (EXACT SAME AS HOME) ================= */
     nav{
       position:fixed;
       top:0;
       left:0;
       width:100%;
       background:var(--navy);
-      padding:16px 8%;
+      padding:14px 8%;
       display:flex;
       justify-content:space-between;
       align-items:center;
       z-index:1000;
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
 
-    nav .logo{
+    .logo-wrap{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .logo-wrap img{
+      height:44px;
+      width:auto;
+      display:block;
+    }
+
+    .logo-wrap span{
       color:#fff;
-      font-size:1.2rem;
+      font-size:1.1rem;
       font-weight:700;
+      white-space:nowrap;
     }
 
     nav a{
@@ -57,18 +71,23 @@
       text-decoration:none;
       font-weight:500;
       opacity:.85;
+      transition:.3s;
+      padding-bottom:6px;
     }
 
-    nav a.active,
-    nav a:hover{
+    nav a:hover,
+    nav a.active{
       opacity:1;
       border-bottom:2px solid var(--accent);
-      padding-bottom:4px;
     }
 
-    .nav-space{ height:80px; }
+    .nav-space{ height:78px; }
 
-    /* PAGE HEADER */
+    @media(max-width:768px){
+      .logo-wrap span{ display:none; }
+    }
+
+    /* ================= PAGE HEADER ================= */
     .page-header{
       background:linear-gradient(rgba(11,28,51,.82),rgba(11,28,51,.82)),
       url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80') center/cover;
@@ -90,7 +109,7 @@
       opacity:.95;
     }
 
-    /* SECTIONS */
+    /* ================= SECTIONS ================= */
     section{
       padding:90px 8%;
     }
@@ -143,7 +162,7 @@
       padding-left:18px;
     }
 
-    /* RESUME UPLOAD BOX */
+    /* ================= RESUME UPLOAD ================= */
     .resume-box{
       background:#fff;
       padding:50px 30px;
@@ -189,7 +208,7 @@
       opacity:.9;
     }
 
-    /* FOOTER */
+    /* ================= FOOTER ================= */
     footer{
       background:#081425;
       color:#ccc;
@@ -198,7 +217,7 @@
       font-size:.9rem;
     }
 
-    /* ANIMATION */
+    /* ================= ANIMATION ================= */
     .reveal{
       opacity:0;
       transform:translateY(40px);
@@ -212,7 +231,11 @@
 
     @media(max-width:768px){
       .page-header h1{font-size:2.2rem;}
-      .btn.outline{margin-left:0;margin-top:12px;display:block;}
+      .btn.outline{
+        margin-left:0;
+        margin-top:12px;
+        display:block;
+      }
     }
   </style>
 </head>
@@ -221,7 +244,11 @@
 
 <!-- NAVBAR -->
 <nav>
-  <div class="logo">TARA Talent Solutions</div>
+  <div class="logo-wrap">
+    <img src="assets/images/logo.png" alt="TARA Talent Solutions Logo">
+    <span>TARA Talent Solutions</span>
+  </div>
+
   <div>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -253,26 +280,17 @@
   <div class="grid">
     <div class="card">
       <h3>Growth-Oriented Culture</h3>
-      <p>
-        Clear learning paths, mentorship, and exposure to diverse
-        industries and hiring projects.
-      </p>
+      Clear learning paths, mentorship, and exposure to diverse industries.
     </div>
 
     <div class="card">
       <h3>Performance-Driven Rewards</h3>
-      <p>
-        Transparent incentives, recognition, and opportunities
-        to scale your career faster.
-      </p>
+      Transparent incentives, recognition, and faster career progression.
     </div>
 
     <div class="card">
       <h3>Future-Ready Skills</h3>
-      <p>
-        Work on modern recruitment tools, processes, and
-        evolving talent strategies.
-      </p>
+      Work with modern recruitment tools and evolving talent strategies.
     </div>
   </div>
 </section>
@@ -281,22 +299,23 @@
 <section class="light reveal">
   <h2>Current Opportunities</h2>
   <p class="sub">
-    We are constantly looking for motivated professionals and
-    fresh talent to join our growing team.
+    We are constantly looking for motivated professionals and fresh talent.
   </p>
 
   <div class="grid">
     <div class="card role">
       <h3>Recruitment Executive</h3>
-      <p>Source, screen, and coordinate candidates across multiple roles.</p>
+      Source, screen, and coordinate candidates across multiple roles.
     </div>
+
     <div class="card role">
       <h3>Talent Acquisition Specialist</h3>
-      <p>Manage end-to-end hiring for assigned clients and build pipelines.</p>
+      Manage end-to-end hiring for assigned clients.
     </div>
+
     <div class="card role">
       <h3>HR / Operations Intern</h3>
-      <p>Support recruitment operations and hiring coordination.</p>
+      Support recruitment operations and hiring coordination.
     </div>
   </div>
 </section>
