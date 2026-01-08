@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Careers | TARA Talent Solutions</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Careers at TARA Talent Solutions – Build your future with trusted hiring partners across India." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Careers at TARA Talent Solutions – Explore opportunities and grow your career with a future-ready recruitment organization.">
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -31,123 +31,157 @@
       line-height:1.7;
     }
 
-    /* ===== NAVBAR ===== */
+    /* NAVBAR */
     nav{
-      position:sticky;
+      position:fixed;
       top:0;
-      z-index:1000;
-      background:#fff;
-      border-bottom:1px solid #eee;
+      left:0;
+      width:100%;
+      background:var(--navy);
+      padding:16px 8%;
       display:flex;
       justify-content:space-between;
       align-items:center;
-      padding:14px 8%;
+      z-index:1000;
+    }
+
+    nav .logo{
+      color:#fff;
+      font-size:1.2rem;
+      font-weight:700;
     }
 
     nav a{
+      color:#fff;
+      margin-left:22px;
       text-decoration:none;
-      color:var(--navy);
-      font-weight:600;
-      margin-left:24px;
+      font-weight:500;
+      opacity:.85;
+    }
+
+    nav a.active,
+    nav a:hover{
+      opacity:1;
+      border-bottom:2px solid var(--accent);
       padding-bottom:4px;
     }
 
-    nav a.active{
-      color:var(--accent);
-      border-bottom:2px solid var(--accent);
-    }
+    .nav-space{ height:80px; }
 
-    nav a:hover{
-      color:var(--accent);
-    }
-
-    /* ===== HERO ===== */
-    .hero{
-      background:linear-gradient(rgba(11,28,51,.75),rgba(11,28,51,.75)),
-      url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80") center/cover;
+    /* PAGE HEADER */
+    .page-header{
+      background:linear-gradient(rgba(11,28,51,.82),rgba(11,28,51,.82)),
+      url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80') center/cover;
       color:#fff;
       text-align:center;
       padding:110px 10%;
     }
 
-    .hero h1{
+    .page-header h1{
       font-size:3rem;
-      margin-bottom:15px;
+      font-weight:800;
+      margin-bottom:12px;
     }
 
-    .hero p{
-      font-size:1.1rem;
+    .page-header p{
+      font-size:1.15rem;
       max-width:850px;
       margin:auto;
       opacity:.95;
     }
 
-    /* ===== SECTIONS ===== */
+    /* SECTIONS */
     section{
-      padding:90px 10%;
+      padding:90px 8%;
+    }
+
+    section.light{
+      background:var(--light);
     }
 
     h2{
       color:var(--navy);
-      font-size:2.3rem;
+      font-size:2.2rem;
+      margin-bottom:18px;
       text-align:center;
-      margin-bottom:15px;
     }
 
     .sub{
       text-align:center;
-      max-width:800px;
+      max-width:850px;
       margin:0 auto 60px;
       color:#555;
     }
 
-    /* ===== WHY JOIN ===== */
+    /* GRID */
     .grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
       gap:30px;
-      margin-top:40px;
     }
 
     .card{
-      background:var(--light);
-      padding:30px;
+      background:#fff;
+      padding:36px 30px;
       border-radius:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,.06);
+      transition:.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-6px);
     }
 
     .card h3{
       color:var(--blue);
-      margin-bottom:10px;
+      margin-bottom:12px;
+      font-size:1.2rem;
     }
 
-    /* ===== CTA ===== */
-    .cta{
-      background:linear-gradient(135deg,var(--navy),var(--blue));
-      color:#fff;
+    .role{
+      border-left:4px solid var(--accent);
+      padding-left:18px;
+    }
+
+    /* RESUME UPLOAD BOX */
+    .resume-box{
+      background:#fff;
+      padding:50px 30px;
+      border-radius:16px;
+      box-shadow:0 12px 35px rgba(0,0,0,.08);
       text-align:center;
-      padding:90px 10%;
+      max-width:850px;
+      margin:0 auto;
     }
 
-    .cta h2{
-      color:#fff;
+    .resume-box h3{
+      font-size:1.8rem;
+      color:var(--navy);
       margin-bottom:15px;
     }
 
-    .cta p{
-      max-width:750px;
-      margin:0 auto 35px;
-      opacity:.95;
+    .resume-box p{
+      color:#555;
+      margin-bottom:25px;
+      font-size:1.05rem;
     }
 
     .btn{
       display:inline-block;
-      padding:16px 38px;
+      padding:14px 36px;
       background:var(--accent);
       color:#fff;
       text-decoration:none;
-      font-weight:600;
       border-radius:30px;
+      font-weight:600;
       transition:.3s;
+    }
+
+    .btn.outline{
+      background:transparent;
+      border:2px solid var(--accent);
+      color:var(--accent);
+      margin-left:12px;
     }
 
     .btn:hover{
@@ -155,17 +189,30 @@
       opacity:.9;
     }
 
-    /* ===== FOOTER ===== */
+    /* FOOTER */
     footer{
-      background:var(--navy);
+      background:#081425;
       color:#ccc;
       text-align:center;
       padding:35px 10%;
       font-size:.9rem;
     }
 
+    /* ANIMATION */
+    .reveal{
+      opacity:0;
+      transform:translateY(40px);
+      transition:.7s ease;
+    }
+
+    .reveal.active{
+      opacity:1;
+      transform:none;
+    }
+
     @media(max-width:768px){
-      .hero h1{font-size:2.2rem;}
+      .page-header h1{font-size:2.2rem;}
+      .btn.outline{margin-left:0;margin-top:12px;display:block;}
     }
   </style>
 </head>
@@ -174,7 +221,7 @@
 
 <!-- NAVBAR -->
 <nav>
-  <strong>TARA Talent Solutions</strong>
+  <div class="logo">TARA Talent Solutions</div>
   <div>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -184,66 +231,112 @@
   </div>
 </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <h1>Build Your Future With Us</h1>
+<div class="nav-space"></div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <h1>Careers at TARA</h1>
   <p>
-    Careers that grow with ambition, skill, and purpose.  
-    Submit your resume and let our team connect you with the right opportunities.
+    Build your career with a future-focused recruitment organization
+    that values growth, learning, and long-term success.
   </p>
 </div>
 
-<!-- WHY JOIN -->
-<section>
-  <h2>Why Join TARA Talent Solutions?</h2>
+<!-- WHY WORK WITH US -->
+<section class="reveal">
+  <h2>Why Work With Us</h2>
   <p class="sub">
-    We are building a future-ready talent ecosystem where learning, growth, and
-    long-term career success go hand in hand.
+    We offer a professional environment where ambition, integrity,
+    and performance are rewarded.
   </p>
 
   <div class="grid">
     <div class="card">
-      <h3>Career Growth</h3>
-      <p>Access roles aligned with your skills, experience, and long-term goals.</p>
+      <h3>Growth-Oriented Culture</h3>
+      <p>
+        Clear learning paths, mentorship, and exposure to diverse
+        industries and hiring projects.
+      </p>
     </div>
 
     <div class="card">
-      <h3>PAN India Opportunities</h3>
-      <p>Work with organizations across metros and emerging business hubs.</p>
+      <h3>Performance-Driven Rewards</h3>
+      <p>
+        Transparent incentives, recognition, and opportunities
+        to scale your career faster.
+      </p>
     </div>
 
     <div class="card">
-      <h3>Trusted Hiring Partner</h3>
-      <p>We collaborate with reputed companies across multiple industries.</p>
-    </div>
-
-    <div class="card">
-      <h3>Confidential & Ethical</h3>
-      <p>Your profile is handled with professionalism and complete confidentiality.</p>
+      <h3>Future-Ready Skills</h3>
+      <p>
+        Work on modern recruitment tools, processes, and
+        evolving talent strategies.
+      </p>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta">
-  <h2>Submit Your Resume</h2>
-  <p>
-    Click the button below to submit your resume.  
-    Our recruitment team will review your profile and reach out if there is a suitable opportunity.
+<!-- OPEN ROLES -->
+<section class="light reveal">
+  <h2>Current Opportunities</h2>
+  <p class="sub">
+    We are constantly looking for motivated professionals and
+    fresh talent to join our growing team.
   </p>
 
-  <a 
-    href="https://docs.google.com/forms/d/e/1FAIpQLSf8cRstfkl1I22shUwggO5lzrdnzYorSQbB6yZrXEgNksZ4Uw/viewform"
-    target="_blank"
-    class="btn">
-    Submit Resume
-  </a>
+  <div class="grid">
+    <div class="card role">
+      <h3>Recruitment Executive</h3>
+      <p>Source, screen, and coordinate candidates across multiple roles.</p>
+    </div>
+    <div class="card role">
+      <h3>Talent Acquisition Specialist</h3>
+      <p>Manage end-to-end hiring for assigned clients and build pipelines.</p>
+    </div>
+    <div class="card role">
+      <h3>HR / Operations Intern</h3>
+      <p>Support recruitment operations and hiring coordination.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME UPLOAD -->
+<section class="reveal">
+  <div class="resume-box">
+    <h3>Submit Your Resume</h3>
+    <p>
+      Didn’t find a suitable role?  
+      Share your resume and our team will reach out when an opportunity matches your profile.
+    </p>
+
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf8cRstfkl1I22shUwggO5lzrdnzYorSQbB6yZrXEgNksZ4Uw/viewform"
+       target="_blank"
+       class="btn">
+       Upload Resume
+    </a>
+
+    <a href="contact.html" class="btn outline">
+      Contact HR Team
+    </a>
+  </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  © 2026 TARA Talent Solutions • Recruitment & Hiring • PAN India
+  © 2026 TARA Talent Solutions · Careers · PAN India
 </footer>
+
+<script>
+  const reveals = document.querySelectorAll(".reveal");
+  window.addEventListener("scroll", () => {
+    reveals.forEach(el => {
+      if(el.getBoundingClientRect().top < window.innerHeight - 100){
+        el.classList.add("active");
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
