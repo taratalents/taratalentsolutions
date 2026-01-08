@@ -4,9 +4,8 @@
   <meta charset="UTF-8">
   <title>Careers | TARA Talent Solutions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Careers at TARA Talent Solutions – Explore opportunities and grow your career with a future-ready recruitment organization.">
+  <meta name="description" content="Careers at TARA Talent Solutions – Submit your resume and build your future with us.">
 
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -26,180 +25,120 @@
     }
 
     body{
-      background:#fff;
       color:var(--text);
+      background:#fff;
       line-height:1.7;
     }
 
-    /* NAVBAR */
+    /* ===== NAVBAR ===== */
     nav{
-      position:fixed;
+      position:sticky;
       top:0;
-      left:0;
-      width:100%;
-      background:var(--navy);
-      padding:16px 8%;
+      z-index:1000;
+      background:#fff;
+      border-bottom:1px solid #eee;
+      padding:14px 8%;
       display:flex;
       justify-content:space-between;
       align-items:center;
-      z-index:1000;
-    }
-
-    nav .logo{
-      color:#fff;
-      font-size:1.2rem;
-      font-weight:700;
     }
 
     nav a{
-      color:#fff;
-      margin-left:22px;
       text-decoration:none;
-      font-weight:500;
-      opacity:.85;
+      color:var(--navy);
+      font-weight:600;
+      margin-left:22px;
     }
 
-    nav a.active,
     nav a:hover{
-      opacity:1;
-      border-bottom:2px solid var(--accent);
-      padding-bottom:4px;
+      color:var(--accent);
     }
 
-    .nav-space{ height:80px; }
-
-    /* PAGE HEADER */
-    .page-header{
-      background:linear-gradient(rgba(11,28,51,.82),rgba(11,28,51,.82)),
-      url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80') center/cover;
+    /* ===== HERO ===== */
+    .hero{
+      background:linear-gradient(rgba(11,28,51,.8),rgba(11,28,51,.8)),
+      url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80') center/cover;
       color:#fff;
       text-align:center;
       padding:110px 10%;
     }
 
-    .page-header h1{
+    .hero h1{
       font-size:3rem;
-      font-weight:800;
-      margin-bottom:12px;
+      margin-bottom:15px;
     }
 
-    .page-header p{
+    .hero p{
       font-size:1.15rem;
+      opacity:.95;
       max-width:850px;
       margin:auto;
-      opacity:.95;
     }
 
-    /* SECTIONS */
+    /* ===== SECTION ===== */
     section{
-      padding:90px 8%;
-    }
-
-    section.light{
-      background:var(--light);
+      padding:80px 10%;
     }
 
     h2{
-      color:var(--navy);
       font-size:2.2rem;
-      margin-bottom:18px;
+      color:var(--navy);
+      margin-bottom:15px;
       text-align:center;
     }
 
     .sub{
       text-align:center;
-      max-width:850px;
-      margin:0 auto 60px;
       color:#555;
+      max-width:850px;
+      margin:0 auto 50px;
     }
 
-    /* GRID */
+    /* ===== WHY JOIN ===== */
     .grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
       gap:30px;
     }
 
     .card{
-      background:#fff;
-      padding:36px 30px;
-      border-radius:14px;
-      box-shadow:0 10px 30px rgba(0,0,0,.06);
-      transition:.3s;
-    }
-
-    .card:hover{
-      transform:translateY(-6px);
+      background:var(--light);
+      padding:30px;
+      border-radius:12px;
     }
 
     .card h3{
       color:var(--blue);
-      margin-bottom:12px;
-      font-size:1.2rem;
+      margin-bottom:10px;
     }
 
-    /* ROLES */
-    .role{
-      border-left:4px solid var(--accent);
-      padding-left:18px;
+    /* ===== FORM EMBED ===== */
+    .form-box{
+      background:#fff;
+      border-radius:14px;
+      box-shadow:0 15px 40px rgba(0,0,0,.08);
+      padding:30px;
+      margin-top:40px;
     }
 
-    /* CTA */
-    .final-cta{
-      background:linear-gradient(135deg,var(--navy),var(--blue));
-      color:#fff;
-      text-align:center;
-      padding:90px 20px;
+    .form-box iframe{
+      width:100%;
+      height:950px;
+      border:none;
     }
 
-    .final-cta h2{ color:#fff; }
-
-    .btn{
-      display:inline-block;
-      margin-top:25px;
-      padding:14px 34px;
-      background:var(--accent);
-      color:#fff;
-      text-decoration:none;
-      border-radius:30px;
-      font-weight:600;
-      transition:.3s;
-    }
-
-    .btn.outline{
-      background:transparent;
-      border:2px solid #fff;
-      color:#fff;
-    }
-
-    .btn:hover{
-      transform:translateY(-3px);
-      opacity:.9;
-    }
-
-    /* FOOTER */
+    /* ===== FOOTER ===== */
     footer{
-      background:#081425;
+      background:var(--navy);
       color:#ccc;
-      text-align:center;
       padding:35px 10%;
+      text-align:center;
       font-size:.9rem;
     }
 
-    /* ANIMATION */
-    .reveal{
-      opacity:0;
-      transform:translateY(40px);
-      transition:.7s ease;
-    }
-
-    .reveal.active{
-      opacity:1;
-      transform:none;
-    }
-
     @media(max-width:768px){
-      .page-header h1{font-size:2.2rem;}
+      .hero h1{font-size:2.2rem;}
+      .form-box iframe{height:1100px;}
     }
   </style>
 </head>
@@ -208,123 +147,76 @@
 
 <!-- NAVBAR -->
 <nav>
-  <div class="logo">TARA Talent Solutions</div>
+  <strong>TARA Talent Solutions</strong>
   <div>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
-    <a href="careers.html" class="active">Careers</a>
+    <a href="careers.html">Careers</a>
     <a href="contact.html">Contact</a>
   </div>
 </nav>
 
-<div class="nav-space"></div>
-
-<!-- PAGE HEADER -->
-<div class="page-header">
-  <h1>Careers at TARA</h1>
+<!-- HERO -->
+<div class="hero">
+  <h1>Build Your Future With Us</h1>
   <p>
-    Build your career with a future-focused recruitment organization
-    that values growth, learning, and long-term success.
+    Careers that grow with ambition, skill, and purpose.  
+    Submit your resume and let our team connect you with the right opportunities.
   </p>
 </div>
 
-<!-- WHY WORK WITH US -->
-<section class="reveal">
-  <h2>Why Work With Us</h2>
+<!-- WHY JOIN -->
+<section>
+  <h2>Why Join TARA Talent Solutions?</h2>
   <p class="sub">
-    We offer a professional environment where ambition, integrity,
-    and performance are rewarded.
+    We are building a future-ready talent ecosystem where learning, growth,
+    and long-term career success go hand in hand.
   </p>
 
   <div class="grid">
     <div class="card">
-      <h3>Growth-Oriented Culture</h3>
-      <p>
-        Clear learning paths, mentorship, and exposure to diverse
-        industries and hiring projects.
-      </p>
+      <h3>Career Growth</h3>
+      <p>Access opportunities aligned with your skills and long-term goals.</p>
     </div>
 
     <div class="card">
-      <h3>Performance-Driven Rewards</h3>
-      <p>
-        Transparent incentives, recognition, and opportunities
-        to scale your career faster.
-      </p>
+      <h3>PAN India Opportunities</h3>
+      <p>Roles across metros and emerging business hubs.</p>
     </div>
 
     <div class="card">
-      <h3>Future-Ready Skills</h3>
-      <p>
-        Work on modern recruitment tools, processes, and
-        evolving talent strategies.
-      </p>
+      <h3>Trusted Hiring Partner</h3>
+      <p>We work with reputable organizations across industries.</p>
+    </div>
+
+    <div class="card">
+      <h3>Confidential & Ethical</h3>
+      <p>Your profile is handled with professionalism and confidentiality.</p>
     </div>
   </div>
 </section>
 
-<!-- OPEN ROLES -->
-<section class="light reveal">
-  <h2>Current Opportunities</h2>
+<!-- RESUME FORM -->
+<section class="light">
+  <h2>Submit Your Resume</h2>
   <p class="sub">
-    We are constantly looking for motivated professionals and
-    fresh talent to join our growing team.
+    Fill out the form below and our recruitment team will review your profile.
+    We will contact you if your profile matches current or upcoming opportunities.
   </p>
 
-  <div class="grid">
-    <div class="card role">
-      <h3>Recruitment Executive</h3>
-      <p>
-        Source, screen, and coordinate candidates across multiple roles
-        and industries.
-      </p>
-    </div>
-
-    <div class="card role">
-      <h3>Talent Acquisition Specialist</h3>
-      <p>
-        Manage end-to-end hiring for assigned clients and build
-        long-term talent pipelines.
-      </p>
-    </div>
-
-    <div class="card role">
-      <h3>HR / Operations Intern</h3>
-      <p>
-        Support recruitment operations, documentation,
-        and hiring coordination.
-      </p>
-    </div>
+  <div class="form-box">
+    <iframe
+      src="https://docs.google.com/forms/d/e/1FAIpQLSf8cRstfkl1I22shUwggO5lzrdnzYorSQbB6yZrXEgNksZ4Uw/viewform?embedded=true">
+      Loading…
+    </iframe>
   </div>
-</section>
-
-<!-- CTA -->
-<section class="final-cta reveal">
-  <h2>Ready to Grow With Us?</h2>
-  <p style="margin-top:15px;">
-    Share your resume and take the first step toward a rewarding career.
-  </p>
-  <a href="mailto:careers@taratalentsolutions.com" class="btn">Send Your Resume</a>
-  <br>
-  <a href="contact.html" class="btn outline">Contact HR Team</a>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  © 2026 TARA Talent Solutions · Careers · PAN India
+  © 2026 TARA Talent Solutions • Recruitment & Hiring • PAN India
 </footer>
-
-<script>
-  const reveals = document.querySelectorAll(".reveal");
-  window.addEventListener("scroll", () => {
-    reveals.forEach(el => {
-      if(el.getBoundingClientRect().top < window.innerHeight - 100){
-        el.classList.add("active");
-      }
-    });
-  });
-</script>
 
 </body>
 </html>
