@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Careers | TARA Talent Solutions</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Careers at TARA Talent Solutions – Submit your resume and build your future with us.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Careers at TARA Talent Solutions – Submit your resume and build your future with trusted hiring partners across India." />
 
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -26,8 +27,8 @@
 
     body{
       color:var(--text);
-      background:#fff;
       line-height:1.7;
+      background:#fff;
     }
 
     /* ===== NAVBAR ===== */
@@ -37,17 +38,17 @@
       z-index:1000;
       background:#fff;
       border-bottom:1px solid #eee;
-      padding:14px 8%;
       display:flex;
       justify-content:space-between;
       align-items:center;
+      padding:14px 8%;
     }
 
     nav a{
       text-decoration:none;
       color:var(--navy);
       font-weight:600;
-      margin-left:22px;
+      margin-left:24px;
     }
 
     nav a:hover{
@@ -66,45 +67,51 @@
     .hero h1{
       font-size:3rem;
       margin-bottom:15px;
+      font-weight:800;
     }
 
     .hero p{
       font-size:1.15rem;
-      opacity:.95;
-      max-width:850px;
+      max-width:800px;
       margin:auto;
+      opacity:.95;
     }
 
-    /* ===== SECTION ===== */
+    /* ===== SECTIONS ===== */
     section{
-      padding:80px 10%;
+      padding:80px 8%;
     }
 
     h2{
-      font-size:2.2rem;
+      font-size:2.3rem;
       color:var(--navy);
-      margin-bottom:15px;
       text-align:center;
+      margin-bottom:15px;
     }
 
     .sub{
       text-align:center;
-      color:#555;
       max-width:850px;
       margin:0 auto 50px;
+      color:#555;
     }
 
     /* ===== WHY JOIN ===== */
     .grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
       gap:30px;
     }
 
     .card{
       background:var(--light);
       padding:30px;
-      border-radius:12px;
+      border-radius:14px;
+      transition:.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-6px);
     }
 
     .card h3{
@@ -112,18 +119,19 @@
       margin-bottom:10px;
     }
 
-    /* ===== FORM EMBED ===== */
-    .form-box{
-      background:#fff;
-      border-radius:14px;
-      box-shadow:0 15px 40px rgba(0,0,0,.08);
-      padding:30px;
-      margin-top:40px;
+    /* ===== FORM SECTION ===== */
+    .form-wrap{
+      background:var(--light);
+      border-radius:18px;
+      padding:40px;
+      max-width:1000px;
+      margin:0 auto;
+      box-shadow:0 10px 40px rgba(0,0,0,.08);
     }
 
-    .form-box iframe{
+    .form-wrap iframe{
       width:100%;
-      height:950px;
+      height:850px;
       border:none;
     }
 
@@ -131,14 +139,14 @@
     footer{
       background:var(--navy);
       color:#ccc;
-      padding:35px 10%;
       text-align:center;
+      padding:35px 8%;
       font-size:.9rem;
     }
 
     @media(max-width:768px){
       .hero h1{font-size:2.2rem;}
-      .form-box iframe{height:1100px;}
+      .form-wrap{padding:25px;}
     }
   </style>
 </head>
@@ -161,7 +169,7 @@
 <div class="hero">
   <h1>Build Your Future With Us</h1>
   <p>
-    Careers that grow with ambition, skill, and purpose.  
+    Careers that grow with ambition, skill, and purpose.
     Submit your resume and let our team connect you with the right opportunities.
   </p>
 </div>
@@ -177,7 +185,7 @@
   <div class="grid">
     <div class="card">
       <h3>Career Growth</h3>
-      <p>Access opportunities aligned with your skills and long-term goals.</p>
+      <p>Opportunities aligned with your skills and long-term goals.</p>
     </div>
 
     <div class="card">
@@ -187,7 +195,7 @@
 
     <div class="card">
       <h3>Trusted Hiring Partner</h3>
-      <p>We work with reputable organizations across industries.</p>
+      <p>We work with reputed organizations across industries.</p>
     </div>
 
     <div class="card">
@@ -198,15 +206,16 @@
 </section>
 
 <!-- RESUME FORM -->
-<section class="light">
+<section>
   <h2>Submit Your Resume</h2>
   <p class="sub">
     Fill out the form below and our recruitment team will review your profile.
-    We will contact you if your profile matches current or upcoming opportunities.
+    We will contact you if your experience matches current or upcoming opportunities.
   </p>
 
-  <div class="form-box">
-    <iframe
+  <div class="form-wrap">
+    <!-- GOOGLE FORM EMBED -->
+    <iframe 
       src="https://docs.google.com/forms/d/e/1FAIpQLSf8cRstfkl1I22shUwggO5lzrdnzYorSQbB6yZrXEgNksZ4Uw/viewform?embedded=true">
       Loading…
     </iframe>
