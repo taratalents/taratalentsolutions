@@ -13,8 +13,8 @@
     :root{
       --navy:#0b1c33;
       --blue:#123a6f;
-      --accent:#4da3ff; /* refined professional blue */
       --light:#f4f7fb;
+      --accent:#4da3ff;
       --text:#333;
     }
 
@@ -31,7 +31,7 @@
       line-height:1.7;
     }
 
-    /* NAVBAR */
+    /* ===== NAVBAR (SAME AS HOME) ===== */
     nav{
       position:fixed;
       top:0;
@@ -49,19 +49,21 @@
     .logo-wrap{
       display:flex;
       align-items:center;
-      gap:10px;
+      gap:12px;
     }
 
     .logo-wrap img{
       height:44px;
       width:auto;
+      display:block;
     }
 
     .logo-wrap span{
       color:#fff;
-      font-size:1.1rem;
+      font-size:1.15rem;
       font-weight:700;
       letter-spacing:.2px;
+      white-space:nowrap;
     }
 
     nav a{
@@ -73,8 +75,8 @@
       transition:.3s;
     }
 
-    nav a.active,
-    nav a:hover{
+    nav a:hover,
+    nav a.active{
       opacity:1;
       border-bottom:2px solid var(--accent);
       padding-bottom:6px;
@@ -82,15 +84,17 @@
 
     .nav-space{ height:78px; }
 
-    /* PAGE HERO */
+    @media(max-width:768px){
+      .logo-wrap span{ display:none; }
+    }
+
+    /* ===== PAGE HERO ===== */
     .page-header{
-      background:
-      linear-gradient(rgba(11,28,51,.82),rgba(11,28,51,.82)),
-      url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80')
-      center/cover;
+      background:linear-gradient(rgba(11,28,51,.78),rgba(11,28,51,.78)),
+      url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80') center/cover;
       color:#fff;
       text-align:center;
-      padding:120px 10%;
+      padding:110px 10%;
     }
 
     .page-header h1{
@@ -106,7 +110,7 @@
       margin:auto;
     }
 
-    /* SECTIONS */
+    /* ===== SECTIONS ===== */
     section{
       padding:90px 8%;
     }
@@ -124,7 +128,7 @@
 
     .sub{
       text-align:center;
-      max-width:860px;
+      max-width:850px;
       margin:0 auto 60px;
       color:#555;
     }
@@ -138,29 +142,27 @@
 
     .card{
       background:#fff;
-      padding:36px 30px;
+      padding:35px 30px;
       border-radius:14px;
       box-shadow:0 10px 30px rgba(0,0,0,.06);
-      transition:.35s ease;
+      transition:.3s;
     }
 
     .card:hover{
-      transform:translateY(-8px);
+      transform:translateY(-6px);
     }
 
     .card h3{
       color:var(--blue);
       margin-bottom:12px;
-      font-size:1.15rem;
     }
 
     /* STORY */
     .story{
-      max-width:960px;
+      max-width:950px;
       margin:auto;
       text-align:center;
       font-size:1.05rem;
-      color:#444;
     }
 
     /* CTA */
@@ -175,8 +177,8 @@
 
     .btn{
       display:inline-block;
-      margin-top:28px;
-      padding:14px 36px;
+      margin-top:25px;
+      padding:14px 34px;
       background:var(--accent);
       color:#fff;
       text-decoration:none;
@@ -187,7 +189,7 @@
 
     .btn:hover{
       transform:translateY(-3px);
-      opacity:.95;
+      opacity:.9;
     }
 
     /* FOOTER */
@@ -195,7 +197,7 @@
       background:#081425;
       color:#ccc;
       text-align:center;
-      padding:40px 10%;
+      padding:35px 10%;
       font-size:.9rem;
     }
 
@@ -203,7 +205,7 @@
     .reveal{
       opacity:0;
       transform:translateY(40px);
-      transition:.8s ease;
+      transition:.7s ease;
     }
 
     .reveal.active{
@@ -213,7 +215,6 @@
 
     @media(max-width:768px){
       .page-header h1{font-size:2.2rem;}
-      .logo-wrap span{display:none;} /* mobile clean */
     }
   </style>
 </head>
@@ -226,6 +227,7 @@
     <img src="assets/images/logo.png" alt="TARA Talent Solutions">
     <span>TARA Talent Solutions</span>
   </div>
+
   <div>
     <a href="index.html">Home</a>
     <a href="about.html" class="active">About</a>
@@ -256,27 +258,33 @@
   </div>
 </section>
 
-<!-- MISSION / VISION / VALUES -->
+<!-- PURPOSE -->
 <section class="light reveal">
   <h2>Our Purpose & Principles</h2>
 
   <div class="grid">
     <div class="card">
       <h3>Our Mission</h3>
-      Deliver intelligent, ethical, and scalable hiring solutions that
-      empower organizations and professionals alike.
+      <p>
+        To bridge the gap between opportunity and talent by delivering intelligent,
+        ethical, and scalable hiring solutions for modern organizations.
+      </p>
     </div>
 
     <div class="card">
       <h3>Our Vision</h3>
-      To become one of India’s most trusted and future-focused
-      talent solution partners.
+      <p>
+        To become one of India’s most trusted, future-focused, and impact-driven
+        talent solution partners.
+      </p>
     </div>
 
     <div class="card">
       <h3>Our Values</h3>
-      Integrity, transparency, accountability, and long-term
-      partnerships guide everything we do.
+      <p>
+        Integrity, transparency, accountability, and long-term partnerships guide
+        every engagement we undertake.
+      </p>
     </div>
   </div>
 </section>
@@ -287,9 +295,9 @@
   <p class="sub">Built for scale, precision, and long-term success.</p>
 
   <div class="grid">
-    <div class="card">Enterprise-grade recruitment frameworks</div>
+    <div class="card">Enterprise-grade hiring frameworks</div>
     <div class="card">PAN-India talent network</div>
-    <div class="card">Quality-first shortlisting process</div>
+    <div class="card">Quality-driven shortlisting process</div>
     <div class="card">Future-ready workforce strategy</div>
   </div>
 </section>
