@@ -1,212 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>TARA Talent Solutions | Recruitment & Hiring</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="TARA Talent Solutions – Connecting Talent with Opportunity. Recruitment & Hiring Solutions across India.">
+  <meta charset="UTF-8" />
+  <title>TARA Talent Solutions | Recruitment & Hiring</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TARA Talent Solutions – Connecting Talent with Opportunity across India." />
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<style>
-:root{
-  --navy:#0b1c33;
-  --blue:#123a6f;
-  --light:#f4f7fb;
-  --accent:#1e90ff;
-  --text:#333;
-}
+  <style>
+    :root{
+      --navy:#0b1c33;
+      --blue:#123a6f;
+      --light:#f4f7fb;
+      --accent:#1e90ff;
+      --text:#333;
+    }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Inter', sans-serif;
-}
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+    html{scroll-behavior:smooth;}
+    body{color:var(--text);line-height:1.7;background:#fff;}
 
-body{
-  color:var(--text);
-  background:#fff;
-  line-height:1.7;
-}
+    /* ===== NAVBAR ===== */
+    nav{
+      position:fixed;top:0;left:0;width:100%;
+      background:var(--navy);
+      padding:16px 8%;
+      display:flex;justify-content:space-between;align-items:center;
+      z-index:1000;
+    }
+    nav .logo{color:#fff;font-size:1.2rem;font-weight:700;}
+    .nav-links a{
+      color:#fff;margin-left:18px;text-decoration:none;font-weight:500;
+    }
+    .nav-links a.active{
+      color:var(--accent);
+      border-bottom:2px solid var(--accent);
+      padding-bottom:4px;
+    }
 
-/* ===== NAVBAR ===== */
-nav{
-  position:fixed;
-  top:0; left:0;
-  width:100%;
-  background:var(--navy);
-  padding:15px 8%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  z-index:1000;
-}
+    .spacer{height:80px;}
 
-nav a{
-  color:#fff;
-  margin:0 12px;
-  text-decoration:none;
-  font-weight:500;
-}
+    /* ===== HERO ===== */
+    header{
+      min-height:100vh;
+      background:linear-gradient(rgba(11,28,51,.75),rgba(11,28,51,.75)),
+      url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80") center/cover;
+      color:#fff;
+      display:flex;align-items:center;justify-content:center;
+      text-align:center;padding:40px;
+    }
+    header h1{font-size:3rem;font-weight:800;margin-bottom:20px;}
+    header p{font-size:1.15rem;max-width:800px;margin:auto;}
+    .cta{margin-top:30px;}
+    .btn{
+      display:inline-block;padding:14px 30px;border-radius:30px;
+      background:var(--accent);color:#fff;text-decoration:none;
+      margin:8px;font-weight:600;
+    }
+    .btn.outline{background:transparent;border:2px solid #fff;}
 
-/* ===== HERO ===== */
-header{
-  min-height:100vh;
-  background:linear-gradient(rgba(11,28,51,.75),rgba(11,28,51,.75)),
-  url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80") center/cover;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:40px;
-}
+    /* ===== SECTIONS ===== */
+    section{padding:90px 8%;}
+    section.light{background:var(--light);}
+    h2{text-align:center;font-size:2.2rem;color:var(--navy);}
+    .sub{text-align:center;max-width:800px;margin:15px auto 50px;color:#555;}
 
-header h1{
-  font-size:3rem;
-  font-weight:800;
-  margin-bottom:20px;
-}
+    /* ===== TRUST ===== */
+    .trust-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:25px;
+    }
+    .trust-card{
+      background:#fff;padding:30px;border-radius:12px;
+      box-shadow:0 8px 25px rgba(0,0,0,.08);
+    }
 
-header p{
-  font-size:1.2rem;
-  max-width:800px;
-  margin:auto;
-}
+    /* ===== COUNTERS ===== */
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:30px;
+      margin-top:50px;
+    }
+    .stat{
+      background:#fff;padding:35px;border-radius:12px;
+      text-align:center;
+      box-shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+    .stat h3{font-size:2rem;color:var(--accent);}
 
-.btn{
-  display:inline-block;
-  padding:14px 30px;
-  background:var(--accent);
-  color:#fff;
-  text-decoration:none;
-  border-radius:30px;
-  font-weight:600;
-  margin:10px;
-  transition:.25s ease;
-}
+    /* ===== FOOTER ===== */
+    footer{
+      background:#081425;color:#ccc;
+      padding:50px 8%;font-size:.9rem;
+    }
 
-.btn.outline{
-  background:transparent;
-  border:2px solid #fff;
-}
+    /* ===== SCROLL ANIMATION ===== */
+    .reveal{opacity:0;transform:translateY(40px);transition:.8s;}
+    .reveal.active{opacity:1;transform:translateY(0);}
 
-.btn:hover{
-  transform:translateY(-4px);
-  box-shadow:0 10px 28px rgba(30,144,255,.35);
-}
-
-/* ===== SECTIONS ===== */
-section{
-  padding:90px 8%;
-}
-
-.light{
-  background:var(--light);
-}
-
-h2{
-  font-size:2.3rem;
-  color:var(--navy);
-  text-align:center;
-  margin-bottom:20px;
-}
-
-.sub{
-  text-align:center;
-  max-width:850px;
-  margin:0 auto 60px;
-  color:#555;
-}
-
-/* ===== CARDS ===== */
-.trust-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:30px;
-}
-
-.trust-card{
-  background:#fff;
-  padding:35px 25px;
-  border-radius:14px;
-  box-shadow:0 10px 35px rgba(0,0,0,.08);
-  text-align:center;
-  transition:.35s ease;
-}
-
-.trust-card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 18px 45px rgba(0,0,0,.12);
-}
-
-/* ===== SCROLL REVEAL ===== */
-.reveal{
-  opacity:0;
-  transform:translateY(40px);
-  transition:opacity .7s ease, transform .7s ease;
-}
-
-.reveal.show{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* ===== FOOTER ===== */
-footer{
-  background:#081425;
-  color:#ccc;
-  padding:70px 8% 40px;
-  font-size:.9rem;
-}
-
-.footer-grid{
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr;
-  gap:40px;
-  margin-bottom:40px;
-}
-
-.footer-grid h4{
-  color:#fff;
-  margin-bottom:15px;
-}
-
-.footer-grid a{
-  display:block;
-  color:#ccc;
-  text-decoration:none;
-  margin-bottom:10px;
-  font-size:.9rem;
-}
-
-.footer-grid a:hover{
-  color:#fff;
-}
-
-.footer-bottom{
-  border-top:1px solid rgba(255,255,255,.1);
-  padding-top:20px;
-  text-align:center;
-  font-size:.85rem;
-}
-
-@media(max-width:768px){
-  header h1{font-size:2.2rem;}
-  .footer-grid{
-    grid-template-columns:1fr;
-    text-align:center;
-  }
-}
-</style>
+    @media(max-width:768px){
+      header h1{font-size:2.2rem;}
+    }
+  </style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
 <nav>
-  <div style="color:#fff;font-weight:700;">TARA Talent Solutions</div>
-  <div>
+  <div class="logo">TARA Talent Solutions</div>
+  <div class="nav-links">
     <a href="#about">About</a>
     <a href="#services">Services</a>
     <a href="careers.html">Careers</a>
@@ -214,92 +120,107 @@ footer{
   </div>
 </nav>
 
-<div style="height:80px"></div>
+<div class="spacer"></div>
 
-<header class="reveal">
+<!-- HERO -->
+<header>
   <div>
     <h1>Connecting Talent with Opportunity</h1>
     <p>A next-generation recruitment & hiring consultancy across India.</p>
-    <a href="#services" class="btn">Our Services</a>
-    <a href="#contact" class="btn outline">Get in Touch</a>
+    <div class="cta">
+      <a href="#services" class="btn">Our Services</a>
+      <a href="#contact" class="btn outline">Get in Touch</a>
+    </div>
   </div>
 </header>
 
+<!-- TRUST -->
 <section class="light reveal">
-  <h2>Why Organizations Trust TARA</h2>
+  <h2>Why Organizations Trust Us</h2>
   <p class="sub">Built on credibility, scale, and long-term partnerships.</p>
   <div class="trust-grid">
     <div class="trust-card reveal">PAN India Reach</div>
-    <div class="trust-card reveal">Enterprise-Grade Hiring</div>
+    <div class="trust-card reveal">Enterprise Hiring</div>
     <div class="trust-card reveal">Industry Expertise</div>
-    <div class="trust-card reveal">Future-Focused Approach</div>
+    <div class="trust-card reveal">Future-Ready Talent</div>
   </div>
 </section>
 
+<!-- STATS -->
 <section class="reveal">
-  <h2>Our Impact at a Glance</h2>
+  <h2>Our Impact</h2>
   <p class="sub">Numbers that build trust.</p>
-  <div class="trust-grid">
-    <div class="trust-card reveal"><strong>10+</strong><br>Years Experience</div>
-    <div class="trust-card reveal"><strong>250+</strong><br>Organizations</div>
-    <div class="trust-card reveal"><strong>5000+</strong><br>Placements</div>
-    <div class="trust-card reveal"><strong>28</strong><br>States Covered</div>
+  <div class="stats">
+    <div class="stat"><h3 class="count" data-target="10">0</h3><p>Years Experience</p></div>
+    <div class="stat"><h3 class="count" data-target="250">0</h3><p>Organizations</p></div>
+    <div class="stat"><h3 class="count" data-target="5000">0</h3><p>Placements</p></div>
+    <div class="stat"><h3 class="count" data-target="28">0</h3><p>Industries</p></div>
   </div>
 </section>
 
+<!-- ABOUT -->
+<section id="about" class="light reveal">
+  <h2>About Us</h2>
+  <p class="sub">A recruitment partner built for the future of work.</p>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="reveal">
+  <h2>Our Services</h2>
+  <p class="sub">End-to-end talent solutions.</p>
+</section>
+
+<!-- CTA -->
 <section id="contact" class="light reveal">
   <h2>Let’s Build the Future Workforce</h2>
-  <p class="sub">Partner with us for long-term success.</p>
-  <div style="text-align:center;">
+  <div style="text-align:center;margin-top:30px;">
     <a href="contact.html" class="btn">Contact Us</a>
   </div>
 </section>
 
-<!-- ===== ENTERPRISE FOOTER ===== -->
+<!-- FOOTER -->
 <footer>
-  <div class="footer-grid">
-    <div>
-      <h4>TARA Talent Solutions</h4>
-      <p>
-        A professional recruitment & hiring consultancy delivering
-        future-ready talent solutions across India.
-      </p>
-    </div>
-
-    <div>
-      <h4>Quick Links</h4>
-      <a href="#about">About Us</a>
-      <a href="#services">Services</a>
-      <a href="careers.html">Careers</a>
-      <a href="contact.html">Contact</a>
-    </div>
-
-    <div>
-      <h4>Services</h4>
-      <a href="#">Recruitment & Hiring</a>
-      <a href="#">Executive Search</a>
-      <a href="#">Campus Hiring</a>
-      <a href="#">HR Consulting</a>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    © 2026 TARA Talent Solutions · Recruitment & Hiring · PAN India
-  </div>
+  © 2026 TARA Talent Solutions | Recruitment & Hiring | PAN India
 </footer>
 
+<!-- ===== JS ===== -->
 <script>
-/* SCROLL REVEAL */
-const reveals=document.querySelectorAll('.reveal');
-function revealOnScroll(){
-  reveals.forEach(el=>{
-    if(el.getBoundingClientRect().top < window.innerHeight-120){
-      el.classList.add('show');
-    }
+  /* Active Nav */
+  const sections=document.querySelectorAll("section[id]");
+  const links=document.querySelectorAll(".nav-links a");
+  window.addEventListener("scroll",()=>{
+    let y=window.pageYOffset;
+    sections.forEach(sec=>{
+      let top=sec.offsetTop-120;
+      let h=sec.offsetHeight;
+      let id=sec.getAttribute("id");
+      if(y>=top&&y<top+h){
+        links.forEach(l=>l.classList.remove("active"));
+        let a=document.querySelector(`.nav-links a[href="#${id}"]`);
+        if(a)a.classList.add("active");
+      }
+    });
   });
-}
-window.addEventListener('scroll',revealOnScroll);
-window.addEventListener('load',revealOnScroll);
+
+  /* Reveal */
+  const reveals=document.querySelectorAll(".reveal");
+  const reveal=()=>reveals.forEach(el=>{
+    if(el.getBoundingClientRect().top<window.innerHeight-100)
+      el.classList.add("active");
+  });
+  window.addEventListener("scroll",reveal);reveal();
+
+  /* Counters */
+  const counters=document.querySelectorAll(".count");
+  counters.forEach(c=>{
+    let update=()=>{
+      let target=+c.dataset.target;
+      let cur=+c.innerText;
+      let inc=Math.ceil(target/100);
+      if(cur<target){c.innerText=cur+inc;setTimeout(update,30);}
+      else c.innerText=target+"+";
+    };update();
+  });
 </script>
 
 </body>
