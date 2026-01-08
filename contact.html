@@ -14,7 +14,7 @@
       --navy:#0b1c33;
       --blue:#123a6f;
       --light:#f4f7fb;
-      --accent:#1e90ff;
+      --accent:#4da3ff;
       --text:#333;
     }
 
@@ -31,24 +31,38 @@
       line-height:1.7;
     }
 
-    /* NAVBAR */
+    /* ================= NAVBAR (SAME ACROSS SITE) ================= */
     nav{
       position:fixed;
       top:0;
       left:0;
       width:100%;
       background:var(--navy);
-      padding:16px 8%;
+      padding:14px 8%;
       display:flex;
       justify-content:space-between;
       align-items:center;
       z-index:1000;
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
 
-    nav .logo{
+    .logo-wrap{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .logo-wrap img{
+      height:44px;
+      width:auto;
+      display:block;
+    }
+
+    .logo-wrap span{
       color:#fff;
-      font-size:1.2rem;
+      font-size:1.1rem;
       font-weight:700;
+      white-space:nowrap;
     }
 
     nav a{
@@ -57,18 +71,23 @@
       text-decoration:none;
       font-weight:500;
       opacity:.85;
+      transition:.3s;
+      padding-bottom:6px;
     }
 
-    nav a.active,
-    nav a:hover{
+    nav a:hover,
+    nav a.active{
       opacity:1;
       border-bottom:2px solid var(--accent);
-      padding-bottom:4px;
     }
 
-    .nav-space{ height:80px; }
+    .nav-space{ height:78px; }
 
-    /* PAGE HEADER */
+    @media(max-width:768px){
+      .logo-wrap span{ display:none; }
+    }
+
+    /* ================= PAGE HEADER ================= */
     .page-header{
       background:linear-gradient(rgba(11,28,51,.82),rgba(11,28,51,.82)),
       url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=80') center/cover;
@@ -90,7 +109,7 @@
       opacity:.95;
     }
 
-    /* SECTIONS */
+    /* ================= SECTIONS ================= */
     section{
       padding:90px 8%;
     }
@@ -209,7 +228,11 @@
 
 <!-- NAVBAR -->
 <nav>
-  <div class="logo">TARA Talent Solutions</div>
+  <div class="logo-wrap">
+    <img src="assets/images/logo.png" alt="TARA Talent Solutions Logo">
+    <span>TARA Talent Solutions</span>
+  </div>
+
   <div>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
