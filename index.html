@@ -31,24 +31,33 @@
       line-height:1.7;
     }
 
-    /* NAVBAR */
+    /* ================= NAVBAR ================= */
     nav{
       position:fixed;
       top:0;
       left:0;
       width:100%;
       background:var(--navy);
-      padding:16px 8%;
+      padding:14px 8%;
       display:flex;
       justify-content:space-between;
       align-items:center;
       z-index:1000;
     }
 
-    nav .logo{
+    .logo-wrap{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
       color:#fff;
-      font-size:1.2rem;
       font-weight:700;
+      font-size:1.1rem;
+    }
+
+    .logo-wrap img{
+      height:42px;
+      width:auto;
     }
 
     nav a{
@@ -69,7 +78,7 @@
 
     .nav-space{ height:78px; }
 
-    /* HERO */
+    /* ================= HERO ================= */
     header{
       min-height:90vh;
       background:linear-gradient(rgba(11,28,51,.75),rgba(11,28,51,.75)),
@@ -95,9 +104,7 @@
       opacity:.95;
     }
 
-    .cta{
-      margin-top:35px;
-    }
+    .cta{ margin-top:35px; }
 
     .btn{
       display:inline-block;
@@ -121,14 +128,12 @@
       opacity:.9;
     }
 
-    /* SECTIONS */
+    /* ================= SECTIONS ================= */
     section{
       padding:90px 8%;
     }
 
-    section.light{
-      background:var(--light);
-    }
+    section.light{ background:var(--light); }
 
     h2{
       font-size:2.2rem;
@@ -159,9 +164,7 @@
       transition:.3s;
     }
 
-    .trust-card:hover{
-      transform:translateY(-8px);
-    }
+    .trust-card:hover{ transform:translateY(-8px); }
 
     .trust-card h3{
       color:var(--blue);
@@ -197,9 +200,7 @@
       padding:90px 20px;
     }
 
-    .final-cta h2{
-      color:#fff;
-    }
+    .final-cta h2{ color:#fff; }
 
     /* FOOTER */
     footer{
@@ -235,7 +236,7 @@
       opacity:.7;
     }
 
-    /* ANIMATIONS */
+    /* SCROLL ANIMATION */
     .reveal{
       opacity:0;
       transform:translateY(40px);
@@ -250,14 +251,20 @@
     @media(max-width:768px){
       header h1{ font-size:2.2rem; }
       .footer-grid{ grid-template-columns:1fr; }
+      .logo-wrap span{ display:none; } /* mobile clean */
     }
   </style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
 <nav>
-  <div class="logo">TARA Talent Solutions</div>
+  <a href="index.html" class="logo-wrap">
+    <img src="assets/images/logo.png" alt="TARA Talent Solutions Logo">
+    <span>TARA Talent Solutions</span>
+  </a>
+
   <div>
     <a href="index.html" class="active">Home</a>
     <a href="about.html">About</a>
@@ -269,6 +276,7 @@
 
 <div class="nav-space"></div>
 
+<!-- HERO -->
 <header>
   <div>
     <h1>Connecting Talent with Opportunity</h1>
@@ -283,6 +291,7 @@
   </div>
 </header>
 
+<!-- TRUST -->
 <section class="light reveal">
   <h2>Why Organizations Trust TARA</h2>
   <p class="sub">Built on credibility, scale, and long-term partnerships.</p>
@@ -307,6 +316,7 @@
   </div>
 </section>
 
+<!-- IMPACT -->
 <section class="reveal">
   <h2>Our Impact at a Glance</h2>
   <p class="sub">Numbers that build trust.</p>
@@ -319,12 +329,14 @@
   </div>
 </section>
 
+<!-- FINAL CTA -->
 <section class="final-cta reveal">
   <h2>Let’s Build the Future Workforce</h2>
   <p style="margin:15px 0 30px;">Partner with us for long-term success.</p>
   <a href="contact.html" class="btn">Contact Us</a>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div>
@@ -354,7 +366,6 @@
 </footer>
 
 <script>
-  // Scroll animations
   const reveals = document.querySelectorAll(".reveal");
   window.addEventListener("scroll", () => {
     reveals.forEach(el => {
