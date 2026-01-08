@@ -1,82 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>About Us | TARA Talent Solutions</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="About TARA Talent Solutions – A future-ready recruitment & hiring consultancy across India.">
+  <meta charset="UTF-8">
+  <title>About Us | TARA Talent Solutions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About TARA Talent Solutions – A future-ready recruitment & hiring consultancy serving PAN India.">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<style>
-:root{
-  --navy:#0b1c33;
-  --blue:#123a6f;
-  --accent:#4da3ff;
-  --light:#f4f7fb;
-}
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif;}
-body{color:#333;line-height:1.7}
+  <style>
+    :root{
+      --navy:#0b1c33;
+      --blue:#123a6f;
+      --light:#f4f7fb;
+      --accent:#1e90ff;
+      --text:#333;
+    }
 
-/* NAVBAR */
-nav{
-  position:fixed;top:0;left:0;width:100%;
-  background:var(--navy);padding:14px 8%;
-  display:flex;justify-content:space-between;align-items:center;
-  z-index:1000;border-bottom:1px solid rgba(255,255,255,.08);
-}
-.logo-wrap{display:flex;align-items:center;gap:10px}
-.logo-wrap img{height:44px}
-.logo-wrap span{color:#fff;font-weight:700}
-nav a{color:#fff;margin-left:22px;text-decoration:none;opacity:.85}
-nav a.active,nav a:hover{opacity:1;border-bottom:2px solid var(--accent);padding-bottom:6px}
-.nav-space{height:78px}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Inter',sans-serif;
+    }
 
-/* HEADER */
-.header{
-  background:linear-gradient(rgba(11,28,51,.8),rgba(11,28,51,.8)),
-  url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80") center/cover;
-  color:#fff;text-align:center;padding:120px 8%;
-}
-.header h1{font-size:3rem}
+    body{
+      background:#fff;
+      color:var(--text);
+      line-height:1.7;
+    }
 
-/* SECTIONS */
-section{padding:90px 8%}
-.light{background:var(--light)}
-h2{text-align:center;color:var(--navy);font-size:2.2rem;margin-bottom:20px}
-.sub{text-align:center;max-width:800px;margin:0 auto 50px;color:#555}
+    /* NAVBAR */
+    nav{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      background:var(--navy);
+      padding:16px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      z-index:1000;
+    }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
-}
-.card{
-  background:#fff;padding:30px;border-radius:14px;
-  box-shadow:0 10px 30px rgba(0,0,0,.06);
-}
-.card h3{color:var(--blue);margin-bottom:10px}
+    nav .logo{
+      color:#fff;
+      font-size:1.2rem;
+      font-weight:700;
+    }
 
-/* FOOTER */
-footer{background:#081425;color:#ccc;padding:50px 8%}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px}
-footer h4{color:#fff;margin-bottom:12px}
-footer a{color:#ccc;text-decoration:none;display:block;margin-bottom:8px}
-.copy{text-align:center;margin-top:30px;opacity:.7}
+    nav a{
+      color:#fff;
+      margin-left:22px;
+      text-decoration:none;
+      font-weight:500;
+      opacity:.85;
+    }
 
-@media(max-width:768px){
-.header h1{font-size:2.2rem}
-.footer-grid{grid-template-columns:1fr}
-}
-</style>
+    nav a.active,
+    nav a:hover{
+      opacity:1;
+      border-bottom:2px solid var(--accent);
+      padding-bottom:4px;
+    }
+
+    .nav-space{ height:80px; }
+
+    /* PAGE HERO */
+    .page-header{
+      background:linear-gradient(rgba(11,28,51,.78),rgba(11,28,51,.78)),
+      url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80') center/cover;
+      color:#fff;
+      text-align:center;
+      padding:110px 10%;
+    }
+
+    .page-header h1{
+      font-size:3rem;
+      margin-bottom:12px;
+      font-weight:800;
+    }
+
+    .page-header p{
+      font-size:1.15rem;
+      opacity:.95;
+      max-width:800px;
+      margin:auto;
+    }
+
+    /* SECTIONS */
+    section{
+      padding:90px 8%;
+    }
+
+    section.light{
+      background:var(--light);
+    }
+
+    h2{
+      color:var(--navy);
+      font-size:2.2rem;
+      margin-bottom:18px;
+      text-align:center;
+    }
+
+    .sub{
+      text-align:center;
+      max-width:850px;
+      margin:0 auto 60px;
+      color:#555;
+    }
+
+    /* GRID */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:#fff;
+      padding:35px 30px;
+      border-radius:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,.06);
+      transition:.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-6px);
+    }
+
+    .card h3{
+      color:var(--blue);
+      margin-bottom:12px;
+    }
+
+    /* STORY */
+    .story{
+      max-width:950px;
+      margin:auto;
+      text-align:center;
+      font-size:1.05rem;
+    }
+
+    /* CTA */
+    .final-cta{
+      background:linear-gradient(135deg,var(--navy),var(--blue));
+      color:#fff;
+      text-align:center;
+      padding:90px 20px;
+    }
+
+    .final-cta h2{ color:#fff; }
+
+    .btn{
+      display:inline-block;
+      margin-top:25px;
+      padding:14px 34px;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      border-radius:30px;
+      font-weight:600;
+      transition:.3s;
+    }
+
+    .btn:hover{
+      transform:translateY(-3px);
+      opacity:.9;
+    }
+
+    /* FOOTER */
+    footer{
+      background:#081425;
+      color:#ccc;
+      text-align:center;
+      padding:35px 10%;
+      font-size:.9rem;
+    }
+
+    /* ANIMATION */
+    .reveal{
+      opacity:0;
+      transform:translateY(40px);
+      transition:.7s ease;
+    }
+
+    .reveal.active{
+      opacity:1;
+      transform:none;
+    }
+
+    @media(max-width:768px){
+      .page-header h1{font-size:2.2rem;}
+    }
+  </style>
 </head>
 
 <body>
+
+<!-- NAVBAR -->
 <nav>
-  <div class="logo-wrap">
-    <img src="assets/images/logo.png">
-    <span>TARA Talent Solutions</span>
-  </div>
+  <div class="logo">TARA Talent Solutions</div>
   <div>
     <a href="index.html">Home</a>
     <a href="about.html" class="active">About</a>
@@ -88,56 +215,90 @@ footer a{color:#ccc;text-decoration:none;display:block;margin-bottom:8px}
 
 <div class="nav-space"></div>
 
-<div class="header">
-  <h1>About TARA Talent Solutions</h1>
-  <p>Building future-ready teams across India</p>
+<!-- HERO -->
+<div class="page-header">
+  <h1>About Our Organization</h1>
+  <p>Building future-ready teams through trust, intelligence, and long-term vision.</p>
 </div>
 
-<section>
+<!-- STORY -->
+<section class="reveal">
   <h2>Who We Are</h2>
-  <p class="sub">
-    A next-generation recruitment & hiring consultancy helping organizations
-    scale with confidence and professionals grow meaningful careers.
-  </p>
+  <p class="sub">A recruitment partner designed for the future of work.</p>
+
+  <div class="story">
+    TARA Talent Solutions is a next-generation recruitment and hiring consultancy
+    helping organizations build high-performance teams and professionals achieve
+    long-term career success. We operate at the intersection of talent, technology,
+    and business growth — delivering scalable hiring solutions across PAN India.
+  </div>
+</section>
+
+<!-- MISSION / VISION / VALUES -->
+<section class="light reveal">
+  <h2>Our Purpose & Principles</h2>
 
   <div class="grid">
     <div class="card">
       <h3>Our Mission</h3>
-      Deliver intelligent, ethical, and scalable hiring solutions.
+      <p>
+        To bridge the gap between opportunity and talent by delivering intelligent,
+        ethical, and scalable hiring solutions for modern organizations.
+      </p>
     </div>
+
     <div class="card">
       <h3>Our Vision</h3>
-      To be among India’s most trusted talent partners.
+      <p>
+        To become one of India’s most trusted, future-focused, and impact-driven
+        talent solution partners.
+      </p>
     </div>
+
     <div class="card">
       <h3>Our Values</h3>
-      Integrity, transparency & long-term partnerships.
+      <p>
+        Integrity, transparency, accountability, and long-term partnerships guide
+        every engagement we undertake.
+      </p>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="footer-grid">
-    <div>
-      <h4>TARA Talent Solutions</h4>
-      Future-ready recruitment & hiring consultancy across India.
-    </div>
-    <div>
-      <h4>Quick Links</h4>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="careers.html">Careers</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <div>
-      <h4>Services</h4>
-      <a>Recruitment</a>
-      <a>Executive Search</a>
-      <a>Campus Hiring</a>
-      <a>HR Consulting</a>
-    </div>
+<!-- WHY US -->
+<section class="reveal">
+  <h2>Why Organizations Choose Us</h2>
+  <p class="sub">Built for scale, precision, and long-term success.</p>
+
+  <div class="grid">
+    <div class="card">Enterprise-grade hiring frameworks</div>
+    <div class="card">PAN-India talent network</div>
+    <div class="card">Quality-driven shortlisting process</div>
+    <div class="card">Future-ready workforce strategy</div>
   </div>
-  <div class="copy">© 2026 TARA Talent Solutions · PAN India</div>
+</section>
+
+<!-- CTA -->
+<section class="final-cta reveal">
+  <h2>Let’s Build the Future Workforce Together</h2>
+  <a href="contact.html" class="btn">Connect With Us</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 TARA Talent Solutions · Recruitment & Hiring · PAN India
 </footer>
+
+<script>
+  const reveals = document.querySelectorAll(".reveal");
+  window.addEventListener("scroll", () => {
+    reveals.forEach(el => {
+      if(el.getBoundingClientRect().top < window.innerHeight - 100){
+        el.classList.add("active");
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
