@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <title>Our Services | TARA Talent Solutions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Enterprise recruitment & hiring services by TARA Talent Solutions across PAN India.">
+  <meta name="description" content="Services by TARA Talent Solutions – Enterprise recruitment, executive search, and workforce solutions across PAN India.">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -23,174 +26,315 @@
     }
 
     body{
-      color:var(--text);
       background:#fff;
+      color:var(--text);
       line-height:1.7;
     }
 
+    /* NAVBAR */
     nav{
-      position:sticky;
+      position:fixed;
       top:0;
-      background:#fff;
-      border-bottom:1px solid #eee;
-      padding:14px 8%;
+      left:0;
+      width:100%;
+      background:var(--navy);
+      padding:16px 8%;
       display:flex;
       justify-content:space-between;
       align-items:center;
       z-index:1000;
     }
 
-    nav a{
-      text-decoration:none;
-      color:var(--navy);
-      font-weight:600;
-      margin-left:22px;
-    }
-
-    nav a:hover{ color:var(--accent); }
-
-    .hero{
-      background:linear-gradient(rgba(11,28,51,.85),rgba(11,28,51,.85)),
-      url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80') center/cover;
+    nav .logo{
       color:#fff;
-      padding:110px 10%;
-      text-align:center;
+      font-size:1.2rem;
+      font-weight:700;
     }
 
-    .hero h1{
+    nav a{
+      color:#fff;
+      margin-left:22px;
+      text-decoration:none;
+      font-weight:500;
+      opacity:.85;
+    }
+
+    nav a.active,
+    nav a:hover{
+      opacity:1;
+      border-bottom:2px solid var(--accent);
+      padding-bottom:4px;
+    }
+
+    .nav-space{ height:80px; }
+
+    /* PAGE HEADER */
+    .page-header{
+      background:linear-gradient(rgba(11,28,51,.8),rgba(11,28,51,.8)),
+      url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80') center/cover;
+      color:#fff;
+      text-align:center;
+      padding:110px 10%;
+    }
+
+    .page-header h1{
       font-size:3rem;
+      font-weight:800;
       margin-bottom:12px;
     }
 
-    .hero p{
-      font-size:1.1rem;
-      opacity:.9;
+    .page-header p{
+      font-size:1.15rem;
+      max-width:850px;
+      margin:auto;
+      opacity:.95;
     }
 
+    /* SECTIONS */
     section{
-      padding:80px 10%;
+      padding:90px 8%;
+    }
+
+    section.light{
+      background:var(--light);
     }
 
     h2{
       color:var(--navy);
       font-size:2.2rem;
-      margin-bottom:20px;
+      margin-bottom:18px;
       text-align:center;
     }
 
-    .services{
+    .sub{
+      text-align:center;
+      max-width:850px;
+      margin:0 auto 60px;
+      color:#555;
+    }
+
+    /* GRID */
+    .grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:40px;
-      margin-top:50px;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:30px;
     }
 
-    .service-card{
-      background:var(--light);
-      padding:32px;
+    .card{
+      background:#fff;
+      padding:36px 30px;
       border-radius:14px;
-      transition:.3s ease;
+      box-shadow:0 10px 30px rgba(0,0,0,.06);
+      transition:.3s;
     }
 
-    .service-card:hover{
-      transform:translateY(-8px);
-      box-shadow:0 20px 40px rgba(0,0,0,.08);
+    .card:hover{
+      transform:translateY(-6px);
     }
 
-    .service-card h3{
+    .card h3{
       color:var(--blue);
       margin-bottom:12px;
+      font-size:1.2rem;
     }
 
+    /* PROCESS */
+    .process{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:25px;
+      text-align:center;
+    }
+
+    .step{
+      background:#fff;
+      padding:30px 25px;
+      border-radius:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,.06);
+    }
+
+    .step strong{
+      display:block;
+      font-size:1.8rem;
+      color:var(--accent);
+      margin-bottom:10px;
+    }
+
+    /* CTA */
+    .final-cta{
+      background:linear-gradient(135deg,var(--navy),var(--blue));
+      color:#fff;
+      text-align:center;
+      padding:90px 20px;
+    }
+
+    .final-cta h2{ color:#fff; }
+
+    .btn{
+      display:inline-block;
+      margin-top:25px;
+      padding:14px 34px;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      border-radius:30px;
+      font-weight:600;
+      transition:.3s;
+    }
+
+    .btn:hover{
+      transform:translateY(-3px);
+      opacity:.9;
+    }
+
+    /* FOOTER */
     footer{
-      background:var(--navy);
+      background:#081425;
       color:#ccc;
       text-align:center;
-      padding:30px 10%;
+      padding:35px 10%;
       font-size:.9rem;
     }
 
+    /* ANIMATION */
+    .reveal{
+      opacity:0;
+      transform:translateY(40px);
+      transition:.7s ease;
+    }
+
+    .reveal.active{
+      opacity:1;
+      transform:none;
+    }
+
     @media(max-width:768px){
-      .hero h1{ font-size:2.3rem; }
+      .page-header h1{font-size:2.2rem;}
     }
   </style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
 <nav>
-  <strong>TARA Talent Solutions</strong>
+  <div class="logo">TARA Talent Solutions</div>
   <div>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="services.html">Services</a>
+    <a href="services.html" class="active">Services</a>
     <a href="careers.html">Careers</a>
     <a href="contact.html">Contact</a>
   </div>
 </nav>
 
-<div class="hero">
-  <h1>Our Professional Services</h1>
-  <p>End-to-end recruitment solutions designed for modern enterprises</p>
+<div class="nav-space"></div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <h1>Our Services</h1>
+  <p>
+    End-to-end recruitment and talent solutions designed for scale,
+    precision, and long-term success.
+  </p>
 </div>
 
-<section>
-  <h2>What We Offer</h2>
+<!-- SERVICES -->
+<section class="reveal">
+  <h2>What We Do</h2>
+  <p class="sub">
+    We partner with organizations across industries to deliver
+    high-quality talent through structured, ethical, and future-ready
+    recruitment solutions.
+  </p>
 
-  <div class="services">
-    <div class="service-card">
-      <h3>Permanent Hiring</h3>
+  <div class="grid">
+    <div class="card">
+      <h3>Recruitment & Hiring</h3>
       <p>
-        Strategic full-time hiring solutions to build long-term,
-        high-performance teams aligned with your business goals.
+        Permanent, contract, and bulk hiring solutions across IT,
+        Non-IT, corporate, sales, and operations roles.
       </p>
     </div>
 
-    <div class="service-card">
-      <h3>Bulk & Volume Hiring</h3>
+    <div class="card">
+      <h3>Executive Search</h3>
       <p>
-        Scalable recruitment for startups, enterprises, and fast-growing
-        organizations across multiple locations in India.
+        Confidential leadership hiring for senior and critical roles,
+        aligned with organizational strategy and culture.
       </p>
     </div>
 
-    <div class="service-card">
-      <h3>Leadership & Executive Search</h3>
+    <div class="card">
+      <h3>Campus & Early Careers</h3>
       <p>
-        Confidential and precise leadership hiring for CXO, senior management,
-        and mission-critical roles.
+        Structured fresher and campus hiring programs to build
+        future-ready talent pipelines.
       </p>
     </div>
 
-    <div class="service-card">
-      <h3>Industry-Specific Hiring</h3>
+    <div class="card">
+      <h3>HR & Talent Consulting</h3>
       <p>
-        Domain-focused recruitment for IT, Sales, Operations, Finance,
-        Customer Support, and emerging sectors.
-      </p>
-    </div>
-
-    <div class="service-card">
-      <h3>Talent Consulting</h3>
-      <p>
-        Hiring strategy, workforce planning, and recruitment process
-        optimization for future-ready organizations.
-      </p>
-    </div>
-
-    <div class="service-card">
-      <h3>PAN India Recruitment</h3>
-      <p>
-        Nationwide hiring coverage supported by data-driven sourcing
-        and intelligent screening models.
+        Advisory support for workforce planning, hiring strategy,
+        and process optimization.
       </p>
     </div>
   </div>
 </section>
 
+<!-- PROCESS -->
+<section class="light reveal">
+  <h2>Our Hiring Process</h2>
+  <p class="sub">
+    A structured, transparent, and results-driven approach to talent acquisition.
+  </p>
+
+  <div class="process">
+    <div class="step">
+      <strong>01</strong>
+      Requirement Understanding
+    </div>
+    <div class="step">
+      <strong>02</strong>
+      Talent Mapping & Sourcing
+    </div>
+    <div class="step">
+      <strong>03</strong>
+      Screening & Shortlisting
+    </div>
+    <div class="step">
+      <strong>04</strong>
+      Interview Coordination
+    </div>
+    <div class="step">
+      <strong>05</strong>
+      Offer & Onboarding Support
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="final-cta reveal">
+  <h2>Let’s Solve Your Hiring Challenges</h2>
+  <a href="contact.html" class="btn">Talk to Our Team</a>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  © 2026 TARA Talent Solutions • All Rights Reserved
+  © 2026 TARA Talent Solutions · Recruitment & Hiring · PAN India
 </footer>
+
+<script>
+  const reveals = document.querySelectorAll(".reveal");
+  window.addEventListener("scroll", () => {
+    reveals.forEach(el => {
+      if(el.getBoundingClientRect().top < window.innerHeight - 100){
+        el.classList.add("active");
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
