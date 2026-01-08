@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <title>Contact Us | TARA Talent Solutions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact TARA Talent Solutions for recruitment, hiring, and talent partnerships across India.">
+  <meta name="description" content="Contact TARA Talent Solutions – Get in touch for recruitment, hiring, and talent consulting across PAN India.">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -28,63 +31,127 @@
       line-height:1.7;
     }
 
+    /* NAVBAR */
     nav{
-      position:sticky;
+      position:fixed;
       top:0;
-      background:#fff;
-      border-bottom:1px solid #eee;
-      padding:14px 8%;
+      left:0;
+      width:100%;
+      background:var(--navy);
+      padding:16px 8%;
       display:flex;
       justify-content:space-between;
       align-items:center;
       z-index:1000;
     }
 
-    nav a{
-      text-decoration:none;
-      color:var(--navy);
-      font-weight:600;
-      margin-left:22px;
-    }
-
-    nav a:hover{ color:var(--accent); }
-
-    .hero{
-      background:linear-gradient(rgba(11,28,51,.9),rgba(11,28,51,.9)),
-      url('https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=1600&q=80') center/cover;
+    nav .logo{
       color:#fff;
-      padding:100px 10%;
+      font-size:1.2rem;
+      font-weight:700;
+    }
+
+    nav a{
+      color:#fff;
+      margin-left:22px;
+      text-decoration:none;
+      font-weight:500;
+      opacity:.85;
+    }
+
+    nav a.active,
+    nav a:hover{
+      opacity:1;
+      border-bottom:2px solid var(--accent);
+      padding-bottom:4px;
+    }
+
+    .nav-space{ height:80px; }
+
+    /* PAGE HEADER */
+    .page-header{
+      background:linear-gradient(rgba(11,28,51,.82),rgba(11,28,51,.82)),
+      url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=80') center/cover;
+      color:#fff;
       text-align:center;
+      padding:110px 10%;
     }
 
-    .hero h1{
+    .page-header h1{
       font-size:3rem;
-      margin-bottom:10px;
+      font-weight:800;
+      margin-bottom:12px;
     }
 
-    section{
-      padding:80px 10%;
-      max-width:1100px;
+    .page-header p{
+      font-size:1.15rem;
+      max-width:850px;
       margin:auto;
+      opacity:.95;
     }
 
-    .grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:50px;
+    /* SECTIONS */
+    section{
+      padding:90px 8%;
     }
 
     h2{
       color:var(--navy);
-      margin-bottom:14px;
+      font-size:2.2rem;
+      margin-bottom:18px;
+      text-align:center;
     }
 
-    form input, form textarea{
+    .sub{
+      text-align:center;
+      max-width:850px;
+      margin:0 auto 60px;
+      color:#555;
+    }
+
+    /* CONTACT GRID */
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1.1fr 1fr;
+      gap:40px;
+      align-items:flex-start;
+    }
+
+    .info-box{
+      background:#fff;
+      padding:40px 30px;
+      border-radius:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,.06);
+    }
+
+    .info-box h3{
+      color:var(--blue);
+      margin-bottom:15px;
+    }
+
+    .info-box p{
+      margin-bottom:12px;
+    }
+
+    .info-box strong{
+      color:var(--navy);
+    }
+
+    /* FORM */
+    form{
+      background:#fff;
+      padding:40px 30px;
+      border-radius:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,.06);
+    }
+
+    form input,
+    form textarea{
       width:100%;
       padding:14px;
-      margin-bottom:14px;
+      margin-bottom:18px;
+      border:1px solid #ddd;
       border-radius:8px;
-      border:1px solid #ccc;
       font-size:1rem;
     }
 
@@ -93,93 +160,131 @@
       height:130px;
     }
 
-    .btn{
+    form button{
+      width:100%;
+      padding:14px;
       background:var(--accent);
       color:#fff;
-      padding:14px 30px;
       border:none;
       border-radius:30px;
       font-weight:600;
       cursor:pointer;
+      transition:.3s;
     }
 
-    .info-box{
-      background:var(--light);
-      padding:30px;
-      border-radius:14px;
+    form button:hover{
+      opacity:.9;
+      transform:translateY(-2px);
     }
 
-    .info-box p{
-      margin-bottom:12px;
-    }
-
+    /* FOOTER */
     footer{
-      background:var(--navy);
+      background:#081425;
       color:#ccc;
       text-align:center;
-      padding:30px 10%;
+      padding:35px 10%;
       font-size:.9rem;
-      margin-top:80px;
+    }
+
+    /* ANIMATION */
+    .reveal{
+      opacity:0;
+      transform:translateY(40px);
+      transition:.7s ease;
+    }
+
+    .reveal.active{
+      opacity:1;
+      transform:none;
     }
 
     @media(max-width:900px){
-      .grid{ grid-template-columns:1fr; }
-      .hero h1{ font-size:2.3rem; }
+      .contact-grid{ grid-template-columns:1fr; }
+      .page-header h1{font-size:2.2rem;}
     }
   </style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
 <nav>
-  <strong>TARA Talent Solutions</strong>
+  <div class="logo">TARA Talent Solutions</div>
   <div>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
     <a href="careers.html">Careers</a>
-    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="active">Contact</a>
   </div>
 </nav>
 
-<div class="hero">
-  <h1>Get In Touch With Us</h1>
-  <p>Trusted recruitment partner for future-ready organizations</p>
+<div class="nav-space"></div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <h1>Contact Us</h1>
+  <p>
+    Let’s discuss how we can support your hiring goals
+    and career growth.
+  </p>
 </div>
 
-<section>
-  <div class="grid">
+<!-- CONTACT -->
+<section class="reveal">
+  <h2>Get in Touch</h2>
+  <p class="sub">
+    Reach out to us for recruitment support, partnerships,
+    or career opportunities.
+  </p>
 
-    <div>
-      <h2>Contact Form</h2>
-      <p>Share your requirement or query. Our team will connect with you shortly.</p>
+  <div class="contact-grid">
 
-      <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <input type="text" placeholder="Company / Profile">
-        <textarea placeholder="Your Message"></textarea>
-        <button class="btn" type="submit">Submit</button>
-      </form>
-    </div>
-
+    <!-- INFO -->
     <div class="info-box">
-      <h2>Our Presence</h2>
-      <p><strong>Coverage:</strong> PAN India</p>
-      <p><strong>Email:</strong> hr@taratalentsolutions.com</p>
-      <p><strong>Support:</strong> Recruitment | Hiring | Careers</p>
-      <p>
-        We work with organizations and professionals across India,
-        delivering trusted, scalable, and future-focused talent solutions.
-      </p>
+      <h3>Contact Information</h3>
+      <p><strong>Email:</strong> contact@taratalentsolutions.com</p>
+      <p><strong>Careers:</strong> careers@taratalentsolutions.com</p>
+      <p><strong>Location:</strong> PAN India (Remote Operations)</p>
+      <p>Response time: <strong>within 24 working hours</strong></p>
     </div>
+
+    <!-- FORM -->
+    <form action="https://formspree.io/f/mzdznkgl" method="POST">
+
+      <input type="text" name="name" placeholder="Your Full Name" required>
+      <input type="email" name="email" placeholder="Your Email Address" required>
+      <input type="text" name="subject" placeholder="Subject">
+      <textarea name="message" placeholder="Your Message" required></textarea>
+
+      <!-- Hidden Subject -->
+      <input type="hidden" name="_subject" value="New Contact Inquiry - TARA Talent Solutions">
+
+      <!-- Honeypot (Spam Protection) -->
+      <input type="text" name="_gotcha" style="display:none">
+
+      <button type="submit">Send Message</button>
+
+    </form>
 
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  © 2026 TARA Talent Solutions • Contact • Trusted Hiring Partner
+  © 2026 TARA Talent Solutions · Contact · PAN India
 </footer>
+
+<script>
+  const reveals = document.querySelectorAll(".reveal");
+  window.addEventListener("scroll", () => {
+    reveals.forEach(el => {
+      if(el.getBoundingClientRect().top < window.innerHeight - 100){
+        el.classList.add("active");
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
