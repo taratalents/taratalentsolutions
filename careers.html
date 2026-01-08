@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Careers | TARA Talent Solutions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Careers at TARA Talent Solutions – Submit your resume and build your future with trusted hiring partners across India." />
+  <meta name="description" content="Careers at TARA Talent Solutions – Build your future with trusted hiring partners across India." />
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -26,9 +26,9 @@
     }
 
     body{
+      background:#fff;
       color:var(--text);
       line-height:1.7;
-      background:#fff;
     }
 
     /* ===== NAVBAR ===== */
@@ -49,6 +49,12 @@
       color:var(--navy);
       font-weight:600;
       margin-left:24px;
+      padding-bottom:4px;
+    }
+
+    nav a.active{
+      color:var(--accent);
+      border-bottom:2px solid var(--accent);
     }
 
     nav a:hover{
@@ -57,8 +63,8 @@
 
     /* ===== HERO ===== */
     .hero{
-      background:linear-gradient(rgba(11,28,51,.8),rgba(11,28,51,.8)),
-      url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80') center/cover;
+      background:linear-gradient(rgba(11,28,51,.75),rgba(11,28,51,.75)),
+      url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80") center/cover;
       color:#fff;
       text-align:center;
       padding:110px 10%;
@@ -67,51 +73,46 @@
     .hero h1{
       font-size:3rem;
       margin-bottom:15px;
-      font-weight:800;
     }
 
     .hero p{
-      font-size:1.15rem;
-      max-width:800px;
+      font-size:1.1rem;
+      max-width:850px;
       margin:auto;
       opacity:.95;
     }
 
     /* ===== SECTIONS ===== */
     section{
-      padding:80px 8%;
+      padding:90px 10%;
     }
 
     h2{
-      font-size:2.3rem;
       color:var(--navy);
+      font-size:2.3rem;
       text-align:center;
       margin-bottom:15px;
     }
 
     .sub{
       text-align:center;
-      max-width:850px;
-      margin:0 auto 50px;
+      max-width:800px;
+      margin:0 auto 60px;
       color:#555;
     }
 
     /* ===== WHY JOIN ===== */
     .grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
       gap:30px;
+      margin-top:40px;
     }
 
     .card{
       background:var(--light);
       padding:30px;
       border-radius:14px;
-      transition:.3s;
-    }
-
-    .card:hover{
-      transform:translateY(-6px);
     }
 
     .card h3{
@@ -119,20 +120,39 @@
       margin-bottom:10px;
     }
 
-    /* ===== FORM SECTION ===== */
-    .form-wrap{
-      background:var(--light);
-      border-radius:18px;
-      padding:40px;
-      max-width:1000px;
-      margin:0 auto;
-      box-shadow:0 10px 40px rgba(0,0,0,.08);
+    /* ===== CTA ===== */
+    .cta{
+      background:linear-gradient(135deg,var(--navy),var(--blue));
+      color:#fff;
+      text-align:center;
+      padding:90px 10%;
     }
 
-    .form-wrap iframe{
-      width:100%;
-      height:850px;
-      border:none;
+    .cta h2{
+      color:#fff;
+      margin-bottom:15px;
+    }
+
+    .cta p{
+      max-width:750px;
+      margin:0 auto 35px;
+      opacity:.95;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:16px 38px;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      border-radius:30px;
+      transition:.3s;
+    }
+
+    .btn:hover{
+      transform:translateY(-3px);
+      opacity:.9;
     }
 
     /* ===== FOOTER ===== */
@@ -140,13 +160,12 @@
       background:var(--navy);
       color:#ccc;
       text-align:center;
-      padding:35px 8%;
+      padding:35px 10%;
       font-size:.9rem;
     }
 
     @media(max-width:768px){
       .hero h1{font-size:2.2rem;}
-      .form-wrap{padding:25px;}
     }
   </style>
 </head>
@@ -160,7 +179,7 @@
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
-    <a href="careers.html">Careers</a>
+    <a href="careers.html" class="active">Careers</a>
     <a href="contact.html">Contact</a>
   </div>
 </nav>
@@ -169,7 +188,7 @@
 <div class="hero">
   <h1>Build Your Future With Us</h1>
   <p>
-    Careers that grow with ambition, skill, and purpose.
+    Careers that grow with ambition, skill, and purpose.  
     Submit your resume and let our team connect you with the right opportunities.
   </p>
 </div>
@@ -178,48 +197,47 @@
 <section>
   <h2>Why Join TARA Talent Solutions?</h2>
   <p class="sub">
-    We are building a future-ready talent ecosystem where learning, growth,
-    and long-term career success go hand in hand.
+    We are building a future-ready talent ecosystem where learning, growth, and
+    long-term career success go hand in hand.
   </p>
 
   <div class="grid">
     <div class="card">
       <h3>Career Growth</h3>
-      <p>Opportunities aligned with your skills and long-term goals.</p>
+      <p>Access roles aligned with your skills, experience, and long-term goals.</p>
     </div>
 
     <div class="card">
       <h3>PAN India Opportunities</h3>
-      <p>Roles across metros and emerging business hubs.</p>
+      <p>Work with organizations across metros and emerging business hubs.</p>
     </div>
 
     <div class="card">
       <h3>Trusted Hiring Partner</h3>
-      <p>We work with reputed organizations across industries.</p>
+      <p>We collaborate with reputed companies across multiple industries.</p>
     </div>
 
     <div class="card">
       <h3>Confidential & Ethical</h3>
-      <p>Your profile is handled with professionalism and confidentiality.</p>
+      <p>Your profile is handled with professionalism and complete confidentiality.</p>
     </div>
   </div>
 </section>
 
-<!-- RESUME FORM -->
-<section>
+<!-- CTA -->
+<section class="cta">
   <h2>Submit Your Resume</h2>
-  <p class="sub">
-    Fill out the form below and our recruitment team will review your profile.
-    We will contact you if your experience matches current or upcoming opportunities.
+  <p>
+    Click the button below to submit your resume.  
+    Our recruitment team will review your profile and reach out if there is a suitable opportunity.
   </p>
 
-  <div class="form-wrap">
-    <!-- GOOGLE FORM EMBED -->
-    <iframe 
-      src="https://docs.google.com/forms/d/e/1FAIpQLSf8cRstfkl1I22shUwggO5lzrdnzYorSQbB6yZrXEgNksZ4Uw/viewform?embedded=true">
-      Loading…
-    </iframe>
-  </div>
+  <a 
+    href="https://docs.google.com/forms/d/e/1FAIpQLSf8cRstfkl1I22shUwggO5lzrdnzYorSQbB6yZrXEgNksZ4Uw/viewform"
+    target="_blank"
+    class="btn">
+    Submit Resume
+  </a>
 </section>
 
 <!-- FOOTER -->
