@@ -14,7 +14,7 @@
       --navy:#0b1c33;
       --blue:#123a6f;
       --light:#f4f7fb;
-      --accent:#4da3ff;
+      --accent:#4da3ff; /* UPDATED accent */
       --text:#333;
     }
 
@@ -31,7 +31,7 @@
       line-height:1.7;
     }
 
-    /* ================= NAVBAR ================= */
+    /* NAVBAR */
     nav{
       position:fixed;
       top:0;
@@ -43,7 +43,7 @@
       justify-content:space-between;
       align-items:center;
       z-index:1000;
-      border-bottom:1px solid rgba(255,255,255,.08);
+      border-bottom:1px solid rgba(255,255,255,.08); /* UPDATED */
     }
 
     .logo-wrap{
@@ -53,7 +53,7 @@
     }
 
     .logo-wrap img{
-      height:44px;
+      height:44px; /* UPDATED */
       width:auto;
     }
 
@@ -82,7 +82,7 @@
 
     .nav-space{ height:78px; }
 
-    /* ================= HERO ================= */
+    /* HERO */
     header{
       min-height:90vh;
       background:linear-gradient(rgba(11,28,51,.75),rgba(11,28,51,.75)),
@@ -134,7 +134,7 @@
       opacity:.9;
     }
 
-    /* ================= SECTIONS ================= */
+    /* SECTIONS */
     section{
       padding:90px 8%;
     }
@@ -260,43 +260,9 @@
       transform:none;
     }
 
-    /* ================= MOBILE FIX ================= */
     @media(max-width:768px){
-
-      nav{
-        padding:10px 6%;
-      }
-
-      .logo-wrap span{
-        display:none;
-      }
-
-      .logo-wrap img{
-        height:36px;
-      }
-
-      nav a{
-        margin-left:14px;
-        font-size:.9rem;
-        white-space:nowrap;
-      }
-
-      .nav-space{
-        height:62px;
-      }
-
-      header h1{
-        font-size:2rem;
-        line-height:1.25;
-      }
-
-      header p{
-        font-size:1rem;
-      }
-
-      .footer-grid{
-        grid-template-columns:1fr;
-      }
+      header h1{ font-size:2.2rem; }
+      .footer-grid{ grid-template-columns:1fr; }
     }
   </style>
 </head>
@@ -407,7 +373,8 @@
   const reveals = document.querySelectorAll(".reveal");
   window.addEventListener("scroll", () => {
     reveals.forEach(el => {
-      if(el.getBoundingClientRect().top < window.innerHeight - 100){
+      const top = el.getBoundingClientRect().top;
+      if(top < window.innerHeight - 100){
         el.classList.add("active");
       }
     });
