@@ -14,7 +14,7 @@
       --navy:#0b1c33;
       --blue:#123a6f;
       --light:#f4f7fb;
-      --accent:#4da3ff; /* UPDATED accent */
+      --accent:#4da3ff;
       --text:#333;
     }
 
@@ -30,57 +30,6 @@
       background:#fff;
       line-height:1.7;
     }
-
-    /* NAVBAR */
-    nav{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      background:var(--navy);
-      padding:14px 8%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      z-index:1000;
-      border-bottom:1px solid rgba(255,255,255,.08); /* UPDATED */
-    }
-
-    .logo-wrap{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-
-    .logo-wrap img{
-      height:44px; /* UPDATED */
-      width:auto;
-    }
-
-    .logo-wrap span{
-      color:#fff;
-      font-size:1.1rem;
-      font-weight:700;
-      white-space:nowrap;
-    }
-
-    nav a{
-      color:#fff;
-      margin-left:22px;
-      text-decoration:none;
-      font-weight:500;
-      opacity:.85;
-      transition:.3s;
-      padding-bottom:6px;
-    }
-
-    nav a:hover,
-    nav a.active{
-      opacity:1;
-      border-bottom:2px solid var(--accent);
-    }
-
-    .nav-space{ height:78px; }
 
     /* HERO */
     header{
@@ -214,41 +163,7 @@
       color:#fff;
     }
 
-    /* FOOTER */
-    footer{
-      background:#081425;
-      color:#ccc;
-      padding:50px 8%;
-      font-size:.9rem;
-    }
-
-    .footer-grid{
-      display:grid;
-      grid-template-columns:2fr 1fr 1fr;
-      gap:40px;
-    }
-
-    footer h4{
-      color:#fff;
-      margin-bottom:12px;
-    }
-
-    footer a{
-      color:#ccc;
-      text-decoration:none;
-      display:block;
-      margin-bottom:8px;
-    }
-
-    footer a:hover{ color:#fff; }
-
-    .copy{
-      text-align:center;
-      margin-top:30px;
-      opacity:.7;
-    }
-
-    /* ANIMATIONS */
+    /* ANIMATION */
     .reveal{
       opacity:0;
       transform:translateY(40px);
@@ -262,28 +177,14 @@
 
     @media(max-width:768px){
       header h1{ font-size:2.2rem; }
-      .footer-grid{ grid-template-columns:1fr; }
     }
   </style>
 </head>
 
 <body>
 
-<nav>
-  <div class="logo-wrap">
-    <img src="assets/images/logo.png" alt="TARA Talent Solutions Logo">
-    <span>TARA Talent Solutions</span>
-  </div>
-  <div>
-    <a href="index.html" class="active">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="careers.html">Careers</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</nav>
-
-<div class="nav-space"></div>
+<!-- HEADER INCLUDE -->
+<div id="header"></div>
 
 <header>
   <div>
@@ -341,40 +242,24 @@
   <a href="contact.html" class="btn">Contact Us</a>
 </section>
 
-<footer>
-  <div class="footer-grid">
-    <div>
-      <h4>TARA Talent Solutions</h4>
-      A professional recruitment & hiring consultancy delivering
-      future-ready talent solutions across India.
-    </div>
-    <div>
-      <h4>Quick Links</h4>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="careers.html">Careers</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <div>
-      <h4>Services</h4>
-      <a>Recruitment & Hiring</a>
-      <a>Executive Search</a>
-      <a>Campus Hiring</a>
-      <a>HR Consulting</a>
-    </div>
-  </div>
-
-  <div class="copy">
-    © 2026 TARA Talent Solutions · Recruitment & Hiring · PAN India
-  </div>
-</footer>
+<!-- FOOTER INCLUDE -->
+<div id="footer"></div>
 
 <script>
+  // Include header & footer
+  fetch("partials/header.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("header").innerHTML = data);
+
+  fetch("partials/footer.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("footer").innerHTML = data);
+
+  // Scroll animations
   const reveals = document.querySelectorAll(".reveal");
   window.addEventListener("scroll", () => {
     reveals.forEach(el => {
-      const top = el.getBoundingClientRect().top;
-      if(top < window.innerHeight - 100){
+      if(el.getBoundingClientRect().top < window.innerHeight - 100){
         el.classList.add("active");
       }
     });
