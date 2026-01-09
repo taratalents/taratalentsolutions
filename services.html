@@ -22,69 +22,13 @@
       margin:0;
       padding:0;
       box-sizing:border-box;
-      font-family:'Inter',sans-serif;
+      font-family:'Inter', sans-serif;
     }
 
     body{
       background:#fff;
       color:var(--text);
       line-height:1.7;
-    }
-
-    /* ================= NAVBAR (EXACT SAME AS HOME) ================= */
-    nav{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      background:var(--navy);
-      padding:14px 8%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      z-index:1000;
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-
-    .logo-wrap{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-
-    .logo-wrap img{
-      height:44px;
-      width:auto;
-      display:block;
-    }
-
-    .logo-wrap span{
-      color:#fff;
-      font-size:1.1rem;
-      font-weight:700;
-      white-space:nowrap;
-    }
-
-    nav a{
-      color:#fff;
-      margin-left:22px;
-      text-decoration:none;
-      font-weight:500;
-      opacity:.85;
-      transition:.3s;
-      padding-bottom:6px;
-    }
-
-    nav a:hover,
-    nav a.active{
-      opacity:1;
-      border-bottom:2px solid var(--accent);
-    }
-
-    .nav-space{ height:78px; }
-
-    @media(max-width:768px){
-      .logo-wrap span{ display:none; }
     }
 
     /* ================= PAGE HEADER ================= */
@@ -206,15 +150,6 @@
       opacity:.9;
     }
 
-    /* FOOTER */
-    footer{
-      background:#081425;
-      color:#ccc;
-      text-align:center;
-      padding:35px 10%;
-      font-size:.9rem;
-    }
-
     /* ANIMATION */
     .reveal{
       opacity:0;
@@ -235,23 +170,8 @@
 
 <body>
 
-<!-- NAVBAR -->
-<nav>
-  <div class="logo-wrap">
-    <img src="assets/images/logo.png" alt="TARA Talent Solutions Logo">
-    <span>TARA Talent Solutions</span>
-  </div>
-
-  <div>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html" class="active">Services</a>
-    <a href="careers.html">Careers</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</nav>
-
-<div class="nav-space"></div>
+<!-- HEADER INCLUDE -->
+<div id="header"></div>
 
 <!-- PAGE HEADER -->
 <div class="page-header">
@@ -320,12 +240,20 @@
   <a href="contact.html" class="btn">Talk to Our Team</a>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  © 2026 TARA Talent Solutions · Recruitment & Hiring · PAN India
-</footer>
+<!-- FOOTER INCLUDE -->
+<div id="footer"></div>
 
 <script>
+  // Load header & footer
+  fetch("partials/header.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("header").innerHTML = data);
+
+  fetch("partials/footer.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("footer").innerHTML = data);
+
+  // Scroll animation
   const reveals = document.querySelectorAll(".reveal");
   window.addEventListener("scroll", () => {
     reveals.forEach(el => {
