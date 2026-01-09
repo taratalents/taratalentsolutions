@@ -22,7 +22,7 @@
       margin:0;
       padding:0;
       box-sizing:border-box;
-      font-family:'Inter',sans-serif;
+      font-family:'Inter', sans-serif;
     }
 
     body{
@@ -31,63 +31,7 @@
       line-height:1.7;
     }
 
-    /* ================= NAVBAR (SAME ACROSS SITE) ================= */
-    nav{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      background:var(--navy);
-      padding:14px 8%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      z-index:1000;
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-
-    .logo-wrap{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-
-    .logo-wrap img{
-      height:44px;
-      width:auto;
-      display:block;
-    }
-
-    .logo-wrap span{
-      color:#fff;
-      font-size:1.1rem;
-      font-weight:700;
-      white-space:nowrap;
-    }
-
-    nav a{
-      color:#fff;
-      margin-left:22px;
-      text-decoration:none;
-      font-weight:500;
-      opacity:.85;
-      transition:.3s;
-      padding-bottom:6px;
-    }
-
-    nav a:hover,
-    nav a.active{
-      opacity:1;
-      border-bottom:2px solid var(--accent);
-    }
-
-    .nav-space{ height:78px; }
-
-    @media(max-width:768px){
-      .logo-wrap span{ display:none; }
-    }
-
-    /* ================= PAGE HEADER ================= */
+    /* PAGE HEADER */
     .page-header{
       background:linear-gradient(rgba(11,28,51,.82),rgba(11,28,51,.82)),
       url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=80') center/cover;
@@ -109,7 +53,7 @@
       opacity:.95;
     }
 
-    /* ================= SECTIONS ================= */
+    /* SECTIONS */
     section{
       padding:90px 8%;
     }
@@ -196,15 +140,6 @@
       transform:translateY(-2px);
     }
 
-    /* FOOTER */
-    footer{
-      background:#081425;
-      color:#ccc;
-      text-align:center;
-      padding:35px 10%;
-      font-size:.9rem;
-    }
-
     /* ANIMATION */
     .reveal{
       opacity:0;
@@ -226,23 +161,8 @@
 
 <body>
 
-<!-- NAVBAR -->
-<nav>
-  <div class="logo-wrap">
-    <img src="assets/images/logo.png" alt="TARA Talent Solutions Logo">
-    <span>TARA Talent Solutions</span>
-  </div>
-
-  <div>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="careers.html">Careers</a>
-    <a href="contact.html" class="active">Contact</a>
-  </div>
-</nav>
-
-<div class="nav-space"></div>
+<!-- HEADER INCLUDE -->
+<div id="header"></div>
 
 <!-- PAGE HEADER -->
 <div class="page-header">
@@ -274,7 +194,6 @@
 
     <!-- FORM -->
     <form action="https://formspree.io/f/mzdznkgl" method="POST">
-
       <input type="text" name="name" placeholder="Your Full Name" required>
       <input type="email" name="email" placeholder="Your Email Address" required>
       <input type="text" name="subject" placeholder="Subject">
@@ -283,22 +202,29 @@
       <!-- Hidden Subject -->
       <input type="hidden" name="_subject" value="New Contact Inquiry - TARA Talent Solutions">
 
-      <!-- Honeypot (Spam Protection) -->
+      <!-- Honeypot -->
       <input type="text" name="_gotcha" style="display:none">
 
       <button type="submit">Send Message</button>
-
     </form>
 
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  © 2026 TARA Talent Solutions · Contact · PAN India
-</footer>
+<!-- FOOTER INCLUDE -->
+<div id="footer"></div>
 
 <script>
+  // Load header & footer
+  fetch("partials/header.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("header").innerHTML = data);
+
+  fetch("partials/footer.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("footer").innerHTML = data);
+
+  // Scroll animation
   const reveals = document.querySelectorAll(".reveal");
   window.addEventListener("scroll", () => {
     reveals.forEach(el => {
