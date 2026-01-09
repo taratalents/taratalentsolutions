@@ -1,46 +1,90 @@
-<footer class="main-footer">
-  <div class="footer-inner">
+<footer class="site-footer">
+  <div class="footer-grid">
 
-    <div class="footer-brand">
-      <strong>TARA Talent Solutions</strong>
-      <p>Recruitment & Hiring Consultancy · PAN India</p>
+    <!-- Brand -->
+    <div class="footer-about">
+      <h4>TARA Talent Solutions</h4>
+      <p>
+        A professional recruitment & hiring consultancy delivering
+        future-ready talent solutions across India.
+      </p>
     </div>
 
-    <div class="footer-copy">
-      © 2026 TARA Talent Solutions. All Rights Reserved.
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
     </div>
 
+    <!-- Services -->
+    <div class="footer-links">
+      <h4>Services</h4>
+      <a>Recruitment & Hiring</a>
+      <a>Executive Search</a>
+      <a>Campus Hiring</a>
+      <a>HR Consulting</a>
+    </div>
+
+  </div>
+
+  <div class="footer-copy">
+    © 2026 TARA Talent Solutions · Recruitment & Hiring · PAN India
   </div>
 </footer>
 
 <style>
-  .main-footer{
+  .site-footer{
     background:#081425;
     color:#ccc;
-    padding:40px 8%;
-    margin-top:60px;
-  }
-
-  .footer-inner{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-    gap:12px;
-  }
-
-  .footer-brand strong{
-    color:#fff;
-    font-size:1.05rem;
-  }
-
-  .footer-brand p{
+    padding:50px 8%;
     font-size:.9rem;
-    opacity:.8;
+  }
+
+  .footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:40px;
+  }
+
+  .site-footer h4{
+    color:#fff;
+    margin-bottom:12px;
+    font-size:1rem;
+  }
+
+  .site-footer p{
+    line-height:1.6;
+    opacity:.9;
+  }
+
+  .site-footer a{
+    color:#ccc;
+    text-decoration:none;
+    display:block;
+    margin-bottom:8px;
+    font-size:.9rem;
+  }
+
+  .site-footer a:hover{
+    color:#fff;
   }
 
   .footer-copy{
+    text-align:center;
+    margin-top:30px;
+    opacity:.7;
     font-size:.85rem;
-    opacity:.6;
+  }
+
+  /* MOBILE */
+  @media(max-width:768px){
+    .footer-grid{
+      grid-template-columns:1fr;
+      gap:30px;
+      text-align:center;
+    }
   }
 </style>
