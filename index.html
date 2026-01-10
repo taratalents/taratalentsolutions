@@ -31,13 +31,14 @@
       line-height:1.7;
     }
 
-    /* HEADER SPACE – DESKTOP */
+    /* HEADER SPACER */
     .header-spacer{
       height:70px;
     }
 
     /* HERO */
     header.hero{
+      position:relative;
       min-height:90vh;
       background:
         linear-gradient(rgba(11,28,51,.75),rgba(11,28,51,.75)),
@@ -88,6 +89,31 @@
     .btn:hover{
       transform:translateY(-3px);
       opacity:.9;
+    }
+
+    /* SCROLL INDICATOR */
+    .scroll-indicator{
+      position:absolute;
+      bottom:25px;
+      left:50%;
+      transform:translateX(-50%);
+    }
+
+    .scroll-indicator span{
+      display:block;
+      width:26px;
+      height:26px;
+      border-bottom:2px solid #fff;
+      border-right:2px solid #fff;
+      transform:rotate(45deg);
+      animation:scrollDown 1.5s infinite;
+      opacity:.8;
+    }
+
+    @keyframes scrollDown{
+      0%{ transform:rotate(45deg) translate(0,0); opacity:0; }
+      50%{ opacity:1; }
+      100%{ transform:rotate(45deg) translate(8px,8px); opacity:0; }
     }
 
     /* SECTIONS */
@@ -172,17 +198,9 @@
 
     /* MOBILE FIX */
     @media(max-width:768px){
-      .header-spacer{
-        height:58px; /* 🔥 WHITE LINE FIX */
-      }
-
-      header.hero h1{
-        font-size:2.2rem;
-      }
-
-      section{
-        padding:70px 6%;
-      }
+      .header-spacer{ height:58px; }
+      header.hero h1{ font-size:2.2rem; }
+      section{ padding:70px 6%; }
     }
   </style>
 </head>
@@ -193,7 +211,7 @@
 <div id="header"></div>
 <div class="header-spacer"></div>
 
-<!-- HERO (OLD CONTENT SAME) -->
+<!-- HERO -->
 <header class="hero">
   <div>
     <h1>Connecting Talent with Opportunity</h1>
@@ -205,6 +223,11 @@
       <a href="services.html" class="btn">Our Services</a>
       <a href="contact.html" class="btn outline">Get in Touch</a>
     </div>
+  </div>
+
+  <!-- SCROLL INDICATOR -->
+  <div class="scroll-indicator">
+    <span></span>
   </div>
 </header>
 
@@ -250,9 +273,11 @@
   <a href="contact.html" class="btn">Contact Us</a>
 </section>
 
+<!-- FOOTER -->
 <div id="footer"></div>
 
 <script>
+  // Load Header & Footer
   fetch("partials/header.html")
     .then(res => res.text())
     .then(html => document.getElementById("header").innerHTML = html);
