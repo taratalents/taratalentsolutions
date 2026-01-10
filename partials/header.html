@@ -1,15 +1,15 @@
-<!-- ===== GLOBAL NAVBAR ===== -->
-<div class="global-nav">
-  <div class="nav-inner">
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="header-inner">
 
     <!-- LOGO -->
     <div class="brand">
       <img src="assets/images/logo.png" alt="TARA Talent Solutions Logo">
-      <span class="brand-name">TARA Talent Solutions</span>
+      <span>TARA Talent Solutions</span>
     </div>
 
-    <!-- NAV -->
-    <nav class="main-nav">
+    <!-- DESKTOP NAV -->
+    <nav class="nav-desktop">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
@@ -17,80 +17,134 @@
       <a href="contact.html">Contact</a>
     </nav>
 
+    <!-- MOBILE MENU BUTTON -->
+    <button class="menu-toggle" aria-label="Open Menu">
+      ☰
+    </button>
   </div>
-</div>
 
-<!-- NAV SPACE FIX -->
-<div class="nav-space"></div>
+  <!-- MOBILE NAV -->
+  <nav class="nav-mobile">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="careers.html">Careers</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
 
 <style>
-/* ===== NAVBAR ===== */
-.global-nav{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  background:#0b1c33;
-  border-bottom:1px solid rgba(255,255,255,.08);
-  z-index:9999;
-}
+  :root{
+    --navy:#0b1c33;
+    --accent:#4da3ff;
+  }
 
-.nav-inner{
-  max-width:1400px;
-  margin:auto;
-  padding:12px 8%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
+  /* HEADER BASE */
+  .site-header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:var(--navy);
+    z-index:1000;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
 
-/* BRAND */
-.brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
+  .header-inner{
+    max-width:1300px;
+    margin:auto;
+    padding:14px 6%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
 
-.brand img{
-  height:38px;
-}
+  /* BRAND */
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
 
-.brand-name{
-  color:#fff;
-  font-size:1.05rem;
-  font-weight:700;
-  white-space:nowrap;
-}
+  .brand img{
+    height:38px;
+  }
 
-/* NAV LINKS */
-.main-nav{
-  display:flex;
-  gap:22px;
-}
+  .brand span{
+    color:#fff;
+    font-weight:700;
+    font-size:1.05rem;
+    white-space:nowrap;
+  }
 
-.main-nav a{
-  color:#fff;
-  text-decoration:none;
-  font-size:.95rem;
-  font-weight:500;
-  opacity:.85;
-}
+  /* DESKTOP NAV */
+  .nav-desktop{
+    display:flex;
+    gap:26px;
+  }
 
-.main-nav a:hover{
-  opacity:1;
-}
+  .nav-desktop a{
+    color:#fff;
+    text-decoration:none;
+    font-weight:500;
+    opacity:.85;
+    padding-bottom:6px;
+  }
 
-/* SPACE BELOW FIXED NAV */
-.nav-space{
-  height:68px;
-}
+  .nav-desktop a:hover{
+    opacity:1;
+    border-bottom:2px solid var(--accent);
+  }
 
-/* MOBILE */
-@media(max-width:768px){
-  .nav-inner{ padding:10px 6%; }
-  .brand-name{ font-size:.9rem; }
-  .main-nav{ gap:14px; }
-  .main-nav a{ font-size:.85rem; }
-  .nav-space{ height:60px; }
-}
+  /* MOBILE */
+  .menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    color:#fff;
+    font-size:1.8rem;
+    cursor:pointer;
+  }
+
+  .nav-mobile{
+    display:none;
+    flex-direction:column;
+    background:#081425;
+    padding:10px 0;
+  }
+
+  .nav-mobile a{
+    color:#fff;
+    text-decoration:none;
+    padding:14px 6%;
+    border-top:1px solid rgba(255,255,255,.08);
+  }
+
+  .nav-mobile a:hover{
+    background:rgba(255,255,255,.05);
+  }
+
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    .nav-desktop{
+      display:none;
+    }
+
+    .menu-toggle{
+      display:block;
+    }
+
+    .nav-mobile.show{
+      display:flex;
+    }
+  }
 </style>
+
+<script>
+  const toggle = document.querySelector(".menu-toggle");
+  const mobileNav = document.querySelector(".nav-mobile");
+
+  toggle.addEventListener("click", () => {
+    mobileNav.classList.toggle("show");
+  });
+</script>
