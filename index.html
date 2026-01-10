@@ -16,7 +16,6 @@
       --light:#f4f7fb;
       --accent:#4da3ff;
       --text:#333;
-      --header-height:72px; /* IMPORTANT */
     }
 
     *{
@@ -32,16 +31,18 @@
       line-height:1.7;
     }
 
-    /* HEADER SPACER (FIX) */
+    /* HEADER OFFSET (FIXED HEADER SPACE) */
     .header-spacer{
-      height:var(--header-height);
+      height:78px;
     }
 
     /* HERO */
     header.hero{
       min-height:90vh;
-      background:linear-gradient(rgba(11,28,51,.75),rgba(11,28,51,.75)),
-      url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80") center/cover;
+      background:
+        linear-gradient(rgba(11,28,51,.75),rgba(11,28,51,.75)),
+        url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80")
+        center/cover;
       color:#fff;
       display:flex;
       align-items:center;
@@ -191,8 +192,6 @@
 
 <!-- HEADER INCLUDE -->
 <div id="header"></div>
-
-<!-- HEADER SPACER (VERY IMPORTANT – YAHI PROBLEM FIX HUA) -->
 <div class="header-spacer"></div>
 
 <!-- HERO -->
@@ -256,16 +255,31 @@
 <div id="footer"></div>
 
 <script>
-  // Include header & footer
+  /* LOAD HEADER */
   fetch("partials/header.html")
     .then(res => res.text())
-    .then(data => document.getElementById("header").innerHTML = data);
+    .then(html => {
+      document.getElementById("header").innerHTML = html;
 
+      /* MOBILE MENU FIX */
+      const toggle = document.getElementById("menuToggle");
+      const menu = document.getElementById("mobileMenu");
+
+      if(toggle && menu){
+        toggle.addEventListener("click", () => {
+          menu.classList.toggle("show");
+        });
+      }
+    });
+
+  /* LOAD FOOTER */
   fetch("partials/footer.html")
     .then(res => res.text())
-    .then(data => document.getElementById("footer").innerHTML = data);
+    .then(html => {
+      document.getElementById("footer").innerHTML = html;
+    });
 
-  // Scroll animations
+  /* SCROLL ANIMATION */
   const reveals = document.querySelectorAll(".reveal");
   window.addEventListener("scroll", () => {
     reveals.forEach(el => {
