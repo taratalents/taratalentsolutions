@@ -1,102 +1,123 @@
-<!-- HEADER / NAVBAR -->
-<nav class="main-nav">
-  <div class="nav-inner">
+<!-- ===== SITE HEADER ===== -->
+<header class="site-header">
+  <div class="header-inner">
 
-    <!-- LOGO + NAME -->
-    <div class="logo-wrap">
+    <!-- LOGO -->
+    <div class="brand">
       <img src="assets/images/logo.png" alt="TARA Talent Solutions Logo">
-      <span class="company-name">TARA Talent Solutions</span>
+      <span class="brand-name">TARA Talent Solutions</span>
     </div>
 
-    <!-- MENU -->
-    <div class="nav-links">
+    <!-- NAVIGATION -->
+    <nav class="main-nav">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="careers.html">Careers</a>
       <a href="contact.html">Contact</a>
-    </div>
+    </nav>
 
   </div>
-</nav>
+</header>
 
-<div class="nav-space"></div>
+<!-- HEADER SPACER -->
+<div class="header-space"></div>
 
 <style>
+/* ===== HEADER BASE ===== */
+.site-header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  background:#0b1c33;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  z-index:1000;
+}
+
+.header-inner{
+  max-width:1400px;
+  margin:auto;
+  padding:10px 8%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+/* ===== BRAND ===== */
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.brand img{
+  height:38px;
+  width:auto;
+}
+
+.brand-name{
+  color:#fff;
+  font-size:1.05rem;
+  font-weight:700;
+  letter-spacing:.2px;
+  white-space:nowrap;
+}
+
+/* ===== NAV ===== */
+.main-nav{
+  display:flex;
+  align-items:center;
+  gap:22px;
+}
+
+.main-nav a{
+  color:#fff;
+  text-decoration:none;
+  font-size:.95rem;
+  font-weight:500;
+  opacity:.85;
+  padding-bottom:6px;
+  transition:.25s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active{
+  opacity:1;
+  border-bottom:2px solid #4da3ff;
+}
+
+/* ===== HEADER SPACE ===== */
+.header-space{
+  height:64px;
+}
+
+/* ===== MOBILE OPTIMIZATION ===== */
+@media(max-width:768px){
+
+  .header-inner{
+    padding:8px 6%;
+  }
+
+  .brand img{
+    height:34px;
+  }
+
+  .brand-name{
+    font-size:.9rem;       /* 👈 Smaller but visible */
+    font-weight:600;
+  }
+
   .main-nav{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    background:#0b1c33;
-    z-index:1000;
-    border-bottom:1px solid rgba(255,255,255,.08);
+    gap:14px;
   }
 
-  .nav-inner{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:12px 8%;
+  .main-nav a{
+    font-size:.85rem;
   }
 
-  .logo-wrap{
-    display:flex;
-    align-items:center;
-    gap:10px;
+  .header-space{
+    height:58px;
   }
-
-  .logo-wrap img{
-    height:42px;
-    width:auto;
-  }
-
-  .company-name{
-    color:#fff;
-    font-weight:700;
-    font-size:1.05rem;
-    white-space:nowrap;
-  }
-
-  .nav-links a{
-    color:#fff;
-    text-decoration:none;
-    margin-left:22px;
-    font-weight:500;
-    opacity:.85;
-    padding-bottom:6px;
-  }
-
-  .nav-links a:hover{
-    opacity:1;
-    border-bottom:2px solid #4da3ff;
-  }
-
-  .nav-space{
-    height:72px;
-  }
-
-  /* 📱 MOBILE FIX */
-  @media(max-width:768px){
-    .nav-inner{
-      flex-direction:column;
-      gap:8px;
-    }
-
-    .nav-links{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:12px;
-    }
-
-    .nav-links a{
-      margin:0;
-      font-size:.95rem;
-    }
-
-    .company-name{
-      font-size:1rem;
-    }
-  }
+}
 </style>
