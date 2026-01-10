@@ -20,25 +20,27 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
 body{background:#fff;color:var(--text);line-height:1.7;}
 
-/* ================= HEADER ================= */
+/* ================= HEADER (SAME AS HOME) ================= */
 nav{
   position:fixed;
   top:0;left:0;
   width:100%;
   background:rgba(11,28,51,.75);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  padding:14px 8%;
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  padding:10px 8%;
   display:flex;
   justify-content:space-between;
   align-items:center;
   z-index:1000;
-  box-shadow:0 8px 25px rgba(0,0,0,.25);
+  box-shadow:0 2px 6px rgba(0,0,0,.15);
 }
 
 .logo-wrap{display:flex;align-items:center;gap:10px;}
-.logo-wrap img{height:42px;}
+.logo-wrap img{height:38px;}
 .logo-text{color:#fff;font-weight:700;font-size:1.05rem;white-space:nowrap;}
+
+.menu-btn{display:none;font-size:26px;color:#fff;cursor:pointer;}
 
 .nav-links{display:flex;}
 .nav-links a{
@@ -54,16 +56,15 @@ nav{
   border-bottom:2px solid var(--accent);
 }
 
-.menu-btn{display:none;font-size:26px;color:#fff;cursor:pointer;}
-
+/* MOBILE MENU */
 @media(max-width:768px){
   .menu-btn{display:block;}
   .nav-links{
     position:fixed;
     top:0;right:-100%;
     width:260px;height:100vh;
-    background:rgba(11,28,51,.92);
-    backdrop-filter:blur(12px);
+    background:rgba(11,28,51,.95);
+    backdrop-filter:blur(14px);
     flex-direction:column;
     padding-top:90px;
     transition:.35s ease;
@@ -72,15 +73,15 @@ nav{
   .nav-links a{margin:18px 0;padding-left:30px;}
 }
 
-.nav-space{height:80px;}
+.nav-space{height:64px;}
 
-/* ================= PAGE HERO ================= */
+/* ================= PAGE HEADER ================= */
 .page-header{
-  background:linear-gradient(rgba(11,28,51,.78),rgba(11,28,51,.78)),
+  background:linear-gradient(rgba(11,28,51,.8),rgba(11,28,51,.8)),
   url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80") center/cover;
   color:#fff;
   text-align:center;
-  padding:120px 10%;
+  padding:140px 10% 90px;
 }
 
 .page-header h1{
@@ -100,19 +101,8 @@ nav{
 section{padding:90px 8%;}
 section.light{background:var(--light);}
 
-h2{
-  font-size:2.2rem;
-  color:var(--navy);
-  margin-bottom:18px;
-  text-align:center;
-}
-
-.sub{
-  text-align:center;
-  max-width:850px;
-  margin:0 auto 60px;
-  color:#555;
-}
+h2{text-align:center;color:var(--navy);margin-bottom:18px;font-size:2.2rem;}
+.sub{text-align:center;max-width:850px;margin:0 auto 60px;color:#555;}
 
 .story{
   max-width:950px;
@@ -129,7 +119,7 @@ h2{
 
 .card{
   background:#fff;
-  padding:35px 30px;
+  padding:38px 30px;
   border-radius:14px;
   box-shadow:0 10px 30px rgba(0,0,0,.06);
   text-align:center;
@@ -153,7 +143,7 @@ h2{
 .btn{
   display:inline-block;
   margin-top:25px;
-  padding:14px 34px;
+  padding:14px 36px;
   background:var(--accent);
   color:#fff;
   text-decoration:none;
@@ -161,63 +151,28 @@ h2{
   font-weight:600;
   transition:.3s;
 }
-.btn:hover{transform:translateY(-3px);opacity:.9;}
+.btn:hover{transform:translateY(-4px);}
 
-/* ================= FOOTER ================= */
-footer{
-  background:#081425;
-  color:#ccc;
-  padding:60px 8% 30px;
-  font-size:.9rem;
+/* ================= SCROLL ANIMATION ================= */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:.9s ease;
 }
-
-.footer-grid{
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr;
-  gap:40px;
-}
-
-.footer-grid h4{color:#fff;margin-bottom:14px;}
-.footer-links a{color:#ccc;text-decoration:none;display:block;margin-bottom:8px;}
-.footer-links a:hover{color:#fff;}
-
-.social-links{display:flex;gap:14px;margin-top:12px;}
-.social-links a{
-  width:38px;height:38px;
-  background:#122544;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.social-links img{width:18px;}
-
-.footer-bottom{
-  text-align:center;
-  margin-top:35px;
-  border-top:1px solid rgba(255,255,255,.08);
-  padding-top:18px;
-  opacity:.75;
+.reveal.show{
+  opacity:1;
+  transform:none;
 }
 
 @media(max-width:768px){
   .page-header h1{font-size:2.2rem;}
-  .footer-grid{grid-template-columns:1fr;text-align:center;}
-  .social-links{justify-content:center;}
 }
-
-/* ================= ANIMATION ================= */
-.reveal{
-  opacity:0;
-  transform:translateY(40px);
-  transition:.7s ease;
-}
-.reveal.active{opacity:1;transform:none;}
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
 <nav>
   <div class="logo-wrap">
     <img src="assets/images/logo.png" alt="Logo">
@@ -237,11 +192,13 @@ footer{
 
 <div class="nav-space"></div>
 
-<div class="page-header">
+<!-- HERO -->
+<div class="page-header reveal">
   <h1>About Our Organization</h1>
   <p>Building future-ready teams through trust, intelligence, and long-term vision.</p>
 </div>
 
+<!-- WHO WE ARE -->
 <section class="reveal">
   <h2>Who We Are</h2>
   <p class="sub">A recruitment partner designed for the future of work.</p>
@@ -252,85 +209,50 @@ footer{
   </div>
 </section>
 
+<!-- PURPOSE -->
 <section class="light reveal">
   <h2>Our Purpose & Principles</h2>
+
   <div class="grid">
-    <div class="card">
+    <div class="card reveal">
       <h3>Our Mission</h3>
       Deliver intelligent, ethical, and scalable hiring solutions.
     </div>
-    <div class="card">
+
+    <div class="card reveal">
       <h3>Our Vision</h3>
       Become one of India’s most trusted future-focused talent partners.
     </div>
-    <div class="card">
+
+    <div class="card reveal">
       <h3>Our Values</h3>
       Integrity, transparency, accountability & long-term partnerships.
     </div>
   </div>
 </section>
 
+<!-- CTA -->
 <section class="final-cta reveal">
   <h2>Let’s Build the Future Workforce Together</h2>
   <a href="contact.html" class="btn">Connect With Us</a>
 </section>
-
-<footer>
-  <div class="footer-grid">
-    <div>
-      <h4>TARA Talent Solutions</h4>
-      <p>A future-ready recruitment & hiring consultancy serving organizations across India.</p>
-      <div class="social-links">
-        <a href="https://www.linkedin.com/company/taratalentsolutions." target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png">
-        </a>
-        <a href="https://youtube.com/@taratalentsolutions" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
-        </a>
-        <a href="https://www.instagram.com/taratalentsolutions" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
-        </a>
-        <a href="https://www.facebook.com/share/1P383zHh2t/" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png">
-        </a>
-      </div>
-    </div>
-
-    <div class="footer-links">
-      <h4>Quick Links</h4>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="careers.html">Careers</a>
-      <a href="contact.html">Contact</a>
-    </div>
-
-    <div class="footer-links">
-      <h4>Our Services</h4>
-      <a>Recruitment & Hiring</a>
-      <a>Executive Search</a>
-      <a>Campus Hiring</a>
-      <a>HR Consulting</a>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    © 2026 TARA Talent Solutions · Recruitment & Hiring · PAN India
-  </div>
-</footer>
 
 <script>
 function toggleMenu(){
   document.getElementById("navLinks").classList.toggle("open");
 }
 
+/* Scroll reveal */
 const reveals=document.querySelectorAll(".reveal");
-window.addEventListener("scroll",()=>{
-  reveals.forEach(el=>{
-    if(el.getBoundingClientRect().top<window.innerHeight-100){
-      el.classList.add("active");
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
     }
   });
-});
+},{threshold:.15});
+
+reveals.forEach(el=>observer.observe(el));
 </script>
 
 </body>
