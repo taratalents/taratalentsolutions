@@ -31,9 +31,9 @@
       line-height:1.7;
     }
 
-    /* HEADER OFFSET (FIXED HEADER SPACE) */
+    /* HEADER OFFSET (MATCH HEADER HEIGHT) */
     .header-spacer{
-      height:78px;
+      height:72px;
     }
 
     /* HERO */
@@ -48,7 +48,7 @@
       align-items:center;
       justify-content:center;
       text-align:center;
-      padding:40px;
+      padding:40px 20px;
     }
 
     header.hero h1{
@@ -184,13 +184,14 @@
 
     @media(max-width:768px){
       header.hero h1{ font-size:2.2rem; }
+      section{ padding:70px 6%; }
     }
   </style>
 </head>
 
 <body>
 
-<!-- HEADER INCLUDE -->
+<!-- HEADER -->
 <div id="header"></div>
 <div class="header-spacer"></div>
 
@@ -251,7 +252,7 @@
   <a href="contact.html" class="btn">Contact Us</a>
 </section>
 
-<!-- FOOTER INCLUDE -->
+<!-- FOOTER -->
 <div id="footer"></div>
 
 <script>
@@ -261,13 +262,13 @@
     .then(html => {
       document.getElementById("header").innerHTML = html;
 
-      /* MOBILE MENU FIX */
+      // MOBILE MENU – FINAL FIX
       const toggle = document.getElementById("menuToggle");
-      const menu = document.getElementById("mobileMenu");
+      const nav = document.getElementById("navLinks");
 
-      if(toggle && menu){
+      if(toggle && nav){
         toggle.addEventListener("click", () => {
-          menu.classList.toggle("show");
+          nav.classList.toggle("show");
         });
       }
     });
