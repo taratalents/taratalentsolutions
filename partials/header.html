@@ -1,6 +1,5 @@
-<!-- HEADER -->
-<header class="site-header">
-  <div class="nav-container">
+<nav class="main-nav">
+  <div class="nav-inner">
 
     <!-- LOGO -->
     <div class="logo-wrap">
@@ -8,17 +7,21 @@
       <span>TARA Talent Solutions</span>
     </div>
 
-    <!-- DESKTOP NAV -->
-    <nav class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="careers.html">Careers</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+    <!-- DESKTOP MENU -->
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
 
     <!-- MOBILE MENU ICON -->
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
 
   </div>
 
@@ -30,96 +33,109 @@
     <a href="careers.html">Careers</a>
     <a href="contact.html">Contact</a>
   </div>
-</header>
+</nav>
 
 <style>
-:root{
-  --navy:#0b1c33;
-  --accent:#4da3ff;
-  --header-height:72px;
-}
+  .main-nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:#0b1c33;
+    z-index:9999;
+  }
 
-.site-header{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:var(--header-height);
-  background:var(--navy);
-  z-index:1000;
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
+  .nav-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 8%;
+  }
 
-.nav-container{
-  height:100%;
-  padding:0 8%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
+  .logo-wrap{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
 
-.logo-wrap{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
+  .logo-wrap img{
+    height:42px;
+  }
 
-.logo-wrap img{
-  height:38px;
-}
+  .logo-wrap span{
+    color:#fff;
+    font-weight:700;
+    font-size:1.05rem;
+    white-space:nowrap;
+  }
 
-.logo-wrap span{
-  color:#fff;
-  font-weight:700;
-  font-size:1rem;
-  white-space:nowrap;
-}
+  .nav-links{
+    list-style:none;
+    display:flex;
+    gap:24px;
+  }
 
-.nav-links a{
-  color:#fff;
-  margin-left:22px;
-  text-decoration:none;
-  font-weight:500;
-  opacity:.85;
-}
+  .nav-links a{
+    color:#fff;
+    text-decoration:none;
+    font-weight:500;
+    opacity:.85;
+  }
 
-.nav-links a:hover{
-  opacity:1;
-  border-bottom:2px solid var(--accent);
-}
+  .nav-links a:hover{
+    opacity:1;
+  }
 
-.menu-toggle{
-  display:none;
-  color:#fff;
-  font-size:26px;
-  cursor:pointer;
-}
+  /* HAMBURGER */
+  .menu-toggle{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+  }
 
-/* MOBILE MENU */
-.mobile-menu{
-  display:none;
-  background:var(--navy);
-  padding:15px 8%;
-}
+  .menu-toggle span{
+    width:26px;
+    height:3px;
+    background:#fff;
+    border-radius:3px;
+  }
 
-.mobile-menu a{
-  display:block;
-  color:#fff;
-  text-decoration:none;
-  padding:10px 0;
-  font-weight:500;
-}
+  /* MOBILE MENU */
+  .mobile-menu{
+    display:none;
+    flex-direction:column;
+    background:#0b1c33;
+    padding:20px 8%;
+    border-top:1px solid rgba(255,255,255,.1);
+  }
 
-/* RESPONSIVE */
-@media(max-width:768px){
-  .nav-links{ display:none; }
-  .menu-toggle{ display:block; }
-}
+  .mobile-menu a{
+    color:#fff;
+    text-decoration:none;
+    padding:12px 0;
+    font-weight:500;
+  }
+
+  /* RESPONSIVE */
+  @media(max-width:768px){
+    .nav-links{
+      display:none;
+    }
+    .menu-toggle{
+      display:flex;
+    }
+    .mobile-menu.show{
+      display:flex;
+    }
+  }
 </style>
 
 <script>
-function toggleMenu(){
+  const toggle = document.getElementById("menuToggle");
   const menu = document.getElementById("mobileMenu");
-  menu.style.display = menu.style.display === "block" ? "none" : "block";
-}
+
+  toggle.addEventListener("click", () => {
+    menu.classList.toggle("show");
+  });
 </script>
