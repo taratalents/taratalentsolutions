@@ -20,30 +20,25 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
 body{background:#fff;color:var(--text);line-height:1.7;}
 
-/* ================= HEADER (FIXED & REFINED) ================= */
+/* ================= HEADER ================= */
 nav{
   position:fixed;
   top:0;left:0;
   width:100%;
-  background:rgba(11,28,51,.78);
+  background:rgba(11,28,51,.75);
   backdrop-filter:blur(14px);
   -webkit-backdrop-filter:blur(14px);
-  padding:12px 8%;                 /* 👈 thinner */
+  padding:14px 8%;
   display:flex;
   justify-content:space-between;
   align-items:center;
   z-index:1000;
-  box-shadow:0 3px 10px rgba(0,0,0,.18); /* 👈 THIN PROFESSIONAL SHADOW */
+  box-shadow:0 8px 30px rgba(0,0,0,.25);
 }
 
 .logo-wrap{display:flex;align-items:center;gap:10px;}
-.logo-wrap img{height:38px;}        /* 👈 logo size fixed */
-.logo-text{
-  color:#fff;
-  font-size:1.05rem;
-  font-weight:700;
-  white-space:nowrap;
-}
+.logo-wrap img{height:40px;}
+.logo-text{color:#fff;font-size:1.05rem;font-weight:700;white-space:nowrap;}
 
 .menu-btn{display:none;font-size:26px;color:#fff;cursor:pointer;}
 
@@ -54,7 +49,7 @@ nav{
   text-decoration:none;
   font-weight:500;
   opacity:.85;
-  padding-bottom:4px;
+  padding-bottom:6px;
 }
 .nav-links a.active{
   opacity:1;
@@ -64,6 +59,7 @@ nav{
 /* ================= MOBILE MENU ================= */
 @media(max-width:768px){
   .menu-btn{display:block;}
+
   .nav-links{
     position:fixed;
     top:0;right:-100%;
@@ -76,11 +72,19 @@ nav{
   }
   .nav-links.open{right:0;}
   .nav-links a{margin:18px 0;padding-left:30px;}
-  .logo-wrap img{height:34px;}
-  .logo-text{font-size:1rem;}
+
+  /* ✅ LOGO FIX */
+  .logo-wrap img{height:30px;}
+  .logo-text{font-size:.95rem;}
+
+  /* ✅ HEADER THICKNESS FIX */
+  nav{padding:10px 6%;}
 }
 
-.nav-space{height:72px;} /* 👈 reduced – removes thick white gap */
+.nav-space{height:80px;}
+@media(max-width:768px){
+  .nav-space{height:64px;}
+}
 
 /* ================= HERO ================= */
 header{
@@ -110,11 +114,12 @@ header p{font-size:1.15rem;max-width:800px;margin:auto;opacity:.95;}
   transition:.35s ease;
 }
 .btn.outline{background:transparent;border:2px solid #fff;}
-.btn:hover{transform:translateY(-5px);}
+.btn:hover{transform:translateY(-6px);box-shadow:0 12px 25px rgba(0,0,0,.3);}
 
 /* ================= SECTIONS ================= */
 section{padding:90px 8%;}
 section.light{background:var(--light);}
+
 h2{text-align:center;color:var(--navy);margin-bottom:18px;font-size:2.2rem;}
 .sub{text-align:center;max-width:850px;margin:0 auto 60px;color:#555;}
 
@@ -320,10 +325,14 @@ footer a:hover{color:#fff;}
 function toggleMenu(){
   document.getElementById("navLinks").classList.toggle("open");
 }
+
+/* Scroll reveal */
 const reveals=document.querySelectorAll(".reveal");
 const observer=new IntersectionObserver(entries=>{
   entries.forEach(entry=>{
-    if(entry.isIntersecting){entry.target.classList.add("show");}
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
   });
 },{threshold:.15});
 reveals.forEach(el=>observer.observe(el));
