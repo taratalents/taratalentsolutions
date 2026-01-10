@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 <title>TARA Talent Solutions | Recruitment & Hiring</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="TARA Talent Solutions – Enterprise recruitment & hiring consultancy across India." />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="TARA Talent Solutions – Enterprise recruitment & hiring consultancy across India.">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -18,25 +18,29 @@
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
-body{color:var(--text);background:#fff;line-height:1.7;}
+body{background:#fff;color:var(--text);line-height:1.7;}
 
-/* ================= NAVBAR ================= */
+/* ================= HEADER ================= */
 nav{
   position:fixed;
-  top:0;left:0;width:100%;
-  background:var(--navy);
+  top:0;left:0;
+  width:100%;
+  background:rgba(11,28,51,.75);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
   padding:14px 8%;
   display:flex;
   justify-content:space-between;
   align-items:center;
   z-index:1000;
-  box-shadow:0 6px 20px rgba(0,0,0,.25);
+  box-shadow:0 8px 25px rgba(0,0,0,.25);
 }
 
 .logo-wrap{display:flex;align-items:center;gap:10px;}
 .logo-wrap img{height:42px;}
-.logo-text{color:#fff;font-weight:700;font-size:1.1rem;white-space:nowrap;}
+.logo-text{color:#fff;font-weight:700;font-size:1.05rem;white-space:nowrap;}
 
+.nav-links{display:flex;}
 .nav-links a{
   color:#fff;
   margin-left:22px;
@@ -45,47 +49,27 @@ nav{
   opacity:.85;
   padding-bottom:6px;
 }
-.nav-links a:hover,
-.nav-links a.active{
-  opacity:1;
-  border-bottom:2px solid var(--accent);
+.nav-links a.active{opacity:1;border-bottom:2px solid var(--accent);}
+
+.menu-btn{display:none;font-size:26px;color:#fff;cursor:pointer;}
+
+@media(max-width:768px){
+  .menu-btn{display:block;}
+  .nav-links{
+    position:fixed;
+    top:0;right:-100%;
+    width:260px;height:100vh;
+    background:rgba(11,28,51,.92);
+    backdrop-filter:blur(12px);
+    flex-direction:column;
+    padding-top:90px;
+    transition:.35s ease;
+  }
+  .nav-links.open{right:0;}
+  .nav-links a{margin:18px 0;padding-left:30px;}
 }
 
-/* ================= HAMBURGER ================= */
-.hamburger{
-  display:none;
-  flex-direction:column;
-  cursor:pointer;
-}
-.hamburger span{
-  height:3px;
-  width:26px;
-  background:#fff;
-  margin:4px 0;
-  border-radius:2px;
-}
-
-/* ================= MOBILE MENU ================= */
-.mobile-menu{
-  position:fixed;
-  top:0;right:-100%;
-  width:260px;height:100vh;
-  background:var(--navy);
-  padding:90px 30px;
-  transition:.4s ease;
-  z-index:999;
-}
-.mobile-menu a{
-  display:block;
-  color:#fff;
-  text-decoration:none;
-  font-size:1.1rem;
-  margin-bottom:22px;
-}
-.mobile-menu a:hover{color:var(--accent);}
-.mobile-menu.active{right:0;}
-
-.nav-space{height:78px;}
+.nav-space{height:80px;}
 
 /* ================= HERO ================= */
 header{
@@ -99,10 +83,10 @@ header{
   text-align:center;
   padding:40px;
 }
+
 header h1{font-size:3rem;font-weight:800;margin-bottom:20px;}
 header p{font-size:1.15rem;max-width:800px;margin:auto;opacity:.95;}
 
-.cta{margin-top:35px;}
 .btn{
   display:inline-block;
   padding:14px 32px;
@@ -113,12 +97,13 @@ header p{font-size:1.15rem;max-width:800px;margin:auto;opacity:.95;}
   font-weight:600;
   margin:10px;
 }
+
 .btn.outline{background:transparent;border:2px solid #fff;}
 
-/* ================= CONTENT ================= */
+/* ================= SECTIONS ================= */
 section{padding:90px 8%;}
 section.light{background:var(--light);}
-h2{text-align:center;font-size:2.2rem;color:var(--navy);margin-bottom:18px;}
+h2{text-align:center;color:var(--navy);margin-bottom:18px;font-size:2.2rem;}
 .sub{text-align:center;max-width:850px;margin:0 auto 60px;color:#555;}
 
 .trust-grid{
@@ -132,21 +117,6 @@ h2{text-align:center;font-size:2.2rem;color:var(--navy);margin-bottom:18px;}
   border-radius:14px;
   box-shadow:0 10px 30px rgba(0,0,0,.06);
 }
-.trust-card h3{color:var(--blue);margin-bottom:10px;}
-
-.impact{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:30px;
-  text-align:center;
-}
-.impact .card{
-  background:#fff;
-  padding:40px 20px;
-  border-radius:14px;
-  box-shadow:0 10px 30px rgba(0,0,0,.06);
-}
-.impact strong{font-size:2rem;color:var(--navy);}
 
 .final-cta{
   background:linear-gradient(135deg,var(--navy),var(--blue));
@@ -159,30 +129,61 @@ h2{text-align:center;font-size:2.2rem;color:var(--navy);margin-bottom:18px;}
 footer{
   background:#081425;
   color:#ccc;
-  padding:50px 8%;
+  padding:60px 8% 30px;
+  font-size:.9rem;
 }
+
 .footer-grid{
   display:grid;
   grid-template-columns:2fr 1fr 1fr;
   gap:40px;
 }
-footer h4{color:#fff;margin-bottom:12px;}
-footer a{color:#ccc;text-decoration:none;display:block;margin-bottom:8px;}
-footer a:hover{color:#fff;}
-.copy{text-align:center;margin-top:30px;opacity:.7;}
 
-/* ================= ANIMATION ================= */
-.reveal{opacity:0;transform:translateY(40px);transition:.7s ease;}
-.reveal.active{opacity:1;transform:none;}
+.footer-grid h4{color:#fff;margin-bottom:14px;}
+.footer-links a{color:#ccc;text-decoration:none;display:block;margin-bottom:8px;}
+.footer-links a:hover{color:#fff;}
 
-/* ================= MOBILE ================= */
-@media(max-width:768px){
-  .nav-links{display:none;}
-  .hamburger{display:flex;}
-  .logo-text{font-size:1rem;}
-  header h1{font-size:2rem;}
-  .footer-grid{grid-template-columns:1fr;}
+.social-links{display:flex;gap:14px;margin-top:12px;}
+.social-links a{
+  width:38px;height:38px;
+  background:#122544;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
+.social-links img{width:18px;}
+
+.footer-bottom{
+  text-align:center;
+  margin-top:35px;
+  border-top:1px solid rgba(255,255,255,.08);
+  padding-top:18px;
+  opacity:.75;
+}
+
+@media(max-width:768px){
+  header h1{font-size:2.2rem;}
+  .footer-grid{grid-template-columns:1fr;text-align:center;}
+  .social-links{justify-content:center;}
+}
+
+/* ================= WHATSAPP ================= */
+.whatsapp{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:60px;
+  height:60px;
+  background:#25D366;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 8px 20px rgba(0,0,0,.3);
+  z-index:999;
+}
+.whatsapp img{width:34px;}
 </style>
 </head>
 
@@ -190,83 +191,99 @@ footer a:hover{color:#fff;}
 
 <nav>
   <div class="logo-wrap">
-    <img src="assets/images/logo.png">
+    <img src="assets/images/logo.png" alt="Logo">
     <span class="logo-text">TARA Talent Solutions</span>
   </div>
 
-  <div class="nav-links">
-    <a href="index.html" class="active">Home</a>
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
     <a href="careers.html">Careers</a>
     <a href="contact.html">Contact</a>
   </div>
-
-  <div class="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </div>
 </nav>
-
-<div class="mobile-menu" id="mobileMenu">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="careers.html">Careers</a>
-  <a href="contact.html">Contact</a>
-</div>
 
 <div class="nav-space"></div>
 
 <header>
   <div>
     <h1>Connecting Talent with Opportunity</h1>
-    <p>A next-generation recruitment & hiring consultancy helping organizations grow.</p>
-    <div class="cta">
-      <a href="services.html" class="btn">Our Services</a>
-      <a href="contact.html" class="btn outline">Get in Touch</a>
-    </div>
+    <p>A next-generation recruitment & hiring consultancy helping organizations grow across India.</p>
+    <a href="services.html" class="btn">Our Services</a>
+    <a href="contact.html" class="btn outline">Get in Touch</a>
   </div>
 </header>
 
-<!-- SAME CONTENT & FOOTER CONTINUE (unchanged) -->
+<section class="light">
+  <h2>Why Organizations Trust TARA</h2>
+  <p class="sub">Built on credibility, scale, and long-term partnerships.</p>
+</section>
+
+<section class="final-cta">
+  <h2>Let’s Build the Future Workforce</h2>
+  <a href="contact.html" class="btn">Contact Us</a>
+</section>
 
 <footer>
   <div class="footer-grid">
     <div>
       <h4>TARA Talent Solutions</h4>
-      Future-ready recruitment & hiring across India.
+      <p>
+        A next-generation recruitment & hiring consultancy delivering
+        future-ready talent solutions across India.
+      </p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/company/taratalentsolutions." target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png">
+        </a>
+        <a href="https://youtube.com/@taratalentsolutions?si=azriWpnDcjStO7Om" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
+        </a>
+        <a href="https://www.instagram.com/taratalentsolutions?igsh=MTkzb2dwamhyN2s1aQ==" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+        </a>
+        <a href="https://www.facebook.com/share/1P383zHh2t/" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png">
+        </a>
+      </div>
     </div>
-    <div>
+
+    <div class="footer-links">
       <h4>Quick Links</h4>
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="careers.html">Careers</a>
       <a href="contact.html">Contact</a>
     </div>
-    <div>
-      <h4>Services</h4>
+
+    <div class="footer-links">
+      <h4>Our Services</h4>
       <a>Recruitment & Hiring</a>
       <a>Executive Search</a>
       <a>Campus Hiring</a>
       <a>HR Consulting</a>
     </div>
   </div>
-  <div class="copy">© 2026 TARA Talent Solutions · PAN India</div>
+
+  <div class="footer-bottom">
+    © 2026 TARA Talent Solutions · Recruitment & Hiring · PAN India
+  </div>
 </footer>
+
+<a href="https://wa.me/919109087770" class="whatsapp" target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+</a>
 
 <script>
 function toggleMenu(){
-  document.getElementById("mobileMenu").classList.toggle("active");
+  document.getElementById("navLinks").classList.toggle("open");
 }
-
-const reveals=document.querySelectorAll(".reveal");
-window.addEventListener("scroll",()=>{
-  reveals.forEach(el=>{
-    if(el.getBoundingClientRect().top<window.innerHeight-100){
-      el.classList.add("active");
-    }
-  });
-});
+const links=document.querySelectorAll(".nav-links a");
+const current=location.pathname.split("/").pop()||"index.html";
+links.forEach(l=>{if(l.getAttribute("href")==current){l.classList.add("active")}});
 </script>
 
 </body>
