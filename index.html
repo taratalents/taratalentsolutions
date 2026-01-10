@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <title>TARA Talent Solutions | Recruitment & Hiring</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="TARA Talent Solutions – Enterprise recruitment & hiring consultancy across India." />
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -12,7 +11,6 @@
     :root{
       --navy:#0b1c33;
       --blue:#123a6f;
-      --light:#f4f7fb;
       --accent:#4da3ff;
       --text:#333;
     }
@@ -31,7 +29,12 @@
       align-items:center;
       justify-content:space-between;
       z-index:1000;
-      border-bottom:1px solid rgba(255,255,255,.08);
+      transition:all .3s ease;
+    }
+
+    /* 🔥 SHADOW ON SCROLL */
+    nav.scrolled{
+      box-shadow:0 6px 18px rgba(0,0,0,.25);
     }
 
     .logo-wrap{
@@ -41,7 +44,6 @@
     }
 
     .logo-wrap img{height:42px;}
-
     .logo-text{
       color:#fff;
       font-size:1.05rem;
@@ -64,7 +66,7 @@
       border-bottom:2px solid var(--accent);
     }
 
-    /* ===== HAMBURGER ===== */
+    /* HAMBURGER */
     .menu-toggle{
       display:none;
       font-size:26px;
@@ -90,8 +92,6 @@
     header h1{font-size:3rem;font-weight:800;margin-bottom:20px;}
     header p{font-size:1.15rem;max-width:800px;margin:auto;opacity:.95;}
 
-    .cta{margin-top:35px;}
-
     .btn{
       display:inline-block;
       padding:14px 32px;
@@ -105,66 +105,9 @@
 
     .btn.outline{background:transparent;border:2px solid #fff;}
 
-    section{padding:90px 8%;}
-    section.light{background:var(--light);}
-
-    h2{text-align:center;font-size:2.2rem;color:var(--navy);margin-bottom:18px;}
-    .sub{text-align:center;max-width:850px;margin:0 auto 60px;color:#555;}
-
-    .trust-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-      gap:28px;
-    }
-
-    .trust-card{
-      background:#fff;
-      padding:32px;
-      border-radius:14px;
-      box-shadow:0 10px 30px rgba(0,0,0,.06);
-    }
-
-    .impact{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:30px;
-      text-align:center;
-    }
-
-    .impact .card{
-      background:#fff;
-      padding:40px;
-      border-radius:14px;
-      box-shadow:0 10px 30px rgba(0,0,0,.06);
-    }
-
-    .final-cta{
-      background:linear-gradient(135deg,var(--navy),var(--blue));
-      color:#fff;
-      text-align:center;
-      padding:90px 20px;
-    }
-
-    footer{
-      background:#081425;
-      color:#ccc;
-      padding:50px 8%;
-      font-size:.9rem;
-    }
-
-    .footer-grid{
-      display:grid;
-      grid-template-columns:2fr 1fr 1fr;
-      gap:40px;
-    }
-
-    .copy{text-align:center;margin-top:30px;opacity:.7;}
-
     /* ================= MOBILE ================= */
     @media(max-width:768px){
       header h1{font-size:2.2rem;}
-      .footer-grid{grid-template-columns:1fr;}
-
       .menu-toggle{display:block;}
 
       .nav-links{
@@ -178,11 +121,7 @@
         padding:20px 8%;
       }
 
-      .nav-links a{
-        margin:12px 0;
-        border:none;
-      }
-
+      .nav-links a{margin:12px 0;}
       .nav-links.show{display:flex;}
     }
   </style>
@@ -190,7 +129,7 @@
 
 <body>
 
-<nav>
+<nav id="navbar">
   <div class="logo-wrap">
     <img src="assets/images/logo.png" alt="Logo">
     <span class="logo-text">TARA Talent Solutions</span>
@@ -213,10 +152,8 @@
   <div>
     <h1>Connecting Talent with Opportunity</h1>
     <p>A next-generation recruitment & hiring consultancy helping organizations grow across India.</p>
-    <div class="cta">
-      <a href="services.html" class="btn">Our Services</a>
-      <a href="contact.html" class="btn outline">Get in Touch</a>
-    </div>
+    <a href="services.html" class="btn">Our Services</a>
+    <a href="contact.html" class="btn outline">Get in Touch</a>
   </div>
 </header>
 
@@ -224,6 +161,16 @@
   function toggleMenu(){
     document.getElementById("navMenu").classList.toggle("show");
   }
+
+  // 🔥 Sticky Shadow on Scroll
+  const nav = document.getElementById("navbar");
+  window.addEventListener("scroll", () => {
+    if(window.scrollY > 10){
+      nav.classList.add("scrolled");
+    }else{
+      nav.classList.remove("scrolled");
+    }
+  });
 </script>
 
 </body>
