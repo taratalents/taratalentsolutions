@@ -17,7 +17,7 @@
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
 
-body{background:#fff;color:#333;}
+body{background:#fff;color:#333;line-height:1.7;}
 
 /* ================= NAVBAR ================= */
 nav{
@@ -25,7 +25,7 @@ nav{
   top:0;left:0;
   width:100%;
   background:var(--navy);
-  padding:14px 8%;
+  padding:14px 6%;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -49,7 +49,7 @@ nav{
   white-space:nowrap;
 }
 
-/* Desktop Menu */
+/* Desktop menu */
 .nav-links{
   display:flex;
   gap:22px;
@@ -77,14 +77,14 @@ nav{
   cursor:pointer;
 }
 
-/* Mobile Menu */
+/* Mobile menu */
 .mobile-menu{
   display:none;
   flex-direction:column;
   background:var(--navy);
   position:absolute;
   top:100%;
-  right:0;
+  left:0;
   width:100%;
   text-align:center;
 }
@@ -100,9 +100,9 @@ nav{
   background:rgba(255,255,255,.08);
 }
 
-/* ================= HERO ================= */
-.nav-space{height:80px;}
+.nav-space{height:78px;}
 
+/* ================= HERO ================= */
 header{
   min-height:90vh;
   background:linear-gradient(rgba(11,28,51,.75),rgba(11,28,51,.75)),
@@ -144,11 +144,63 @@ header p{
   border:2px solid #fff;
 }
 
+/* ================= SECTIONS ================= */
+section{padding:90px 8%;}
+section.light{background:var(--light);}
+
+h2{
+  font-size:2.2rem;
+  color:var(--navy);
+  margin-bottom:18px;
+  text-align:center;
+}
+
+.sub{
+  text-align:center;
+  max-width:850px;
+  margin:0 auto 60px;
+  color:#555;
+}
+
+.trust-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:28px;
+}
+
+.trust-card{
+  background:#fff;
+  padding:32px 26px;
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+
+/* ================= FOOTER ================= */
+footer{
+  background:#081425;
+  color:#ccc;
+  padding:50px 8%;
+  font-size:.9rem;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:40px;
+}
+
+footer h4{color:#fff;margin-bottom:12px;}
+footer a{color:#ccc;text-decoration:none;display:block;margin-bottom:8px;}
+footer a:hover{color:#fff;}
+
+.copy{text-align:center;margin-top:30px;opacity:.7;}
+
 /* ================= MOBILE ================= */
 @media(max-width:768px){
   .nav-links{display:none;}
   .menu-btn{display:block;}
   header h1{font-size:2.2rem;}
+  .footer-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -193,6 +245,12 @@ header p{
     <a href="contact.html" class="btn outline">Get in Touch</a>
   </div>
 </header>
+
+<footer>
+  <div class="copy">
+    © 2026 TARA Talent Solutions · Recruitment & Hiring · PAN India
+  </div>
+</footer>
 
 <script>
 function toggleMenu(){
