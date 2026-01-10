@@ -20,25 +20,27 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
 body{background:#fff;color:var(--text);line-height:1.7;}
 
-/* ================= HEADER ================= */
+/* ================= HEADER (SAME AS INDEX) ================= */
 nav{
   position:fixed;
   top:0;left:0;
   width:100%;
   background:rgba(11,28,51,.75);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  padding:14px 8%;
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  padding:10px 8%;
   display:flex;
   justify-content:space-between;
   align-items:center;
   z-index:1000;
-  box-shadow:0 8px 25px rgba(0,0,0,.25);
+  box-shadow:0 2px 6px rgba(0,0,0,.15);
 }
 
 .logo-wrap{display:flex;align-items:center;gap:10px;}
-.logo-wrap img{height:42px;}
-.logo-text{color:#fff;font-weight:700;font-size:1.05rem;white-space:nowrap;}
+.logo-wrap img{height:40px;}
+.logo-text{color:#fff;font-size:1.05rem;font-weight:700;white-space:nowrap;}
+
+.menu-btn{display:none;font-size:26px;color:#fff;cursor:pointer;}
 
 .nav-links{display:flex;}
 .nav-links a{
@@ -54,33 +56,37 @@ nav{
   border-bottom:2px solid var(--accent);
 }
 
-.menu-btn{display:none;font-size:26px;color:#fff;cursor:pointer;}
-
+/* MOBILE MENU */
 @media(max-width:768px){
   .menu-btn{display:block;}
+
   .nav-links{
     position:fixed;
     top:0;right:-100%;
     width:260px;height:100vh;
-    background:rgba(11,28,51,.92);
-    backdrop-filter:blur(12px);
+    background:rgba(11,28,51,.95);
+    backdrop-filter:blur(14px);
     flex-direction:column;
     padding-top:90px;
     transition:.35s ease;
   }
   .nav-links.open{right:0;}
   .nav-links a{margin:18px 0;padding-left:30px;}
+
+  .logo-wrap img{height:30px;}
+  .logo-text{font-size:.95rem;}
+  nav{padding:10px 6%;}
 }
 
-.nav-space{height:80px;}
+.nav-space{height:64px;}
 
-/* ================= PAGE HERO ================= */
+/* ================= PAGE HEADER ================= */
 .page-header{
-  background:linear-gradient(rgba(11,28,51,.8),rgba(11,28,51,.8)),
+  background:linear-gradient(rgba(11,28,51,.82),rgba(11,28,51,.82)),
   url("https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80") center/cover;
   color:#fff;
   text-align:center;
-  padding:120px 10%;
+  padding:120px 10% 90px;
 }
 
 .page-header h1{
@@ -100,19 +106,8 @@ nav{
 section{padding:90px 8%;}
 section.light{background:var(--light);}
 
-h2{
-  color:var(--navy);
-  font-size:2.2rem;
-  margin-bottom:18px;
-  text-align:center;
-}
-
-.sub{
-  text-align:center;
-  max-width:850px;
-  margin:0 auto 60px;
-  color:#555;
-}
+h2{text-align:center;color:var(--navy);margin-bottom:18px;font-size:2.2rem;}
+.sub{text-align:center;max-width:850px;margin:0 auto 60px;color:#555;}
 
 /* SERVICES GRID */
 .grid{
@@ -144,7 +139,7 @@ h2{
 
 .step{
   background:#fff;
-  padding:30px 25px;
+  padding:32px 25px;
   border-radius:14px;
   box-shadow:0 10px 30px rgba(0,0,0,.06);
 }
@@ -164,8 +159,6 @@ h2{
   padding:90px 20px;
 }
 
-.final-cta h2{color:#fff;}
-
 .btn{
   display:inline-block;
   margin-top:25px;
@@ -175,16 +168,15 @@ h2{
   text-decoration:none;
   border-radius:30px;
   font-weight:600;
-  transition:.3s;
+  transition:.35s ease;
 }
-.btn:hover{transform:translateY(-3px);opacity:.9;}
+.btn:hover{transform:translateY(-6px);box-shadow:0 12px 25px rgba(0,0,0,.3);}
 
-/* ================= FOOTER ================= */
+/* ================= FOOTER (SAME AS INDEX) ================= */
 footer{
   background:#081425;
   color:#ccc;
   padding:60px 8% 30px;
-  font-size:.9rem;
 }
 
 .footer-grid{
@@ -193,11 +185,11 @@ footer{
   gap:40px;
 }
 
-.footer-grid h4{color:#fff;margin-bottom:14px;}
-.footer-links a{color:#ccc;text-decoration:none;display:block;margin-bottom:8px;}
-.footer-links a:hover{color:#fff;}
+footer h4{color:#fff;margin-bottom:14px;}
+footer a{color:#ccc;text-decoration:none;display:block;margin-bottom:8px;}
+footer a:hover{color:#fff;}
 
-.social-links{display:flex;gap:14px;margin-top:12px;}
+.social-links{display:flex;gap:14px;margin-top:14px;}
 .social-links a{
   width:38px;height:38px;
   background:#122544;
@@ -222,18 +214,15 @@ footer{
   .social-links{justify-content:center;}
 }
 
-/* ================= ANIMATION ================= */
-.reveal{
-  opacity:0;
-  transform:translateY(40px);
-  transition:.7s ease;
-}
-.reveal.active{opacity:1;transform:none;}
+/* ================= SCROLL ANIMATION ================= */
+.reveal{opacity:0;transform:translateY(40px);transition:.9s ease;}
+.reveal.show{opacity:1;transform:none;}
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <nav>
   <div class="logo-wrap">
     <img src="assets/images/logo.png" alt="Logo">
@@ -253,61 +242,79 @@ footer{
 
 <div class="nav-space"></div>
 
-<div class="page-header">
+<!-- HERO -->
+<div class="page-header reveal">
   <h1>Our Services</h1>
-  <p>End-to-end recruitment and talent solutions designed for scale, precision, and long-term success.</p>
+  <p>
+    End-to-end recruitment and talent solutions designed for scale,
+    precision, and long-term success.
+  </p>
 </div>
 
+<!-- SERVICES -->
 <section class="reveal">
   <h2>What We Do</h2>
   <p class="sub">
-    We partner with organizations across industries to deliver high-quality talent
-    through structured, ethical, and future-ready recruitment solutions.
+    We partner with organizations across industries to deliver
+    high-quality talent through structured, ethical, and future-ready
+    recruitment solutions.
   </p>
 
   <div class="grid">
-    <div class="card">
+    <div class="card reveal">
       <h3>Recruitment & Hiring</h3>
-      Permanent, contract, and bulk hiring across IT, Non-IT, corporate, sales, and operations roles.
+      Permanent, contract, and bulk hiring across IT, Non-IT,
+      corporate, sales, and operations roles.
     </div>
-    <div class="card">
+
+    <div class="card reveal">
       <h3>Executive Search</h3>
-      Confidential leadership hiring aligned with organizational strategy and culture.
+      Confidential leadership hiring aligned with organizational
+      strategy and culture.
     </div>
-    <div class="card">
+
+    <div class="card reveal">
       <h3>Campus & Early Careers</h3>
-      Structured fresher and campus hiring programs to build future-ready talent pipelines.
+      Structured fresher and campus hiring programs to build
+      future-ready talent pipelines.
     </div>
-    <div class="card">
+
+    <div class="card reveal">
       <h3>HR & Talent Consulting</h3>
-      Advisory support for workforce planning, hiring strategy, and process optimization.
+      Advisory support for workforce planning, hiring strategy,
+      and process optimization.
     </div>
   </div>
 </section>
 
+<!-- PROCESS -->
 <section class="light reveal">
   <h2>Our Hiring Process</h2>
-  <p class="sub">A structured, transparent, and results-driven approach to talent acquisition.</p>
+  <p class="sub">
+    A structured, transparent, and results-driven approach to talent acquisition.
+  </p>
 
   <div class="process">
-    <div class="step"><strong>01</strong>Requirement Understanding</div>
-    <div class="step"><strong>02</strong>Talent Mapping & Sourcing</div>
-    <div class="step"><strong>03</strong>Screening & Shortlisting</div>
-    <div class="step"><strong>04</strong>Interview Coordination</div>
-    <div class="step"><strong>05</strong>Offer & Onboarding Support</div>
+    <div class="step reveal"><strong>01</strong>Requirement Understanding</div>
+    <div class="step reveal"><strong>02</strong>Talent Mapping & Sourcing</div>
+    <div class="step reveal"><strong>03</strong>Screening & Shortlisting</div>
+    <div class="step reveal"><strong>04</strong>Interview Coordination</div>
+    <div class="step reveal"><strong>05</strong>Offer & Onboarding Support</div>
   </div>
 </section>
 
+<!-- CTA -->
 <section class="final-cta reveal">
   <h2>Let’s Solve Your Hiring Challenges</h2>
   <a href="contact.html" class="btn">Talk to Our Team</a>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div>
       <h4>TARA Talent Solutions</h4>
-      <p>A future-ready recruitment & hiring consultancy serving organizations across India.</p>
+      A future-ready recruitment & hiring consultancy serving organizations across India.
       <div class="social-links">
         <a href="https://www.linkedin.com/company/taratalentsolutions." target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png"></a>
         <a href="https://youtube.com/@taratalentsolutions" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"></a>
@@ -316,7 +323,7 @@ footer{
       </div>
     </div>
 
-    <div class="footer-links">
+    <div>
       <h4>Quick Links</h4>
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
@@ -324,8 +331,8 @@ footer{
       <a href="contact.html">Contact</a>
     </div>
 
-    <div class="footer-links">
-      <h4>Our Services</h4>
+    <div>
+      <h4>Services</h4>
       <a>Recruitment & Hiring</a>
       <a>Executive Search</a>
       <a>Campus Hiring</a>
@@ -334,7 +341,7 @@ footer{
   </div>
 
   <div class="footer-bottom">
-    © 2026 TARA Talent Solutions · Recruitment & Hiring · PAN India
+    © 2026 TARA Talent Solutions · PAN India
   </div>
 </footer>
 
@@ -343,14 +350,16 @@ function toggleMenu(){
   document.getElementById("navLinks").classList.toggle("open");
 }
 
+/* Scroll reveal */
 const reveals=document.querySelectorAll(".reveal");
-window.addEventListener("scroll",()=>{
-  reveals.forEach(el=>{
-    if(el.getBoundingClientRect().top<window.innerHeight-100){
-      el.classList.add("active");
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
     }
   });
-});
+},{threshold:.15});
+reveals.forEach(el=>observer.observe(el));
 </script>
 
 </body>
