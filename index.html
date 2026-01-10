@@ -1,179 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>TARA Talent Solutions | Recruitment & Hiring</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="TARA Talent Solutions – Enterprise recruitment & hiring consultancy across India." />
+<meta charset="UTF-8" />
+<title>TARA Talent Solutions | Recruitment & Hiring</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="TARA Talent Solutions – Enterprise recruitment & hiring consultancy across India." />
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --navy:#0b1c33;
-      --blue:#123a6f;
-      --light:#f4f7fb;
-      --accent:#4da3ff;
-      --text:#333;
-    }
+<style>
+:root{
+  --navy:#0b1c33;
+  --blue:#123a6f;
+  --light:#f4f7fb;
+  --accent:#4da3ff;
+  --text:#333;
+}
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Inter', sans-serif;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter', sans-serif;
+}
 
-    body{
-      color:var(--text);
-      background:#fff;
-      line-height:1.7;
-    }
+body{
+  color:var(--text);
+  background:#fff;
+  line-height:1.7;
+}
 
-    /* HEADER SPACER – DESKTOP */
-    .header-spacer{
-      height:72px;
-    }
+/* HEADER SPACER – RESPONSIVE */
+.header-spacer{
+  height:72px;
+}
+@media(max-width:768px){
+  .header-spacer{
+    height:96px;
+  }
+}
 
-    /* HEADER SPACER – MOBILE FIX */
-    @media(max-width:768px){
-      .header-spacer{
-        height:96px;
-      }
-    }
+/* HERO */
+.hero{
+  min-height:90vh;
+  background:
+    linear-gradient(rgba(11,28,51,.75),rgba(11,28,51,.75)),
+    url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80")
+    center/cover;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:40px 20px;
+}
 
-    /* HERO */
-    header.hero{
-      min-height:90vh;
-      background:
-        linear-gradient(rgba(11,28,51,.75),rgba(11,28,51,.75)),
-        url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80")
-        center/cover;
-      color:#fff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:40px 20px;
-    }
+.hero h1{
+  font-size:3rem;
+  font-weight:800;
+  margin-bottom:18px;
+}
 
-    header.hero h1{
-      font-size:3rem;
-      font-weight:800;
-      margin-bottom:20px;
-    }
+.hero p{
+  font-size:1.15rem;
+  max-width:800px;
+  margin:auto;
+  opacity:.95;
+}
 
-    header.hero p{
-      font-size:1.15rem;
-      max-width:800px;
-      margin:auto;
-      opacity:.95;
-    }
+.cta{ margin-top:34px; }
 
-    .cta{ margin-top:35px; }
+.btn{
+  display:inline-block;
+  padding:14px 32px;
+  background:var(--accent);
+  color:#fff;
+  text-decoration:none;
+  border-radius:30px;
+  font-weight:600;
+  margin:10px;
+  transition:.3s;
+}
+.btn.outline{
+  background:transparent;
+  border:2px solid #fff;
+}
+.btn:hover{
+  transform:translateY(-3px);
+  opacity:.9;
+}
 
-    .btn{
-      display:inline-block;
-      padding:14px 32px;
-      background:var(--accent);
-      color:#fff;
-      text-decoration:none;
-      border-radius:30px;
-      font-weight:600;
-      margin:10px;
-      transition:.3s;
-    }
+/* SECTIONS */
+section{ padding:90px 8%; }
+section.light{ background:var(--light); }
 
-    .btn.outline{
-      background:transparent;
-      border:2px solid #fff;
-    }
+h2{
+  font-size:2.2rem;
+  color:var(--navy);
+  text-align:center;
+  margin-bottom:18px;
+}
+.sub{
+  text-align:center;
+  max-width:850px;
+  margin:0 auto 60px;
+  color:#555;
+}
 
-    .btn:hover{
-      transform:translateY(-3px);
-      opacity:.9;
-    }
+/* TRUST */
+.trust-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:28px;
+}
+.trust-card{
+  background:#fff;
+  padding:32px 26px;
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.06);
+  transition:.3s;
+}
+.trust-card:hover{ transform:translateY(-6px); }
 
-    section{ padding:90px 8%; }
-    section.light{ background:var(--light); }
+/* IMPACT */
+.impact{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:30px;
+  text-align:center;
+}
+.impact .card{
+  background:#fff;
+  padding:38px 20px;
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+.impact strong{
+  font-size:2rem;
+  color:var(--navy);
+}
 
-    h2{
-      font-size:2.2rem;
-      color:var(--navy);
-      margin-bottom:18px;
-      text-align:center;
-    }
+/* FINAL CTA */
+.final-cta{
+  background:linear-gradient(135deg,var(--navy),var(--blue));
+  color:#fff;
+  text-align:center;
+  padding:90px 20px;
+}
+.final-cta h2{ color:#fff; }
 
-    .sub{
-      text-align:center;
-      max-width:850px;
-      margin:0 auto 60px;
-      color:#555;
-    }
-
-    .trust-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-      gap:28px;
-    }
-
-    .trust-card{
-      background:#fff;
-      padding:32px 26px;
-      border-radius:14px;
-      box-shadow:0 10px 30px rgba(0,0,0,.06);
-      transition:.3s;
-    }
-
-    .trust-card:hover{ transform:translateY(-8px); }
-
-    .impact{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:30px;
-      text-align:center;
-    }
-
-    .impact .card{
-      background:#fff;
-      padding:40px 20px;
-      border-radius:14px;
-      box-shadow:0 10px 30px rgba(0,0,0,.06);
-    }
-
-    .final-cta{
-      background:linear-gradient(135deg,var(--navy),var(--blue));
-      color:#fff;
-      text-align:center;
-      padding:90px 20px;
-    }
-
-    .reveal{
-      opacity:0;
-      transform:translateY(40px);
-      transition:.7s ease;
-    }
-
-    .reveal.active{
-      opacity:1;
-      transform:none;
-    }
-
-    @media(max-width:768px){
-      header.hero h1{ font-size:2.2rem; }
-      section{ padding:70px 6%; }
-    }
-  </style>
+/* MOBILE */
+@media(max-width:768px){
+  .hero h1{ font-size:2.25rem; }
+  section{ padding:70px 6%; }
+}
+</style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <div id="header"></div>
 <div class="header-spacer"></div>
 
-<!-- HERO -->
 <header class="hero">
   <div>
     <h1>Connecting Talent with Opportunity</h1>
@@ -188,13 +176,33 @@
   </div>
 </header>
 
-<section class="light reveal">
+<section class="light">
   <h2>Why Organizations Trust TARA</h2>
   <p class="sub">Built on credibility, scale, and long-term partnerships.</p>
+
+  <div class="trust-grid">
+    <div class="trust-card"><h3>PAN India Reach</h3><p>Serving organizations nationwide.</p></div>
+    <div class="trust-card"><h3>Enterprise Hiring</h3><p>Process-driven recruitment.</p></div>
+    <div class="trust-card"><h3>Industry Expertise</h3><p>IT, Non-IT & Leadership.</p></div>
+    <div class="trust-card"><h3>Future Focus</h3><p>Aligned with growth.</p></div>
+  </div>
 </section>
 
-<section class="final-cta reveal">
+<section>
+  <h2>Our Impact</h2>
+  <p class="sub">Numbers that build trust.</p>
+
+  <div class="impact">
+    <div class="card"><strong>10+</strong><br>Years</div>
+    <div class="card"><strong>250+</strong><br>Clients</div>
+    <div class="card"><strong>5000+</strong><br>Placements</div>
+    <div class="card"><strong>28+</strong><br>Cities</div>
+  </div>
+</section>
+
+<section class="final-cta">
   <h2>Let’s Build the Future Workforce</h2>
+  <p style="margin:15px 0 30px;">Partner with us for long-term success.</p>
   <a href="contact.html" class="btn">Contact Us</a>
 </section>
 
@@ -202,23 +210,12 @@
 
 <script>
 fetch("partials/header.html")
-  .then(r => r.text())
-  .then(html => {
-    document.getElementById("header").innerHTML = html;
-    document.getElementById("menuToggle")
-      ?.addEventListener("click", () =>
-        document.getElementById("navLinks").classList.toggle("show")
-      );
-  });
+.then(res=>res.text())
+.then(html=>document.getElementById("header").innerHTML=html);
 
-const reveals = document.querySelectorAll(".reveal");
-window.addEventListener("scroll", () => {
-  reveals.forEach(el => {
-    if(el.getBoundingClientRect().top < window.innerHeight - 100){
-      el.classList.add("active");
-    }
-  });
-});
+fetch("partials/footer.html")
+.then(res=>res.text())
+.then(html=>document.getElementById("footer").innerHTML=html);
 </script>
 
 </body>
