@@ -20,44 +20,32 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
 body{background:#fff;color:var(--text);line-height:1.7;}
 
-/* ================= HEADER (FINAL FIXED) ================= */
+/* ================= HEADER ================= */
 nav{
   position:fixed;
-  top:0; left:0;
+  top:0;left:0;
   width:100%;
-  background:rgba(11,28,51,.72);
+  background:rgba(11,28,51,.78);
   backdrop-filter:blur(14px);
   -webkit-backdrop-filter:blur(14px);
-  padding:10px 8%;                /* 🔧 reduced height */
+  padding:12px 8%;
   display:flex;
   justify-content:space-between;
   align-items:center;
   z-index:1000;
-  box-shadow:0 1.5px 6px rgba(0,0,0,.18); /* 🔥 thin premium underline */
+
+  /* ❌ underline / shadow completely removed */
+  box-shadow:none;
+  border-bottom:none;
 }
 
-.logo-wrap{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
+.logo-wrap{display:flex;align-items:center;gap:10px;}
+.logo-wrap img{height:38px;}
+.logo-text{color:#fff;font-size:1.05rem;font-weight:700;white-space:nowrap;}
 
-.logo-wrap img{
-  height:36px;                    /* 🔧 balanced logo */
-}
+.menu-btn{display:none;font-size:26px;color:#fff;cursor:pointer;}
 
-.logo-text{
-  color:#fff;
-  font-size:1.05rem;
-  font-weight:700;
-  white-space:nowrap;
-}
-
-/* NAV LINKS */
-.nav-links{
-  display:flex;
-}
-
+.nav-links{display:flex;}
 .nav-links a{
   color:#fff;
   margin-left:22px;
@@ -65,62 +53,32 @@ nav{
   font-weight:500;
   opacity:.85;
   padding-bottom:6px;
-  position:relative;
 }
-
-/* 🔥 PREMIUM ACTIVE UNDERLINE */
-.nav-links a.active::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-2px;
-  width:100%;
-  height:1.5px;                   /* 🔧 thin */
-  background:rgba(77,163,255,.55);/* 🔧 soft */
-  border-radius:2px;
-}
-
-/* REMOVE DEFAULT BORDER */
 .nav-links a.active{
-  border-bottom:none;
   opacity:1;
+  border-bottom:2px solid var(--accent);
 }
 
-/* MOBILE MENU */
-.menu-btn{
-  display:none;
-  font-size:26px;
-  color:#fff;
-  cursor:pointer;
-}
-
-/* MOBILE FIX */
+/* ================= MOBILE MENU ================= */
 @media(max-width:768px){
   .menu-btn{display:block;}
-
-  .logo-wrap img{height:34px;}     /* 🔧 mobile logo */
-  .logo-text{font-size:1rem;}
-
   .nav-links{
     position:fixed;
-    top:0; right:-100%;
-    width:260px;
-    height:100vh;
+    top:0;right:-100%;
+    width:260px;height:100vh;
     background:rgba(11,28,51,.95);
     backdrop-filter:blur(14px);
     flex-direction:column;
     padding-top:90px;
     transition:.35s ease;
   }
-
   .nav-links.open{right:0;}
   .nav-links a{margin:18px 0;padding-left:30px;}
+  .logo-wrap img{height:34px;}
+  .logo-text{font-size:.95rem;}
 }
 
-/* SPACE UNDER HEADER */
-.nav-space{
-  height:66px;                    /* 🔧 perfectly matched */
-}
+.nav-space{height:72px;}
 
 /* ================= HERO ================= */
 header{
@@ -132,10 +90,10 @@ header{
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:110px 40px 40px;
+  padding:100px 40px 40px;
 }
 
-header h1{font-size:3rem;font-weight:800;margin-bottom:18px;}
+header h1{font-size:3rem;font-weight:800;margin-bottom:20px;}
 header p{font-size:1.15rem;max-width:800px;margin:auto;opacity:.95;}
 
 .btn{
@@ -146,15 +104,21 @@ header p{font-size:1.15rem;max-width:800px;margin:auto;opacity:.95;}
   text-decoration:none;
   border-radius:30px;
   font-weight:600;
-  margin:22px 10px 10px;
+  margin:18px 10px 10px;
   transition:.35s ease;
 }
+
 .btn.outline{background:transparent;border:2px solid #fff;}
-.btn:hover{transform:translateY(-5px);}
+
+.btn:hover{
+  transform:translateY(-6px);
+  box-shadow:0 12px 25px rgba(0,0,0,.3);
+}
 
 /* ================= SECTIONS ================= */
 section{padding:90px 8%;}
 section.light{background:var(--light);}
+
 h2{text-align:center;color:var(--navy);margin-bottom:18px;font-size:2.2rem;}
 .sub{text-align:center;max-width:850px;margin:0 auto 60px;color:#555;}
 
@@ -164,12 +128,14 @@ h2{text-align:center;color:var(--navy);margin-bottom:18px;font-size:2.2rem;}
   grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
   gap:28px;
 }
+
 .trust-card{
   background:#fff;
   padding:36px 28px;
   border-radius:14px;
   box-shadow:0 10px 30px rgba(0,0,0,.06);
 }
+
 .trust-card h3{color:var(--blue);margin-bottom:10px;}
 .trust-card p{font-size:.95rem;color:#555;}
 
@@ -180,12 +146,14 @@ h2{text-align:center;color:var(--navy);margin-bottom:18px;font-size:2.2rem;}
   gap:30px;
   text-align:center;
 }
+
 .impact .card{
   background:#fff;
   padding:40px 20px;
   border-radius:14px;
   box-shadow:0 10px 30px rgba(0,0,0,.06);
 }
+
 .impact strong{font-size:2rem;color:var(--navy);}
 
 /* ================= FINAL CTA ================= */
@@ -202,11 +170,13 @@ footer{
   color:#ccc;
   padding:60px 8% 30px;
 }
+
 .footer-grid{
   display:grid;
   grid-template-columns:2fr 1fr 1fr;
   gap:40px;
 }
+
 footer h4{color:#fff;margin-bottom:14px;}
 footer a{color:#ccc;text-decoration:none;display:block;margin-bottom:8px;}
 footer a:hover{color:#fff;}
@@ -230,7 +200,6 @@ footer a:hover{color:#fff;}
   opacity:.75;
 }
 
-/* ================= MOBILE ================= */
 @media(max-width:768px){
   header h1{font-size:2.1rem;}
   .footer-grid{grid-template-columns:1fr;text-align:center;}
@@ -238,8 +207,15 @@ footer a:hover{color:#fff;}
 }
 
 /* ================= SCROLL ANIMATION ================= */
-.reveal{opacity:0;transform:translateY(40px);transition:.9s ease;}
-.reveal.show{opacity:1;transform:none;}
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:.9s ease;
+}
+.reveal.show{
+  opacity:1;
+  transform:none;
+}
 
 /* ================= WHATSAPP ================= */
 .whatsapp{
@@ -294,10 +270,22 @@ footer a:hover{color:#fff;}
   <p class="sub">Built on credibility, scale, and long-term partnerships.</p>
 
   <div class="trust-grid">
-    <div class="trust-card reveal"><h3>PAN India Reach</h3><p>Deep hiring presence across metro cities and emerging hubs.</p></div>
-    <div class="trust-card reveal"><h3>Enterprise-Grade Hiring</h3><p>Structured, compliant recruitment frameworks built for scale.</p></div>
-    <div class="trust-card reveal"><h3>Industry Expertise</h3><p>IT, Non-IT, Corporate, Sales, Operations & Leadership hiring.</p></div>
-    <div class="trust-card reveal"><h3>Future-Focused Approach</h3><p>Talent strategies aligned with long-term business growth.</p></div>
+    <div class="trust-card reveal">
+      <h3>PAN India Reach</h3>
+      <p>Deep hiring presence across metro cities and emerging hubs.</p>
+    </div>
+    <div class="trust-card reveal">
+      <h3>Enterprise-Grade Hiring</h3>
+      <p>Structured, compliant recruitment frameworks built for scale.</p>
+    </div>
+    <div class="trust-card reveal">
+      <h3>Industry Expertise</h3>
+      <p>IT, Non-IT, Corporate, Sales, Operations & Leadership hiring.</p>
+    </div>
+    <div class="trust-card reveal">
+      <h3>Future-Focused Approach</h3>
+      <p>Talent strategies aligned with long-term business growth.</p>
+    </div>
   </div>
 </section>
 
@@ -366,7 +354,9 @@ function toggleMenu(){
 const reveals=document.querySelectorAll(".reveal");
 const observer=new IntersectionObserver(entries=>{
   entries.forEach(entry=>{
-    if(entry.isIntersecting){entry.target.classList.add("show");}
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
   });
 },{threshold:.15});
 reveals.forEach(el=>observer.observe(el));
