@@ -1,56 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>TARA Talent Solutions | Recruitment & Hiring</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>TARA Talent Solutions | Recruitment & Hiring</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TARA Talent Solutions – Enterprise recruitment & hiring consultancy across India." />
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<style>
-body{
-  margin:0;
-  font-family:'Inter',sans-serif;
-}
+  <style>
+    :root{
+      --navy:#0b1c33;
+      --blue:#123a6f;
+      --light:#f4f7fb;
+      --accent:#4da3ff;
+      --text:#333;
+      --header-height:72px; /* IMPORTANT */
+    }
 
-/* HEADER SPACER */
-.header-spacer{
-  height:72px;
-}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Inter', sans-serif;
+    }
 
-/* HERO */
-header.hero{
-  min-height:90vh;
-  background:linear-gradient(rgba(11,28,51,.75),rgba(11,28,51,.75)),
-  url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80") center/cover;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:40px;
-}
+    body{
+      color:var(--text);
+      background:#fff;
+      line-height:1.7;
+    }
 
-header.hero h1{
-  font-size:3rem;
-  font-weight:800;
-}
+    /* HEADER SPACER (FIX) */
+    .header-spacer{
+      height:var(--header-height);
+    }
 
-header.hero p{
-  max-width:800px;
-  margin:15px auto;
-}
+    /* HERO */
+    header.hero{
+      min-height:90vh;
+      background:linear-gradient(rgba(11,28,51,.75),rgba(11,28,51,.75)),
+      url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80") center/cover;
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:40px;
+    }
 
-.btn{
-  display:inline-block;
-  padding:14px 30px;
-  background:#4da3ff;
-  color:#fff;
-  text-decoration:none;
-  border-radius:30px;
-  margin:10px;
-}
-</style>
+    header.hero h1{
+      font-size:3rem;
+      font-weight:800;
+      margin-bottom:20px;
+    }
+
+    header.hero p{
+      font-size:1.15rem;
+      max-width:800px;
+      margin:auto;
+      opacity:.95;
+    }
+
+    .cta{
+      margin-top:35px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 32px;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      border-radius:30px;
+      font-weight:600;
+      margin:10px;
+      transition:.3s;
+    }
+
+    .btn.outline{
+      background:transparent;
+      border:2px solid #fff;
+    }
+
+    .btn:hover{
+      transform:translateY(-3px);
+      opacity:.9;
+    }
+
+    /* SECTIONS */
+    section{
+      padding:90px 8%;
+    }
+
+    section.light{
+      background:var(--light);
+    }
+
+    h2{
+      font-size:2.2rem;
+      color:var(--navy);
+      margin-bottom:18px;
+      text-align:center;
+    }
+
+    .sub{
+      text-align:center;
+      max-width:850px;
+      margin:0 auto 60px;
+      color:#555;
+    }
+
+    /* TRUST */
+    .trust-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+      gap:28px;
+    }
+
+    .trust-card{
+      background:#fff;
+      padding:32px 26px;
+      border-radius:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,.06);
+      transition:.3s;
+    }
+
+    .trust-card:hover{
+      transform:translateY(-8px);
+    }
+
+    .trust-card h3{
+      color:var(--blue);
+      margin-bottom:10px;
+      font-size:1.05rem;
+    }
+
+    /* IMPACT */
+    .impact{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:30px;
+      text-align:center;
+    }
+
+    .impact .card{
+      background:#fff;
+      padding:40px 20px;
+      border-radius:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,.06);
+    }
+
+    .impact strong{
+      font-size:2rem;
+      color:var(--navy);
+    }
+
+    /* FINAL CTA */
+    .final-cta{
+      background:linear-gradient(135deg,var(--navy),var(--blue));
+      color:#fff;
+      text-align:center;
+      padding:90px 20px;
+    }
+
+    .final-cta h2{
+      color:#fff;
+    }
+
+    /* ANIMATION */
+    .reveal{
+      opacity:0;
+      transform:translateY(40px);
+      transition:all .7s ease;
+    }
+
+    .reveal.active{
+      opacity:1;
+      transform:none;
+    }
+
+    @media(max-width:768px){
+      header.hero h1{ font-size:2.2rem; }
+    }
+  </style>
 </head>
 
 <body>
@@ -58,7 +192,7 @@ header.hero p{
 <!-- HEADER INCLUDE -->
 <div id="header"></div>
 
-<!-- HEADER SPACER (VERY IMPORTANT) -->
+<!-- HEADER SPACER (VERY IMPORTANT – YAHI PROBLEM FIX HUA) -->
 <div class="header-spacer"></div>
 
 <!-- HERO -->
@@ -66,18 +200,80 @@ header.hero p{
   <div>
     <h1>Connecting Talent with Opportunity</h1>
     <p>
-      A next-generation recruitment & hiring consultancy helping
-      organizations and professionals grow together across India.
+      A next-generation recruitment & hiring consultancy helping organizations
+      and professionals grow together across India.
     </p>
-    <a href="services.html" class="btn">Our Services</a>
-    <a href="contact.html" class="btn">Get in Touch</a>
+    <div class="cta">
+      <a href="services.html" class="btn">Our Services</a>
+      <a href="contact.html" class="btn outline">Get in Touch</a>
+    </div>
   </div>
 </header>
 
+<section class="light reveal">
+  <h2>Why Organizations Trust TARA</h2>
+  <p class="sub">Built on credibility, scale, and long-term partnerships.</p>
+
+  <div class="trust-grid">
+    <div class="trust-card">
+      <h3>PAN India Reach</h3>
+      <p>Serving organizations across metro cities and emerging hubs.</p>
+    </div>
+    <div class="trust-card">
+      <h3>Enterprise-Grade Hiring</h3>
+      <p>Scalable, compliant, and process-driven recruitment frameworks.</p>
+    </div>
+    <div class="trust-card">
+      <h3>Industry Expertise</h3>
+      <p>IT, Non-IT, Corporate, Sales, Operations & Leadership roles.</p>
+    </div>
+    <div class="trust-card">
+      <h3>Future-Focused Approach</h3>
+      <p>Aligned with business growth and evolving workforce models.</p>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <h2>Our Impact at a Glance</h2>
+  <p class="sub">Numbers that build trust.</p>
+
+  <div class="impact">
+    <div class="card"><strong>10+</strong><br>Years Experience</div>
+    <div class="card"><strong>250+</strong><br>Organizations</div>
+    <div class="card"><strong>5000+</strong><br>Placements</div>
+    <div class="card"><strong>28+</strong><br>Cities Served</div>
+  </div>
+</section>
+
+<section class="final-cta reveal">
+  <h2>Let’s Build the Future Workforce</h2>
+  <p style="margin:15px 0 30px;">Partner with us for long-term success.</p>
+  <a href="contact.html" class="btn">Contact Us</a>
+</section>
+
+<!-- FOOTER INCLUDE -->
+<div id="footer"></div>
+
 <script>
-fetch("partials/header.html")
-  .then(res => res.text())
-  .then(data => document.getElementById("header").innerHTML = data);
+  // Include header & footer
+  fetch("partials/header.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("header").innerHTML = data);
+
+  fetch("partials/footer.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("footer").innerHTML = data);
+
+  // Scroll animations
+  const reveals = document.querySelectorAll(".reveal");
+  window.addEventListener("scroll", () => {
+    reveals.forEach(el => {
+      if(el.getBoundingClientRect().top < window.innerHeight - 100){
+        el.classList.add("active");
+      }
+    });
+  });
 </script>
 
 </body>
