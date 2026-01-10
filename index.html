@@ -59,6 +59,7 @@ nav{
 /* ================= MOBILE MENU ================= */
 @media(max-width:768px){
   .menu-btn{display:block;}
+
   .nav-links{
     position:fixed;
     top:0;right:-100%;
@@ -71,10 +72,19 @@ nav{
   }
   .nav-links.open{right:0;}
   .nav-links a{margin:18px 0;padding-left:30px;}
-  .logo-text{font-size:1rem;}
+
+  /* ✅ LOGO FIX */
+  .logo-wrap img{height:30px;}
+  .logo-text{font-size:.95rem;}
+
+  /* ✅ HEADER THICKNESS FIX */
+  nav{padding:10px 6%;}
 }
 
 .nav-space{height:80px;}
+@media(max-width:768px){
+  .nav-space{height:64px;}
+}
 
 /* ================= HERO ================= */
 header{
@@ -86,7 +96,7 @@ header{
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:100px 40px 40px; /* 👈 TOP padding increase */
+  padding:100px 40px 40px;
 }
 
 header h1{font-size:3rem;font-weight:800;margin-bottom:20px;}
@@ -100,16 +110,11 @@ header p{font-size:1.15rem;max-width:800px;margin:auto;opacity:.95;}
   text-decoration:none;
   border-radius:30px;
   font-weight:600;
-  margin:18px 10px 10px; /* 👈 top margin increase */
+  margin:18px 10px 10px;
   transition:.35s ease;
 }
-
 .btn.outline{background:transparent;border:2px solid #fff;}
-
-.btn:hover{
-  transform:translateY(-6px);
-  box-shadow:0 12px 25px rgba(0,0,0,.3);
-}
+.btn:hover{transform:translateY(-6px);box-shadow:0 12px 25px rgba(0,0,0,.3);}
 
 /* ================= SECTIONS ================= */
 section{padding:90px 8%;}
@@ -118,43 +123,37 @@ section.light{background:var(--light);}
 h2{text-align:center;color:var(--navy);margin-bottom:18px;font-size:2.2rem;}
 .sub{text-align:center;max-width:850px;margin:0 auto 60px;color:#555;}
 
-/* ================= TRUST ================= */
+/* TRUST */
 .trust-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
   gap:28px;
 }
-
 .trust-card{
   background:#fff;
   padding:36px 28px;
   border-radius:14px;
   box-shadow:0 10px 30px rgba(0,0,0,.06);
 }
-
-/* ❌ hover animation intentionally REMOVED */
-
 .trust-card h3{color:var(--blue);margin-bottom:10px;}
 .trust-card p{font-size:.95rem;color:#555;}
 
-/* ================= IMPACT ================= */
+/* IMPACT */
 .impact{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:30px;
   text-align:center;
 }
-
 .impact .card{
   background:#fff;
   padding:40px 20px;
   border-radius:14px;
   box-shadow:0 10px 30px rgba(0,0,0,.06);
 }
-
 .impact strong{font-size:2rem;color:var(--navy);}
 
-/* ================= FINAL CTA ================= */
+/* FINAL CTA */
 .final-cta{
   background:linear-gradient(135deg,var(--navy),var(--blue));
   color:#fff;
@@ -162,19 +161,17 @@ h2{text-align:center;color:var(--navy);margin-bottom:18px;font-size:2.2rem;}
   padding:90px 20px;
 }
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 footer{
   background:#081425;
   color:#ccc;
   padding:60px 8% 30px;
 }
-
 .footer-grid{
   display:grid;
   grid-template-columns:2fr 1fr 1fr;
   gap:40px;
 }
-
 footer h4{color:#fff;margin-bottom:14px;}
 footer a{color:#ccc;text-decoration:none;display:block;margin-bottom:8px;}
 footer a:hover{color:#fff;}
@@ -204,18 +201,11 @@ footer a:hover{color:#fff;}
   .social-links{justify-content:center;}
 }
 
-/* ================= SCROLL ANIMATION ================= */
-.reveal{
-  opacity:0;
-  transform:translateY(40px);
-  transition:.9s ease;
-}
-.reveal.show{
-  opacity:1;
-  transform:none;
-}
+/* SCROLL ANIMATION */
+.reveal{opacity:0;transform:translateY(40px);transition:.9s ease;}
+.reveal.show{opacity:1;transform:none;}
 
-/* ================= WHATSAPP ================= */
+/* WHATSAPP */
 .whatsapp{
   position:fixed;
   right:20px;
@@ -268,22 +258,10 @@ footer a:hover{color:#fff;}
   <p class="sub">Built on credibility, scale, and long-term partnerships.</p>
 
   <div class="trust-grid">
-    <div class="trust-card reveal">
-      <h3>PAN India Reach</h3>
-      <p>Deep hiring presence across metro cities and emerging hubs.</p>
-    </div>
-    <div class="trust-card reveal">
-      <h3>Enterprise-Grade Hiring</h3>
-      <p>Structured, compliant recruitment frameworks built for scale.</p>
-    </div>
-    <div class="trust-card reveal">
-      <h3>Industry Expertise</h3>
-      <p>IT, Non-IT, Corporate, Sales, Operations & Leadership hiring.</p>
-    </div>
-    <div class="trust-card reveal">
-      <h3>Future-Focused Approach</h3>
-      <p>Talent strategies aligned with long-term business growth.</p>
-    </div>
+    <div class="trust-card reveal"><h3>PAN India Reach</h3><p>Deep hiring presence across metro cities and emerging hubs.</p></div>
+    <div class="trust-card reveal"><h3>Enterprise-Grade Hiring</h3><p>Structured, compliant recruitment frameworks built for scale.</p></div>
+    <div class="trust-card reveal"><h3>Industry Expertise</h3><p>IT, Non-IT, Corporate, Sales & Leadership hiring.</p></div>
+    <div class="trust-card reveal"><h3>Future-Focused Approach</h3><p>Talent strategies aligned with long-term business growth.</p></div>
   </div>
 </section>
 
