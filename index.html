@@ -36,20 +36,9 @@ nav{
   box-shadow:0 8px 30px rgba(0,0,0,.25);
 }
 
-.logo-wrap{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
+.logo-wrap{display:flex;align-items:center;gap:10px;}
 .logo-wrap img{height:40px;}
-
-.logo-text{
-  color:#fff;
-  font-size:1.05rem;
-  font-weight:700;
-  white-space:nowrap;
-}
+.logo-text{color:#fff;font-size:1.05rem;font-weight:700;white-space:nowrap;}
 
 .menu-btn{display:none;font-size:26px;color:#fff;cursor:pointer;}
 
@@ -70,7 +59,6 @@ nav{
 /* ================= MOBILE MENU ================= */
 @media(max-width:768px){
   .menu-btn{display:block;}
-
   .nav-links{
     position:fixed;
     top:0;right:-100%;
@@ -83,8 +71,6 @@ nav{
   }
   .nav-links.open{right:0;}
   .nav-links a{margin:18px 0;padding-left:30px;}
-
-  /* ✅ Mobile company name visible */
   .logo-text{font-size:1rem;}
 }
 
@@ -103,18 +89,8 @@ header{
   padding:40px;
 }
 
-header h1{
-  font-size:3rem;
-  font-weight:800;
-  margin-bottom:20px;
-}
-
-header p{
-  font-size:1.15rem;
-  max-width:800px;
-  margin:auto;
-  opacity:.95;
-}
+header h1{font-size:3rem;font-weight:800;margin-bottom:20px;}
+header p{font-size:1.15rem;max-width:800px;margin:auto;opacity:.95;}
 
 .btn{
   display:inline-block;
@@ -128,10 +104,7 @@ header p{
   transition:.35s ease;
 }
 
-.btn.outline{
-  background:transparent;
-  border:2px solid #fff;
-}
+.btn.outline{background:transparent;border:2px solid #fff;}
 
 .btn:hover{
   transform:translateY(-6px);
@@ -142,19 +115,8 @@ header p{
 section{padding:90px 8%;}
 section.light{background:var(--light);}
 
-h2{
-  text-align:center;
-  color:var(--navy);
-  margin-bottom:18px;
-  font-size:2.2rem;
-}
-
-.sub{
-  text-align:center;
-  max-width:850px;
-  margin:0 auto 60px;
-  color:#555;
-}
+h2{text-align:center;color:var(--navy);margin-bottom:18px;font-size:2.2rem;}
+.sub{text-align:center;max-width:850px;margin:0 auto 60px;color:#555;}
 
 /* ================= TRUST ================= */
 .trust-grid{
@@ -168,22 +130,12 @@ h2{
   padding:36px 28px;
   border-radius:14px;
   box-shadow:0 10px 30px rgba(0,0,0,.06);
-  transition:.4s ease;
 }
 
-.trust-card:hover{
-  transform:translateY(-10px);
-}
+/* ❌ hover animation intentionally REMOVED */
 
-.trust-card h3{
-  color:var(--blue);
-  margin-bottom:10px;
-}
-
-.trust-card p{
-  font-size:.95rem;
-  color:#555;
-}
+.trust-card h3{color:var(--blue);margin-bottom:10px;}
+.trust-card p{font-size:.95rem;color:#555;}
 
 /* ================= IMPACT ================= */
 .impact{
@@ -200,10 +152,7 @@ h2{
   box-shadow:0 10px 30px rgba(0,0,0,.06);
 }
 
-.impact strong{
-  font-size:2rem;
-  color:var(--navy);
-}
+.impact strong{font-size:2rem;color:var(--navy);}
 
 /* ================= FINAL CTA ================= */
 .final-cta{
@@ -230,12 +179,7 @@ footer h4{color:#fff;margin-bottom:14px;}
 footer a{color:#ccc;text-decoration:none;display:block;margin-bottom:8px;}
 footer a:hover{color:#fff;}
 
-.social-links{
-  display:flex;
-  gap:14px;
-  margin-top:14px;
-}
-
+.social-links{display:flex;gap:14px;margin-top:14px;}
 .social-links a{
   width:38px;height:38px;
   background:#122544;
@@ -244,7 +188,6 @@ footer a:hover{color:#fff;}
   align-items:center;
   justify-content:center;
 }
-
 .social-links img{width:18px;}
 
 .footer-bottom{
@@ -327,7 +270,7 @@ footer a:hover{color:#fff;}
   <div class="trust-grid">
     <div class="trust-card reveal">
       <h3>PAN India Reach</h3>
-      <p>Deep hiring presence across metro cities and emerging business hubs.</p>
+      <p>Deep hiring presence across metro cities and emerging hubs.</p>
     </div>
     <div class="trust-card reveal">
       <h3>Enterprise-Grade Hiring</h3>
