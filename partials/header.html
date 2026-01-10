@@ -31,54 +31,36 @@
   width:100%;
   background:linear-gradient(180deg,#0b1c33,#0a1a30);
   z-index:9999;
-  transition:all .35s ease;
+  transition:.35s ease;
 }
 
-/* 🔥 STICKY ANIMATION */
 .main-nav.scrolled{
   box-shadow:0 6px 20px rgba(0,0,0,.25);
-  background:#0b1c33;
-  padding:8px 0;
 }
 
 .nav-inner{
   max-width:1200px;
   margin:auto;
-  padding:12px 20px;
+  padding:14px 20px;
   display:flex;
   align-items:center;
   justify-content:space-between;
 }
 
-/* LOGO */
 .logo-wrap{
   display:flex;
   align-items:center;
   gap:10px;
 }
 
-.logo-wrap img{
-  height:40px;
-  transition:all .3s ease;
-}
-
-.main-nav.scrolled .logo-wrap img{
-  height:34px;
-}
+.logo-wrap img{ height:40px; }
 
 .logo-wrap span{
   color:#fff;
   font-weight:700;
   font-size:1.05rem;
-  white-space:nowrap;
-  transition:all .3s ease;
 }
 
-.main-nav.scrolled .logo-wrap span{
-  font-size:1rem;
-}
-
-/* LINKS */
 .nav-links{
   display:flex;
   gap:26px;
@@ -88,9 +70,7 @@
 .nav-links a{
   color:#fff;
   text-decoration:none;
-  font-size:.95rem;
   opacity:.85;
-  transition:.3s;
 }
 
 .nav-links a.active,
@@ -112,14 +92,10 @@
   width:24px;
   height:2px;
   background:#fff;
-  transition:.3s;
 }
 
 /* MOBILE */
 @media(max-width:768px){
-  .logo-wrap img{ height:34px; }
-  .logo-wrap span{ font-size:1rem; }
-
   .menu-toggle{ display:flex; }
 
   .nav-links{
@@ -135,25 +111,8 @@
     display:none;
   }
 
-  .nav-links.show{ display:flex; }
+  .nav-links.show{
+    display:flex;
+  }
 }
 </style>
-
-<script>
-// ✅ Hamburger Toggle
-const toggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
-toggle.addEventListener("click", () => {
-  navLinks.classList.toggle("show");
-});
-
-// ✅ Sticky Animation
-const nav = document.getElementById("mainNav");
-window.addEventListener("scroll", () => {
-  if(window.scrollY > 30){
-    nav.classList.add("scrolled");
-  }else{
-    nav.classList.remove("scrolled");
-  }
-});
-</script>
