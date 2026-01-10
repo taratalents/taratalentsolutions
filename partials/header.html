@@ -1,47 +1,56 @@
+<!-- HEADER -->
 <header class="site-header">
-  <div class="nav-inner">
+  <div class="nav-container">
+
+    <!-- LOGO -->
     <div class="logo-wrap">
-      <img src="assets/images/logo.png" alt="TARA Talent Solutions">
+      <img src="assets/images/logo.png" alt="TARA Talent Solutions Logo">
       <span>TARA Talent Solutions</span>
     </div>
 
+    <!-- DESKTOP NAV -->
     <nav class="nav-links">
-      <a href="index.html" class="active">Home</a>
+      <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="careers.html">Careers</a>
       <a href="contact.html">Contact</a>
     </nav>
 
+    <!-- MOBILE MENU ICON -->
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="careers.html">Careers</a>
+    <a href="contact.html">Contact</a>
   </div>
 </header>
 
 <style>
 :root{
-  --header-height:72px;
   --navy:#0b1c33;
   --accent:#4da3ff;
+  --header-height:72px;
 }
 
-/* BODY OFFSET — MOST IMPORTANT */
-body{
-  padding-top:var(--header-height);
-}
-
-/* HEADER */
 .site-header{
   position:fixed;
   top:0;
   left:0;
   width:100%;
   height:var(--header-height);
-  background:linear-gradient(135deg,#0b1c33,#102b52);
-  z-index:9999;
+  background:var(--navy);
+  z-index:1000;
   border-bottom:1px solid rgba(255,255,255,.08);
 }
 
-.nav-inner{
+.nav-container{
   height:100%;
   padding:0 8%;
   display:flex;
@@ -49,7 +58,6 @@ body{
   justify-content:space-between;
 }
 
-/* LOGO */
 .logo-wrap{
   display:flex;
   align-items:center;
@@ -57,7 +65,7 @@ body{
 }
 
 .logo-wrap img{
-  height:36px;
+  height:38px;
 }
 
 .logo-wrap span{
@@ -67,57 +75,51 @@ body{
   white-space:nowrap;
 }
 
-/* NAV */
 .nav-links a{
   color:#fff;
-  text-decoration:none;
   margin-left:22px;
+  text-decoration:none;
   font-weight:500;
   opacity:.85;
-  transition:.3s;
 }
 
-.nav-links a:hover,
-.nav-links a.active{
+.nav-links a:hover{
   opacity:1;
   border-bottom:2px solid var(--accent);
-  padding-bottom:4px;
 }
 
-/* MOBILE */
 .menu-toggle{
   display:none;
   color:#fff;
-  font-size:1.7rem;
+  font-size:26px;
   cursor:pointer;
 }
 
+/* MOBILE MENU */
+.mobile-menu{
+  display:none;
+  background:var(--navy);
+  padding:15px 8%;
+}
+
+.mobile-menu a{
+  display:block;
+  color:#fff;
+  text-decoration:none;
+  padding:10px 0;
+  font-weight:500;
+}
+
+/* RESPONSIVE */
 @media(max-width:768px){
-  .nav-links{
-    position:absolute;
-    top:var(--header-height);
-    left:0;
-    width:100%;
-    background:#0b1c33;
-    display:none;
-    flex-direction:column;
-    padding:20px 0;
-  }
-
-  .nav-links a{
-    margin:10px 0;
-    text-align:center;
-  }
-
-  .menu-toggle{
-    display:block;
-  }
+  .nav-links{ display:none; }
+  .menu-toggle{ display:block; }
 }
 </style>
 
 <script>
 function toggleMenu(){
-  const nav = document.querySelector(".nav-links");
-  nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+  const menu = document.getElementById("mobileMenu");
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
 }
 </script>
