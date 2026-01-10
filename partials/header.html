@@ -7,7 +7,9 @@
     </div>
 
     <div class="menu-toggle" id="menuToggle">
-      <span></span><span></span><span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
 
     <ul class="nav-links" id="navLinks">
@@ -26,44 +28,48 @@
   position:fixed;
   top:0; left:0;
   width:100%;
-  background:linear-gradient(180deg,#0b1c33,#0a1a30);
+  height:90px;
+  background:linear-gradient(180deg,#0b1c33,#09192e);
   z-index:9999;
 }
 
 .nav-inner{
   max-width:1200px;
+  height:100%;
   margin:auto;
-  padding:16px 20px;
+  padding:0 20px;
   display:flex;
   align-items:center;
   justify-content:space-between;
 }
 
-/* LOGO */
 .logo-wrap{
   display:flex;
   align-items:center;
   gap:10px;
 }
+
 .logo-wrap img{ height:40px; }
+
 .logo-wrap span{
   color:#fff;
   font-weight:700;
   font-size:1.05rem;
 }
 
-/* LINKS */
 .nav-links{
   display:flex;
   gap:26px;
   list-style:none;
 }
+
 .nav-links a{
   color:#fff;
   text-decoration:none;
   font-size:.95rem;
   opacity:.85;
 }
+
 .nav-links a:hover,
 .nav-links a.active{
   opacity:1;
@@ -71,13 +77,12 @@
   padding-bottom:4px;
 }
 
-/* HAMBURGER */
 .menu-toggle{
   display:none;
   flex-direction:column;
   gap:5px;
-  cursor:pointer;
 }
+
 .menu-toggle span{
   width:26px;
   height:2px;
@@ -86,6 +91,10 @@
 
 /* MOBILE */
 @media(max-width:768px){
+  .main-nav{ height:110px; }
+
+  .logo-wrap img{ height:34px; }
+
   .menu-toggle{ display:flex; }
 
   .nav-links{
@@ -96,18 +105,10 @@
     background:#0b1c33;
     flex-direction:column;
     align-items:center;
-    padding:24px 0;
-    gap:18px;
+    padding:22px 0;
     display:none;
   }
-  .nav-links.show{ display:flex; }
 
-  .logo-wrap img{ height:36px; }
+  .nav-links.show{ display:flex; }
 }
 </style>
-
-<script>
-document.getElementById("menuToggle").onclick=()=>{
-  document.getElementById("navLinks").classList.toggle("show");
-};
-</script>
