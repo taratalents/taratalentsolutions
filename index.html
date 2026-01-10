@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="TARA Talent Solutions – Enterprise recruitment & hiring consultancy across India." />
 
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -18,30 +17,19 @@
       --text:#333;
     }
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Inter', sans-serif;
-    }
-
-    body{
-      color:var(--text);
-      background:#fff;
-      line-height:1.7;
-    }
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+    body{background:#fff;color:var(--text);line-height:1.7;}
 
     /* ================= NAVBAR ================= */
     nav{
       position:fixed;
-      top:0;
-      left:0;
+      top:0;left:0;
       width:100%;
       background:var(--navy);
       padding:14px 8%;
       display:flex;
-      justify-content:space-between;
       align-items:center;
+      justify-content:space-between;
       z-index:1000;
       border-bottom:1px solid rgba(255,255,255,.08);
     }
@@ -52,43 +40,39 @@
       gap:10px;
     }
 
-    .logo-wrap img{
-      height:42px;
-      width:auto;
-    }
+    .logo-wrap img{height:42px;}
 
     .logo-text{
       color:#fff;
+      font-size:1.05rem;
       font-weight:700;
       white-space:nowrap;
     }
 
-    .logo-text.full{
-      font-size:1.1rem;
-    }
-
-    .logo-text.short{
-      display:none;
-      font-size:1rem;
-    }
-
-    nav a{
+    .nav-links a{
       color:#fff;
       margin-left:22px;
       text-decoration:none;
       font-weight:500;
       opacity:.85;
       padding-bottom:6px;
-      transition:.3s;
     }
 
-    nav a:hover,
-    nav a.active{
+    .nav-links a.active,
+    .nav-links a:hover{
       opacity:1;
       border-bottom:2px solid var(--accent);
     }
 
-    .nav-space{ height:78px; }
+    /* ===== HAMBURGER ===== */
+    .menu-toggle{
+      display:none;
+      font-size:26px;
+      color:#fff;
+      cursor:pointer;
+    }
+
+    .nav-space{height:78px;}
 
     /* ================= HERO ================= */
     header{
@@ -103,20 +87,10 @@
       padding:40px;
     }
 
-    header h1{
-      font-size:3rem;
-      font-weight:800;
-      margin-bottom:20px;
-    }
+    header h1{font-size:3rem;font-weight:800;margin-bottom:20px;}
+    header p{font-size:1.15rem;max-width:800px;margin:auto;opacity:.95;}
 
-    header p{
-      font-size:1.15rem;
-      max-width:800px;
-      margin:auto;
-      opacity:.95;
-    }
-
-    .cta{ margin-top:35px; }
+    .cta{margin-top:35px;}
 
     .btn{
       display:inline-block;
@@ -127,41 +101,15 @@
       border-radius:30px;
       font-weight:600;
       margin:10px;
-      transition:.3s;
     }
 
-    .btn.outline{
-      background:transparent;
-      border:2px solid #fff;
-    }
+    .btn.outline{background:transparent;border:2px solid #fff;}
 
-    .btn:hover{
-      transform:translateY(-3px);
-      opacity:.9;
-    }
+    section{padding:90px 8%;}
+    section.light{background:var(--light);}
 
-    /* ================= SECTIONS ================= */
-    section{
-      padding:90px 8%;
-    }
-
-    section.light{
-      background:var(--light);
-    }
-
-    h2{
-      font-size:2.2rem;
-      color:var(--navy);
-      margin-bottom:18px;
-      text-align:center;
-    }
-
-    .sub{
-      text-align:center;
-      max-width:850px;
-      margin:0 auto 60px;
-      color:#555;
-    }
+    h2{text-align:center;font-size:2.2rem;color:var(--navy);margin-bottom:18px;}
+    .sub{text-align:center;max-width:850px;margin:0 auto 60px;color:#555;}
 
     .trust-grid{
       display:grid;
@@ -171,19 +119,9 @@
 
     .trust-card{
       background:#fff;
-      padding:32px 26px;
+      padding:32px;
       border-radius:14px;
       box-shadow:0 10px 30px rgba(0,0,0,.06);
-      transition:.3s;
-    }
-
-    .trust-card:hover{
-      transform:translateY(-8px);
-    }
-
-    .trust-card h3{
-      color:var(--blue);
-      margin-bottom:10px;
     }
 
     .impact{
@@ -195,14 +133,9 @@
 
     .impact .card{
       background:#fff;
-      padding:40px 20px;
+      padding:40px;
       border-radius:14px;
       box-shadow:0 10px 30px rgba(0,0,0,.06);
-    }
-
-    .impact strong{
-      font-size:2rem;
-      color:var(--navy);
     }
 
     .final-cta{
@@ -225,31 +158,32 @@
       gap:40px;
     }
 
-    footer h4{ color:#fff; margin-bottom:12px; }
-    footer a{ color:#ccc; text-decoration:none; display:block; margin-bottom:8px; }
-    footer a:hover{ color:#fff; }
+    .copy{text-align:center;margin-top:30px;opacity:.7;}
 
-    .copy{ text-align:center; margin-top:30px; opacity:.7; }
-
-    /* ================= ANIMATION ================= */
-    .reveal{
-      opacity:0;
-      transform:translateY(40px);
-      transition:.7s ease;
-    }
-
-    .reveal.active{
-      opacity:1;
-      transform:none;
-    }
-
-    /* ================= MOBILE FIX ================= */
+    /* ================= MOBILE ================= */
     @media(max-width:768px){
-      header h1{ font-size:2.2rem; }
-      .footer-grid{ grid-template-columns:1fr; }
+      header h1{font-size:2.2rem;}
+      .footer-grid{grid-template-columns:1fr;}
 
-      .logo-text.full{ display:none; }
-      .logo-text.short{ display:inline; }
+      .menu-toggle{display:block;}
+
+      .nav-links{
+        position:absolute;
+        top:78px;
+        left:0;
+        width:100%;
+        background:var(--navy);
+        display:none;
+        flex-direction:column;
+        padding:20px 8%;
+      }
+
+      .nav-links a{
+        margin:12px 0;
+        border:none;
+      }
+
+      .nav-links.show{display:flex;}
     }
   </style>
 </head>
@@ -258,11 +192,13 @@
 
 <nav>
   <div class="logo-wrap">
-    <img src="assets/images/logo.png" alt="TARA Talent Solutions Logo">
-    <span class="logo-text full">TARA Talent Solutions</span>
-    <span class="logo-text short">TARA Talent</span>
+    <img src="assets/images/logo.png" alt="Logo">
+    <span class="logo-text">TARA Talent Solutions</span>
   </div>
-  <div>
+
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  <div class="nav-links" id="navMenu">
     <a href="index.html" class="active">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
@@ -276,10 +212,7 @@
 <header>
   <div>
     <h1>Connecting Talent with Opportunity</h1>
-    <p>
-      A next-generation recruitment & hiring consultancy helping organizations
-      and professionals grow together across India.
-    </p>
+    <p>A next-generation recruitment & hiring consultancy helping organizations grow across India.</p>
     <div class="cta">
       <a href="services.html" class="btn">Our Services</a>
       <a href="contact.html" class="btn outline">Get in Touch</a>
@@ -287,73 +220,10 @@
   </div>
 </header>
 
-<section class="light reveal">
-  <h2>Why Organizations Trust TARA</h2>
-  <p class="sub">Built on credibility, scale, and long-term partnerships.</p>
-
-  <div class="trust-grid">
-    <div class="trust-card"><h3>PAN India Reach</h3><p>Serving organizations across metro cities and emerging hubs.</p></div>
-    <div class="trust-card"><h3>Enterprise-Grade Hiring</h3><p>Scalable, compliant, process-driven recruitment.</p></div>
-    <div class="trust-card"><h3>Industry Expertise</h3><p>IT, Non-IT, Corporate, Sales & Leadership roles.</p></div>
-    <div class="trust-card"><h3>Future-Focused Approach</h3><p>Aligned with evolving workforce models.</p></div>
-  </div>
-</section>
-
-<section class="reveal">
-  <h2>Our Impact at a Glance</h2>
-  <p class="sub">Numbers that build trust.</p>
-
-  <div class="impact">
-    <div class="card"><strong>10+</strong><br>Years Experience</div>
-    <div class="card"><strong>250+</strong><br>Organizations</div>
-    <div class="card"><strong>5000+</strong><br>Placements</div>
-    <div class="card"><strong>28+</strong><br>Cities Served</div>
-  </div>
-</section>
-
-<section class="final-cta reveal">
-  <h2>Let’s Build the Future Workforce</h2>
-  <p style="margin:15px 0 30px;">Partner with us for long-term success.</p>
-  <a href="contact.html" class="btn">Contact Us</a>
-</section>
-
-<footer>
-  <div class="footer-grid">
-    <div>
-      <h4>TARA Talent Solutions</h4>
-      A professional recruitment & hiring consultancy delivering
-      future-ready talent solutions across India.
-    </div>
-    <div>
-      <h4>Quick Links</h4>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="careers.html">Careers</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <div>
-      <h4>Services</h4>
-      <a>Recruitment & Hiring</a>
-      <a>Executive Search</a>
-      <a>Campus Hiring</a>
-      <a>HR Consulting</a>
-    </div>
-  </div>
-
-  <div class="copy">
-    © 2026 TARA Talent Solutions · Recruitment & Hiring · PAN India
-  </div>
-</footer>
-
 <script>
-  const reveals = document.querySelectorAll(".reveal");
-  window.addEventListener("scroll", () => {
-    reveals.forEach(el => {
-      if(el.getBoundingClientRect().top < window.innerHeight - 100){
-        el.classList.add("active");
-      }
-    });
-  });
+  function toggleMenu(){
+    document.getElementById("navMenu").classList.toggle("show");
+  }
 </script>
 
 </body>
