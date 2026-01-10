@@ -31,12 +31,113 @@
       line-height:1.7;
     }
 
-    /* HEADER SPACER – EXACT MATCH */
-    .header-spacer{
-      height:68px;
+    /* ================= HEADER ================= */
+    .main-nav{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      background:linear-gradient(180deg,#0b1c33,#0a1a30);
+      z-index:9999;
+      border-bottom:1px solid rgba(255,255,255,.08); /* thin premium line */
+      transition:.3s;
     }
 
-    /* HERO */
+    .main-nav.scrolled{
+      box-shadow:0 6px 18px rgba(0,0,0,.25);
+    }
+
+    .nav-inner{
+      max-width:1200px;
+      margin:auto;
+      padding:14px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo-wrap{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .logo-wrap img{
+      height:40px;
+    }
+
+    .logo-wrap span{
+      color:#fff;
+      font-weight:700;
+      font-size:1.05rem;
+      white-space:nowrap;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:26px;
+      list-style:none;
+    }
+
+    .nav-links a{
+      color:#fff;
+      text-decoration:none;
+      font-weight:500;
+      font-size:.95rem;
+      opacity:.85;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active{
+      opacity:1;
+      border-bottom:2px solid var(--accent);
+      padding-bottom:4px;
+    }
+
+    /* Hamburger */
+    .menu-toggle{
+      display:none;
+      flex-direction:column;
+      gap:5px;
+      cursor:pointer;
+    }
+
+    .menu-toggle span{
+      width:26px;
+      height:2px;
+      background:#fff;
+    }
+
+    /* Header space */
+    .header-spacer{
+      height:72px;
+    }
+
+    /* Mobile */
+    @media(max-width:768px){
+      .menu-toggle{ display:flex; }
+
+      .logo-wrap img{ height:34px; }
+      .logo-wrap span{ font-size:1rem; }
+
+      .nav-links{
+        position:absolute;
+        top:100%;
+        left:0;
+        width:100%;
+        background:#0b1c33;
+        flex-direction:column;
+        align-items:center;
+        gap:18px;
+        padding:22px 0;
+        display:none;
+        border-top:1px solid rgba(255,255,255,.08);
+      }
+
+      .nav-links.show{ display:flex; }
+    }
+
+    /* ================= HERO ================= */
     header.hero{
       min-height:90vh;
       background:
@@ -88,8 +189,9 @@
       opacity:.9;
     }
 
-    /* SECTIONS */
+    /* ================= SECTIONS ================= */
     section{ padding:90px 8%; }
+
     section.light{ background:var(--light); }
 
     h2{
@@ -106,7 +208,6 @@
       color:#555;
     }
 
-    /* TRUST */
     .trust-grid{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
@@ -129,7 +230,6 @@
       font-size:1.05rem;
     }
 
-    /* IMPACT */
     .impact{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -149,7 +249,6 @@
       color:var(--navy);
     }
 
-    /* FINAL CTA */
     .final-cta{
       background:linear-gradient(135deg,var(--navy),var(--blue));
       color:#fff;
@@ -159,20 +258,43 @@
 
     .final-cta h2{ color:#fff; }
 
-    /* ANIMATION */
-    .reveal{
-      opacity:0;
-      transform:translateY(40px);
-      transition:.7s ease;
+    /* ================= FOOTER (OLD SAME) ================= */
+    footer{
+      background:#081425;
+      color:#ccc;
+      padding:50px 8%;
+      font-size:.9rem;
     }
 
-    .reveal.active{
-      opacity:1;
-      transform:none;
+    .footer-grid{
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr;
+      gap:40px;
+    }
+
+    footer h4{
+      color:#fff;
+      margin-bottom:12px;
+    }
+
+    footer a{
+      color:#ccc;
+      text-decoration:none;
+      display:block;
+      margin-bottom:8px;
+    }
+
+    footer a:hover{ color:#fff; }
+
+    .copy{
+      text-align:center;
+      margin-top:30px;
+      opacity:.7;
     }
 
     @media(max-width:768px){
       header.hero h1{ font-size:2.2rem; }
+      .footer-grid{ grid-template-columns:1fr; }
       section{ padding:70px 6%; }
     }
   </style>
@@ -181,10 +303,30 @@
 <body>
 
 <!-- HEADER -->
-<div id="header"></div>
+<nav class="main-nav" id="mainNav">
+  <div class="nav-inner">
+    <div class="logo-wrap">
+      <img src="assets/images/logo.png" alt="TARA Talent Solutions">
+      <span>TARA Talent Solutions</span>
+    </div>
+
+    <div class="menu-toggle" id="menuToggle">
+      <span></span><span></span><span></span>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
 <div class="header-spacer"></div>
 
-<!-- HERO (OLD CONTENT – UNCHANGED) -->
+<!-- HERO -->
 <header class="hero">
   <div>
     <h1>Connecting Talent with Opportunity</h1>
@@ -199,31 +341,19 @@
   </div>
 </header>
 
-<section class="light reveal">
+<section class="light">
   <h2>Why Organizations Trust TARA</h2>
   <p class="sub">Built on credibility, scale, and long-term partnerships.</p>
 
   <div class="trust-grid">
-    <div class="trust-card">
-      <h3>PAN India Reach</h3>
-      <p>Serving organizations across metro cities and emerging hubs.</p>
-    </div>
-    <div class="trust-card">
-      <h3>Enterprise-Grade Hiring</h3>
-      <p>Scalable, compliant, and process-driven recruitment frameworks.</p>
-    </div>
-    <div class="trust-card">
-      <h3>Industry Expertise</h3>
-      <p>IT, Non-IT, Corporate, Sales, Operations & Leadership roles.</p>
-    </div>
-    <div class="trust-card">
-      <h3>Future-Focused Approach</h3>
-      <p>Aligned with business growth and evolving workforce models.</p>
-    </div>
+    <div class="trust-card"><h3>PAN India Reach</h3><p>Serving organizations across metro cities and emerging hubs.</p></div>
+    <div class="trust-card"><h3>Enterprise-Grade Hiring</h3><p>Scalable, compliant, and process-driven recruitment frameworks.</p></div>
+    <div class="trust-card"><h3>Industry Expertise</h3><p>IT, Non-IT, Corporate, Sales, Operations & Leadership roles.</p></div>
+    <div class="trust-card"><h3>Future-Focused Approach</h3><p>Aligned with business growth and evolving workforce models.</p></div>
   </div>
 </section>
 
-<section class="reveal">
+<section>
   <h2>Our Impact at a Glance</h2>
   <p class="sub">Numbers that build trust.</p>
 
@@ -235,57 +365,55 @@
   </div>
 </section>
 
-<section class="final-cta reveal">
+<section class="final-cta">
   <h2>Let’s Build the Future Workforce</h2>
   <p style="margin:15px 0 30px;">Partner with us for long-term success.</p>
   <a href="contact.html" class="btn">Contact Us</a>
 </section>
 
 <!-- FOOTER -->
-<div id="footer"></div>
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>TARA Talent Solutions</h4>
+      A professional recruitment & hiring consultancy delivering
+      future-ready talent solutions across India.
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <a>Recruitment & Hiring</a>
+      <a>Executive Search</a>
+      <a>Campus Hiring</a>
+      <a>HR Consulting</a>
+    </div>
+  </div>
+  <div class="copy">
+    © 2026 TARA Talent Solutions · Recruitment & Hiring · PAN India
+  </div>
+</footer>
 
 <script>
-/* LOAD HEADER + FIXES */
-fetch("partials/header.html")
-  .then(res => res.text())
-  .then(html => {
-    document.getElementById("header").innerHTML = html;
+  /* MOBILE MENU */
+  document.getElementById("menuToggle").onclick = () => {
+    document.getElementById("navLinks").classList.toggle("show");
+  };
 
-    const toggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
+  /* STICKY SHADOW */
+  window.addEventListener("scroll", () => {
     const nav = document.getElementById("mainNav");
-
-    // HAMBURGER – WORKING
-    toggle.addEventListener("click", () => {
-      navLinks.classList.toggle("show");
-    });
-
-    // STICKY SHADOW
-    window.addEventListener("scroll", () => {
-      if(window.scrollY > 30){
-        nav.classList.add("scrolled");
-      }else{
-        nav.classList.remove("scrolled");
-      }
-    });
-  });
-
-/* LOAD FOOTER */
-fetch("partials/footer.html")
-  .then(res => res.text())
-  .then(html => {
-    document.getElementById("footer").innerHTML = html;
-  });
-
-/* SCROLL ANIMATION */
-const reveals = document.querySelectorAll(".reveal");
-window.addEventListener("scroll", () => {
-  reveals.forEach(el => {
-    if(el.getBoundingClientRect().top < window.innerHeight - 100){
-      el.classList.add("active");
+    if(window.scrollY > 30){
+      nav.classList.add("scrolled");
+    }else{
+      nav.classList.remove("scrolled");
     }
   });
-});
 </script>
 
 </body>
