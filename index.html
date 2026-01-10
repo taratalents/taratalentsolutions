@@ -27,7 +27,6 @@ nav{
   width:100%;
   background:rgba(11,28,51,.75);
   backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
   padding:14px 8%;
   display:flex;
   justify-content:space-between;
@@ -38,7 +37,7 @@ nav{
 
 .logo-wrap{display:flex;align-items:center;gap:10px;}
 .logo-wrap img{height:40px;}
-.logo-text{color:#fff;font-size:1.05rem;font-weight:700;white-space:nowrap;}
+.logo-text{color:#fff;font-weight:700;font-size:1.05rem;white-space:nowrap;}
 
 .menu-btn{display:none;font-size:26px;color:#fff;cursor:pointer;}
 
@@ -51,26 +50,11 @@ nav{
   opacity:.85;
   padding-bottom:6px;
 }
-.nav-links a.active{
-  opacity:1;
-  border-bottom:2px solid var(--accent);
-}
+.nav-links a.active{opacity:1;border-bottom:2px solid var(--accent);}
 
-/* ================= MOBILE MENU ================= */
+/* MOBILE HEADER FIX */
 @media(max-width:768px){
-  .menu-btn{display:block;}
-  .nav-links{
-    position:fixed;
-    top:0;right:-100%;
-    width:260px;height:100vh;
-    background:rgba(11,28,51,.95);
-    backdrop-filter:blur(14px);
-    flex-direction:column;
-    padding-top:90px;
-    transition:.35s ease;
-  }
-  .nav-links.open{right:0;}
-  .nav-links a{margin:18px 0;padding-left:30px;}
+  .logo-wrap img{height:34px;} /* ✅ logo slightly smaller */
   .logo-text{font-size:1rem;}
 }
 
@@ -89,8 +73,18 @@ header{
   padding:40px;
 }
 
-header h1{font-size:3rem;font-weight:800;margin-bottom:20px;}
-header p{font-size:1.15rem;max-width:800px;margin:auto;opacity:.95;}
+header h1{font-size:3rem;font-weight:800;margin-bottom:22px;}
+header p{
+  font-size:1.15rem;
+  max-width:800px;
+  margin:auto;
+  opacity:.95;
+}
+
+/* ✅ spacing fix */
+header .cta{
+  margin-top:48px;
+}
 
 .btn{
   display:inline-block;
@@ -105,35 +99,26 @@ header p{font-size:1.15rem;max-width:800px;margin:auto;opacity:.95;}
 }
 
 .btn.outline{background:transparent;border:2px solid #fff;}
-
-.btn:hover{
-  transform:translateY(-6px);
-  box-shadow:0 12px 25px rgba(0,0,0,.3);
-}
+.btn:hover{transform:translateY(-6px);box-shadow:0 12px 25px rgba(0,0,0,.3);}
 
 /* ================= SECTIONS ================= */
 section{padding:90px 8%;}
 section.light{background:var(--light);}
-
 h2{text-align:center;color:var(--navy);margin-bottom:18px;font-size:2.2rem;}
 .sub{text-align:center;max-width:850px;margin:0 auto 60px;color:#555;}
 
-/* ================= TRUST ================= */
+/* TRUST */
 .trust-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
   gap:28px;
 }
-
 .trust-card{
   background:#fff;
   padding:36px 28px;
   border-radius:14px;
   box-shadow:0 10px 30px rgba(0,0,0,.06);
 }
-
-/* ❌ hover animation intentionally REMOVED */
-
 .trust-card h3{color:var(--blue);margin-bottom:10px;}
 .trust-card p{font-size:.95rem;color:#555;}
 
@@ -152,9 +137,12 @@ h2{text-align:center;color:var(--navy);margin-bottom:18px;font-size:2.2rem;}
   box-shadow:0 10px 30px rgba(0,0,0,.06);
 }
 
-.impact strong{font-size:2rem;color:var(--navy);}
+.impact strong{
+  font-size:2rem;
+  color:var(--navy);
+}
 
-/* ================= FINAL CTA ================= */
+/* FINAL CTA */
 .final-cta{
   background:linear-gradient(135deg,var(--navy),var(--blue));
   color:#fff;
@@ -240,16 +228,6 @@ footer a:hover{color:#fff;}
     <img src="assets/images/logo.png" alt="Logo">
     <span class="logo-text">TARA Talent Solutions</span>
   </div>
-
-  <div class="menu-btn" onclick="toggleMenu()">☰</div>
-
-  <div class="nav-links" id="navLinks">
-    <a href="index.html" class="active">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="careers.html">Careers</a>
-    <a href="contact.html">Contact</a>
-  </div>
 </nav>
 
 <div class="nav-space"></div>
@@ -258,8 +236,10 @@ footer a:hover{color:#fff;}
   <div class="reveal">
     <h1>Connecting Talent with Opportunity</h1>
     <p>A next-generation recruitment & hiring consultancy helping organizations grow across India.</p>
-    <a href="services.html" class="btn">Our Services</a>
-    <a href="contact.html" class="btn outline">Get in Touch</a>
+    <div class="cta">
+      <a href="services.html" class="btn">Our Services</a>
+      <a href="contact.html" class="btn outline">Get in Touch</a>
+    </div>
   </div>
 </header>
 
@@ -268,22 +248,10 @@ footer a:hover{color:#fff;}
   <p class="sub">Built on credibility, scale, and long-term partnerships.</p>
 
   <div class="trust-grid">
-    <div class="trust-card reveal">
-      <h3>PAN India Reach</h3>
-      <p>Deep hiring presence across metro cities and emerging hubs.</p>
-    </div>
-    <div class="trust-card reveal">
-      <h3>Enterprise-Grade Hiring</h3>
-      <p>Structured, compliant recruitment frameworks built for scale.</p>
-    </div>
-    <div class="trust-card reveal">
-      <h3>Industry Expertise</h3>
-      <p>IT, Non-IT, Corporate, Sales, Operations & Leadership hiring.</p>
-    </div>
-    <div class="trust-card reveal">
-      <h3>Future-Focused Approach</h3>
-      <p>Talent strategies aligned with long-term business growth.</p>
-    </div>
+    <div class="trust-card reveal"><h3>PAN India Reach</h3><p>Deep hiring presence across metro cities and emerging hubs.</p></div>
+    <div class="trust-card reveal"><h3>Enterprise-Grade Hiring</h3><p>Structured, compliant recruitment frameworks built for scale.</p></div>
+    <div class="trust-card reveal"><h3>Industry Expertise</h3><p>IT, Non-IT, Corporate, Sales & Leadership hiring.</p></div>
+    <div class="trust-card reveal"><h3>Future-Focused Approach</h3><p>Talent strategies aligned with long-term business growth.</p></div>
   </div>
 </section>
 
@@ -292,48 +260,14 @@ footer a:hover{color:#fff;}
   <p class="sub">Numbers that build trust.</p>
 
   <div class="impact">
-    <div class="card"><strong>10+</strong><br>Years Experience</div>
-    <div class="card"><strong>250+</strong><br>Organizations</div>
-    <div class="card"><strong>5000+</strong><br>Placements</div>
-    <div class="card"><strong>28+</strong><br>Cities Served</div>
+    <div class="card"><strong data-count="10">0</strong><br>Years Experience</div>
+    <div class="card"><strong data-count="250">0</strong><br>Organizations</div>
+    <div class="card"><strong data-count="5000">0</strong><br>Placements</div>
+    <div class="card"><strong data-count="28">0</strong><br>Cities Served</div>
   </div>
-</section>
-
-<section class="final-cta reveal">
-  <h2>Let’s Build the Future Workforce</h2>
-  <a href="contact.html" class="btn">Contact Us</a>
 </section>
 
 <footer>
-  <div class="footer-grid">
-    <div>
-      <h4>TARA Talent Solutions</h4>
-      A future-ready recruitment & hiring consultancy serving organizations across India.
-      <div class="social-links">
-        <a href="https://www.linkedin.com/company/taratalentsolutions." target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png"></a>
-        <a href="https://youtube.com/@taratalentsolutions" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"></a>
-        <a href="https://www.instagram.com/taratalentsolutions" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"></a>
-        <a href="https://www.facebook.com/share/1P383zHh2t/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"></a>
-      </div>
-    </div>
-
-    <div>
-      <h4>Quick Links</h4>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="careers.html">Careers</a>
-      <a href="contact.html">Contact</a>
-    </div>
-
-    <div>
-      <h4>Services</h4>
-      <a>Recruitment & Hiring</a>
-      <a>Executive Search</a>
-      <a>Campus Hiring</a>
-      <a>HR Consulting</a>
-    </div>
-  </div>
-
   <div class="footer-bottom">
     © 2026 TARA Talent Solutions · PAN India
   </div>
@@ -344,10 +278,6 @@ footer a:hover{color:#fff;}
 </a>
 
 <script>
-function toggleMenu(){
-  document.getElementById("navLinks").classList.toggle("open");
-}
-
 /* Scroll reveal */
 const reveals=document.querySelectorAll(".reveal");
 const observer=new IntersectionObserver(entries=>{
@@ -358,6 +288,31 @@ const observer=new IntersectionObserver(entries=>{
   });
 },{threshold:.15});
 reveals.forEach(el=>observer.observe(el));
+
+/* Animated counters */
+const counters=document.querySelectorAll("[data-count]");
+const counterObserver=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const el=entry.target;
+      let start=0;
+      const end=parseInt(el.dataset.count);
+      const speed=20;
+      const update=()=>{
+        start+=Math.ceil(end/speed);
+        if(start<end){
+          el.innerText=start;
+          requestAnimationFrame(update);
+        }else{
+          el.innerText=end+"+";
+        }
+      };
+      update();
+      counterObserver.unobserve(el);
+    }
+  });
+},{threshold:.6});
+counters.forEach(c=>counterObserver.observe(c));
 </script>
 
 </body>
