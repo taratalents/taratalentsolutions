@@ -20,7 +20,7 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
 body{background:#fff;color:var(--text);line-height:1.7;}
 
-/* ================= HEADER (SAME AS HOME) ================= */
+/* ================= HEADER (SAME AS INDEX) ================= */
 nav{
   position:fixed;
   top:0;left:0;
@@ -59,6 +59,7 @@ nav{
 /* MOBILE MENU */
 @media(max-width:768px){
   .menu-btn{display:block;}
+
   .nav-links{
     position:fixed;
     top:0;right:-100%;
@@ -74,25 +75,32 @@ nav{
 
   .logo-wrap img{height:30px;}
   .logo-text{font-size:.95rem;}
+  nav{padding:10px 6%;}
 }
 
 .nav-space{height:64px;}
 
-/* ================= HERO (HOME STYLE) ================= */
-header{
-  min-height:90vh;
-  background:linear-gradient(rgba(11,28,51,.75),rgba(11,28,51,.75)),
+/* ================= PAGE HERO ================= */
+.page-header{
+  background:linear-gradient(rgba(11,28,51,.8),rgba(11,28,51,.8)),
   url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80") center/cover;
   color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
   text-align:center;
-  padding:100px 40px 40px;
+  padding:120px 10% 90px;
 }
 
-header h1{font-size:3rem;font-weight:800;margin-bottom:18px;}
-header p{font-size:1.15rem;max-width:850px;margin:auto;opacity:.95;}
+.page-header h1{
+  font-size:3rem;
+  font-weight:800;
+  margin-bottom:12px;
+}
+
+.page-header p{
+  font-size:1.15rem;
+  max-width:820px;
+  margin:auto;
+  opacity:.95;
+}
 
 /* ================= SECTIONS ================= */
 section{padding:90px 8%;}
@@ -101,14 +109,15 @@ section.light{background:var(--light);}
 h2{text-align:center;color:var(--navy);margin-bottom:18px;font-size:2.2rem;}
 .sub{text-align:center;max-width:850px;margin:0 auto 60px;color:#555;}
 
+/* STORY */
 .story{
   max-width:950px;
   margin:auto;
   text-align:center;
   font-size:1.05rem;
-  color:#444;
 }
 
+/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -122,12 +131,7 @@ h2{text-align:center;color:var(--navy);margin-bottom:18px;font-size:2.2rem;}
   box-shadow:0 10px 30px rgba(0,0,0,.06);
 }
 
-.card h3{
-  color:var(--blue);
-  margin-bottom:12px;
-}
-
-/* ================= CTA ================= */
+/* CTA */
 .final-cta{
   background:linear-gradient(135deg,var(--navy),var(--blue));
   color:#fff;
@@ -146,13 +150,9 @@ h2{text-align:center;color:var(--navy);margin-bottom:18px;font-size:2.2rem;}
   font-weight:600;
   transition:.35s ease;
 }
+.btn:hover{transform:translateY(-6px);box-shadow:0 12px 25px rgba(0,0,0,.3);}
 
-.btn:hover{
-  transform:translateY(-6px);
-  box-shadow:0 12px 25px rgba(0,0,0,.3);
-}
-
-/* ================= FOOTER (SAME AS HOME) ================= */
+/* ================= FOOTER (SAME AS INDEX) ================= */
 footer{
   background:#081425;
   color:#ccc;
@@ -189,7 +189,7 @@ footer a:hover{color:#fff;}
 }
 
 @media(max-width:768px){
-  header h1{font-size:2.1rem;}
+  .page-header h1{font-size:2.2rem;}
   .footer-grid{grid-template-columns:1fr;text-align:center;}
   .social-links{justify-content:center;}
 }
@@ -202,6 +202,7 @@ footer a:hover{color:#fff;}
 
 <body>
 
+<!-- HEADER -->
 <nav>
   <div class="logo-wrap">
     <img src="assets/images/logo.png" alt="Logo">
@@ -221,23 +222,24 @@ footer a:hover{color:#fff;}
 
 <div class="nav-space"></div>
 
-<header>
-  <div class="reveal">
-    <h1>About Our Organization</h1>
-    <p>Building future-ready teams through trust, intelligence, and long-term vision.</p>
-  </div>
-</header>
+<!-- HERO -->
+<div class="page-header reveal">
+  <h1>About Our Organization</h1>
+  <p>Building future-ready teams through trust, intelligence, and long-term vision.</p>
+</div>
 
+<!-- STORY -->
 <section class="reveal">
   <h2>Who We Are</h2>
   <p class="sub">A recruitment partner designed for the future of work.</p>
   <div class="story">
-    TARA Talent Solutions is a next-generation recruitment & hiring consultancy helping
-    organizations build high-performance teams and professionals achieve long-term
-    career success across PAN India.
+    TARA Talent Solutions is a next-generation recruitment & hiring consultancy
+    helping organizations build high-performance teams and professionals achieve
+    long-term career success across PAN India.
   </div>
 </section>
 
+<!-- PURPOSE -->
 <section class="light reveal">
   <h2>Our Purpose & Principles</h2>
 
@@ -259,11 +261,13 @@ footer a:hover{color:#fff;}
   </div>
 </section>
 
+<!-- CTA -->
 <section class="final-cta reveal">
   <h2>Let’s Build the Future Workforce Together</h2>
   <a href="contact.html" class="btn">Connect With Us</a>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div>
