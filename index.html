@@ -31,14 +31,13 @@
       line-height:1.7;
     }
 
-    /* HEADER SPACER */
+    /* HEADER SPACER – EXACT MATCH */
     .header-spacer{
-      height:70px;
+      height:68px;
     }
 
     /* HERO */
     header.hero{
-      position:relative;
       min-height:90vh;
       background:
         linear-gradient(rgba(11,28,51,.75),rgba(11,28,51,.75)),
@@ -65,9 +64,7 @@
       opacity:.95;
     }
 
-    .cta{
-      margin-top:35px;
-    }
+    .cta{ margin-top:35px; }
 
     .btn{
       display:inline-block;
@@ -91,39 +88,9 @@
       opacity:.9;
     }
 
-    /* SCROLL INDICATOR */
-    .scroll-indicator{
-      position:absolute;
-      bottom:25px;
-      left:50%;
-      transform:translateX(-50%);
-    }
-
-    .scroll-indicator span{
-      display:block;
-      width:26px;
-      height:26px;
-      border-bottom:2px solid #fff;
-      border-right:2px solid #fff;
-      transform:rotate(45deg);
-      animation:scrollDown 1.5s infinite;
-      opacity:.8;
-    }
-
-    @keyframes scrollDown{
-      0%{ transform:rotate(45deg) translate(0,0); opacity:0; }
-      50%{ opacity:1; }
-      100%{ transform:rotate(45deg) translate(8px,8px); opacity:0; }
-    }
-
     /* SECTIONS */
-    section{
-      padding:90px 8%;
-    }
-
-    section.light{
-      background:var(--light);
-    }
+    section{ padding:90px 8%; }
+    section.light{ background:var(--light); }
 
     h2{
       font-size:2.2rem;
@@ -154,9 +121,7 @@
       transition:.3s;
     }
 
-    .trust-card:hover{
-      transform:translateY(-8px);
-    }
+    .trust-card:hover{ transform:translateY(-8px); }
 
     .trust-card h3{
       color:var(--blue);
@@ -192,13 +157,21 @@
       padding:90px 20px;
     }
 
-    .final-cta h2{
-      color:#fff;
+    .final-cta h2{ color:#fff; }
+
+    /* ANIMATION */
+    .reveal{
+      opacity:0;
+      transform:translateY(40px);
+      transition:.7s ease;
     }
 
-    /* MOBILE FIX */
+    .reveal.active{
+      opacity:1;
+      transform:none;
+    }
+
     @media(max-width:768px){
-      .header-spacer{ height:58px; }
       header.hero h1{ font-size:2.2rem; }
       section{ padding:70px 6%; }
     }
@@ -211,7 +184,7 @@
 <div id="header"></div>
 <div class="header-spacer"></div>
 
-<!-- HERO -->
+<!-- HERO (OLD CONTENT – UNCHANGED) -->
 <header class="hero">
   <div>
     <h1>Connecting Talent with Opportunity</h1>
@@ -224,14 +197,9 @@
       <a href="contact.html" class="btn outline">Get in Touch</a>
     </div>
   </div>
-
-  <!-- SCROLL INDICATOR -->
-  <div class="scroll-indicator">
-    <span></span>
-  </div>
 </header>
 
-<section class="light">
+<section class="light reveal">
   <h2>Why Organizations Trust TARA</h2>
   <p class="sub">Built on credibility, scale, and long-term partnerships.</p>
 
@@ -255,7 +223,7 @@
   </div>
 </section>
 
-<section>
+<section class="reveal">
   <h2>Our Impact at a Glance</h2>
   <p class="sub">Numbers that build trust.</p>
 
@@ -267,7 +235,7 @@
   </div>
 </section>
 
-<section class="final-cta">
+<section class="final-cta reveal">
   <h2>Let’s Build the Future Workforce</h2>
   <p style="margin:15px 0 30px;">Partner with us for long-term success.</p>
   <a href="contact.html" class="btn">Contact Us</a>
@@ -277,14 +245,47 @@
 <div id="footer"></div>
 
 <script>
-  // Load Header & Footer
-  fetch("partials/header.html")
-    .then(res => res.text())
-    .then(html => document.getElementById("header").innerHTML = html);
+/* LOAD HEADER + FIXES */
+fetch("partials/header.html")
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById("header").innerHTML = html;
 
-  fetch("partials/footer.html")
-    .then(res => res.text())
-    .then(html => document.getElementById("footer").innerHTML = html);
+    const toggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    const nav = document.getElementById("mainNav");
+
+    // HAMBURGER – WORKING
+    toggle.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+    });
+
+    // STICKY SHADOW
+    window.addEventListener("scroll", () => {
+      if(window.scrollY > 30){
+        nav.classList.add("scrolled");
+      }else{
+        nav.classList.remove("scrolled");
+      }
+    });
+  });
+
+/* LOAD FOOTER */
+fetch("partials/footer.html")
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById("footer").innerHTML = html;
+  });
+
+/* SCROLL ANIMATION */
+const reveals = document.querySelectorAll(".reveal");
+window.addEventListener("scroll", () => {
+  reveals.forEach(el => {
+    if(el.getBoundingClientRect().top < window.innerHeight - 100){
+      el.classList.add("active");
+    }
+  });
+});
 </script>
 
 </body>
