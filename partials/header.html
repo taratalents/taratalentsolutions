@@ -1,150 +1,123 @@
-<!-- ================= HEADER ================= -->
 <header class="site-header">
-  <div class="header-inner">
-
-    <!-- LOGO -->
-    <div class="brand">
-      <img src="assets/images/logo.png" alt="TARA Talent Solutions Logo">
+  <div class="nav-inner">
+    <div class="logo-wrap">
+      <img src="assets/images/logo.png" alt="TARA Talent Solutions">
       <span>TARA Talent Solutions</span>
     </div>
 
-    <!-- DESKTOP NAV -->
-    <nav class="nav-desktop">
-      <a href="index.html">Home</a>
+    <nav class="nav-links">
+      <a href="index.html" class="active">Home</a>
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="careers.html">Careers</a>
       <a href="contact.html">Contact</a>
     </nav>
 
-    <!-- MOBILE MENU BUTTON -->
-    <button class="menu-toggle" aria-label="Open Menu">
-      ☰
-    </button>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
   </div>
-
-  <!-- MOBILE NAV -->
-  <nav class="nav-mobile">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="careers.html">Careers</a>
-    <a href="contact.html">Contact</a>
-  </nav>
 </header>
 
 <style>
-  :root{
-    --navy:#0b1c33;
-    --accent:#4da3ff;
-  }
+:root{
+  --header-height:72px;
+  --navy:#0b1c33;
+  --accent:#4da3ff;
+}
 
-  /* HEADER BASE */
-  .site-header{
-    position:fixed;
-    top:0;
+/* BODY OFFSET — MOST IMPORTANT */
+body{
+  padding-top:var(--header-height);
+}
+
+/* HEADER */
+.site-header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:var(--header-height);
+  background:linear-gradient(135deg,#0b1c33,#102b52);
+  z-index:9999;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav-inner{
+  height:100%;
+  padding:0 8%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+/* LOGO */
+.logo-wrap{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo-wrap img{
+  height:36px;
+}
+
+.logo-wrap span{
+  color:#fff;
+  font-weight:700;
+  font-size:1rem;
+  white-space:nowrap;
+}
+
+/* NAV */
+.nav-links a{
+  color:#fff;
+  text-decoration:none;
+  margin-left:22px;
+  font-weight:500;
+  opacity:.85;
+  transition:.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+  opacity:1;
+  border-bottom:2px solid var(--accent);
+  padding-bottom:4px;
+}
+
+/* MOBILE */
+.menu-toggle{
+  display:none;
+  color:#fff;
+  font-size:1.7rem;
+  cursor:pointer;
+}
+
+@media(max-width:768px){
+  .nav-links{
+    position:absolute;
+    top:var(--header-height);
     left:0;
     width:100%;
-    background:var(--navy);
-    z-index:1000;
-    border-bottom:1px solid rgba(255,255,255,.08);
-  }
-
-  .header-inner{
-    max-width:1300px;
-    margin:auto;
-    padding:14px 6%;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-  }
-
-  /* BRAND */
-  .brand{
-    display:flex;
-    align-items:center;
-    gap:10px;
-  }
-
-  .brand img{
-    height:38px;
-  }
-
-  .brand span{
-    color:#fff;
-    font-weight:700;
-    font-size:1.05rem;
-    white-space:nowrap;
-  }
-
-  /* DESKTOP NAV */
-  .nav-desktop{
-    display:flex;
-    gap:26px;
-  }
-
-  .nav-desktop a{
-    color:#fff;
-    text-decoration:none;
-    font-weight:500;
-    opacity:.85;
-    padding-bottom:6px;
-  }
-
-  .nav-desktop a:hover{
-    opacity:1;
-    border-bottom:2px solid var(--accent);
-  }
-
-  /* MOBILE */
-  .menu-toggle{
-    display:none;
-    background:none;
-    border:none;
-    color:#fff;
-    font-size:1.8rem;
-    cursor:pointer;
-  }
-
-  .nav-mobile{
+    background:#0b1c33;
     display:none;
     flex-direction:column;
-    background:#081425;
-    padding:10px 0;
+    padding:20px 0;
   }
 
-  .nav-mobile a{
-    color:#fff;
-    text-decoration:none;
-    padding:14px 6%;
-    border-top:1px solid rgba(255,255,255,.08);
+  .nav-links a{
+    margin:10px 0;
+    text-align:center;
   }
 
-  .nav-mobile a:hover{
-    background:rgba(255,255,255,.05);
+  .menu-toggle{
+    display:block;
   }
-
-  /* RESPONSIVE */
-  @media(max-width:900px){
-    .nav-desktop{
-      display:none;
-    }
-
-    .menu-toggle{
-      display:block;
-    }
-
-    .nav-mobile.show{
-      display:flex;
-    }
-  }
+}
 </style>
 
 <script>
-  const toggle = document.querySelector(".menu-toggle");
-  const mobileNav = document.querySelector(".nav-mobile");
-
-  toggle.addEventListener("click", () => {
-    mobileNav.classList.toggle("show");
-  });
+function toggleMenu(){
+  const nav = document.querySelector(".nav-links");
+  nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+}
 </script>
