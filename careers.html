@@ -26,19 +26,21 @@ nav{
   top:0;left:0;
   width:100%;
   background:rgba(11,28,51,.75);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  padding:14px 8%;
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  padding:10px 8%;
   display:flex;
   justify-content:space-between;
   align-items:center;
   z-index:1000;
-  box-shadow:0 8px 25px rgba(0,0,0,.25);
+  box-shadow:0 2px 6px rgba(0,0,0,.15);
 }
 
 .logo-wrap{display:flex;align-items:center;gap:10px;}
-.logo-wrap img{height:42px;}
-.logo-text{color:#fff;font-weight:700;font-size:1.05rem;white-space:nowrap;}
+.logo-wrap img{height:40px;}
+.logo-text{color:#fff;font-size:1.05rem;font-weight:700;white-space:nowrap;}
+
+.menu-btn{display:none;font-size:26px;color:#fff;cursor:pointer;}
 
 .nav-links{display:flex;}
 .nav-links a{
@@ -54,25 +56,29 @@ nav{
   border-bottom:2px solid var(--accent);
 }
 
-.menu-btn{display:none;font-size:26px;color:#fff;cursor:pointer;}
-
+/* MOBILE MENU */
 @media(max-width:768px){
   .menu-btn{display:block;}
+
   .nav-links{
     position:fixed;
     top:0;right:-100%;
     width:260px;height:100vh;
-    background:rgba(11,28,51,.92);
-    backdrop-filter:blur(12px);
+    background:rgba(11,28,51,.95);
+    backdrop-filter:blur(14px);
     flex-direction:column;
     padding-top:90px;
     transition:.35s ease;
   }
   .nav-links.open{right:0;}
   .nav-links a{margin:18px 0;padding-left:30px;}
+
+  .logo-wrap img{height:30px;}
+  .logo-text{font-size:.95rem;}
+  nav{padding:10px 6%;}
 }
 
-.nav-space{height:80px;}
+.nav-space{height:64px;}
 
 /* ================= PAGE HEADER ================= */
 .page-header{
@@ -80,7 +86,7 @@ nav{
   url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80") center/cover;
   color:#fff;
   text-align:center;
-  padding:120px 10%;
+  padding:120px 10% 90px;
 }
 
 .page-header h1{
@@ -100,19 +106,8 @@ nav{
 section{padding:90px 8%;}
 section.light{background:var(--light);}
 
-h2{
-  color:var(--navy);
-  font-size:2.2rem;
-  margin-bottom:18px;
-  text-align:center;
-}
-
-.sub{
-  text-align:center;
-  max-width:850px;
-  margin:0 auto 60px;
-  color:#555;
-}
+h2{text-align:center;color:var(--navy);margin-bottom:18px;font-size:2.2rem;}
+.sub{text-align:center;max-width:850px;margin:0 auto 60px;color:#555;}
 
 .grid{
   display:grid;
@@ -141,11 +136,11 @@ h2{
 /* RESUME BOX */
 .resume-box{
   background:#fff;
-  padding:50px 30px;
+  padding:55px 35px;
   border-radius:16px;
   box-shadow:0 12px 35px rgba(0,0,0,.08);
   text-align:center;
-  max-width:850px;
+  max-width:900px;
   margin:0 auto;
 }
 
@@ -157,7 +152,7 @@ h2{
 
 .resume-box p{
   color:#555;
-  margin-bottom:25px;
+  margin-bottom:28px;
   font-size:1.05rem;
 }
 
@@ -169,7 +164,7 @@ h2{
   text-decoration:none;
   border-radius:30px;
   font-weight:600;
-  transition:.3s;
+  transition:.35s ease;
 }
 
 .btn.outline{
@@ -180,8 +175,8 @@ h2{
 }
 
 .btn:hover{
-  transform:translateY(-3px);
-  opacity:.9;
+  transform:translateY(-6px);
+  box-shadow:0 12px 25px rgba(0,0,0,.25);
 }
 
 /* ================= FOOTER ================= */
@@ -189,7 +184,6 @@ footer{
   background:#081425;
   color:#ccc;
   padding:60px 8% 30px;
-  font-size:.9rem;
 }
 
 .footer-grid{
@@ -198,11 +192,11 @@ footer{
   gap:40px;
 }
 
-.footer-grid h4{color:#fff;margin-bottom:14px;}
-.footer-links a{color:#ccc;text-decoration:none;display:block;margin-bottom:8px;}
-.footer-links a:hover{color:#fff;}
+footer h4{color:#fff;margin-bottom:14px;}
+footer a{color:#ccc;text-decoration:none;display:block;margin-bottom:8px;}
+footer a:hover{color:#fff;}
 
-.social-links{display:flex;gap:14px;margin-top:12px;}
+.social-links{display:flex;gap:14px;margin-top:14px;}
 .social-links a{
   width:38px;height:38px;
   background:#122544;
@@ -228,13 +222,9 @@ footer{
   .btn.outline{margin-left:0;margin-top:12px;display:block;}
 }
 
-/* ================= ANIMATION ================= */
-.reveal{
-  opacity:0;
-  transform:translateY(40px);
-  transition:.7s ease;
-}
-.reveal.active{opacity:1;transform:none;}
+/* ================= SCROLL ANIMATION ================= */
+.reveal{opacity:0;transform:translateY(40px);transition:.9s ease;}
+.reveal.show{opacity:1;transform:none;}
 </style>
 </head>
 
@@ -259,69 +249,93 @@ footer{
 
 <div class="nav-space"></div>
 
-<div class="page-header">
+<!-- HERO -->
+<div class="page-header reveal">
   <h1>Careers at TARA</h1>
-  <p>Build your career with a future-focused recruitment organization that values growth and long-term success.</p>
+  <p>
+    Build your career with a future-focused recruitment organization
+    that values growth, learning, and long-term success.
+  </p>
 </div>
 
+<!-- WHY WORK WITH US -->
 <section class="reveal">
   <h2>Why Work With Us</h2>
-  <p class="sub">A professional environment where ambition, integrity, and performance are rewarded.</p>
+  <p class="sub">
+    We offer a professional environment where ambition, integrity,
+    and performance are rewarded.
+  </p>
 
   <div class="grid">
-    <div class="card">
+    <div class="card reveal">
       <h3>Growth-Oriented Culture</h3>
       Clear learning paths, mentorship, and exposure to diverse industries.
     </div>
-    <div class="card">
+
+    <div class="card reveal">
       <h3>Performance-Driven Rewards</h3>
       Transparent incentives, recognition, and faster career progression.
     </div>
-    <div class="card">
+
+    <div class="card reveal">
       <h3>Future-Ready Skills</h3>
       Work with modern recruitment tools and evolving talent strategies.
     </div>
   </div>
 </section>
 
+<!-- OPEN ROLES -->
 <section class="light reveal">
   <h2>Current Opportunities</h2>
-  <p class="sub">We are constantly looking for motivated professionals and fresh talent.</p>
+  <p class="sub">
+    We are constantly looking for motivated professionals and fresh talent.
+  </p>
 
   <div class="grid">
-    <div class="card role">
+    <div class="card role reveal">
       <h3>Recruitment Executive</h3>
       Source, screen, and coordinate candidates across multiple roles.
     </div>
-    <div class="card role">
+
+    <div class="card role reveal">
       <h3>Talent Acquisition Specialist</h3>
       Manage end-to-end hiring for assigned clients.
     </div>
-    <div class="card role">
+
+    <div class="card role reveal">
       <h3>HR / Operations Intern</h3>
       Support recruitment operations and hiring coordination.
     </div>
   </div>
 </section>
 
+<!-- RESUME -->
 <section class="reveal">
-  <div class="resume-box">
+  <div class="resume-box reveal">
     <h3>Submit Your Resume</h3>
-    <p>Didn’t find a suitable role? Share your resume and our team will reach out.</p>
+    <p>
+      Didn’t find a suitable role?
+      Share your resume and our team will reach out when an opportunity matches your profile.
+    </p>
 
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf8cRstfkl1I22shUwggO5lzrdnzYorSQbB6yZrXEgNksZ4Uw/viewform" target="_blank" class="btn">
-      Upload Resume
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf8cRstfkl1I22shUwggO5lzrdnzYorSQbB6yZrXEgNksZ4Uw/viewform"
+       target="_blank"
+       class="btn">
+       Upload Resume
     </a>
 
-    <a href="contact.html" class="btn outline">Contact HR Team</a>
+    <a href="contact.html" class="btn outline">
+      Contact HR Team
+    </a>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div>
       <h4>TARA Talent Solutions</h4>
-      <p>A future-ready recruitment & hiring consultancy serving organizations across India.</p>
+      A future-ready recruitment & hiring consultancy serving organizations across India.
       <div class="social-links">
         <a href="https://www.linkedin.com/company/taratalentsolutions." target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png"></a>
         <a href="https://youtube.com/@taratalentsolutions" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"></a>
@@ -330,7 +344,7 @@ footer{
       </div>
     </div>
 
-    <div class="footer-links">
+    <div>
       <h4>Quick Links</h4>
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
@@ -338,8 +352,8 @@ footer{
       <a href="contact.html">Contact</a>
     </div>
 
-    <div class="footer-links">
-      <h4>Our Services</h4>
+    <div>
+      <h4>Services</h4>
       <a>Recruitment & Hiring</a>
       <a>Executive Search</a>
       <a>Campus Hiring</a>
@@ -348,7 +362,7 @@ footer{
   </div>
 
   <div class="footer-bottom">
-    © 2026 TARA Talent Solutions · Careers · PAN India
+    © 2026 TARA Talent Solutions · PAN India
   </div>
 </footer>
 
@@ -357,14 +371,16 @@ function toggleMenu(){
   document.getElementById("navLinks").classList.toggle("open");
 }
 
+/* Scroll reveal */
 const reveals=document.querySelectorAll(".reveal");
-window.addEventListener("scroll",()=>{
-  reveals.forEach(el=>{
-    if(el.getBoundingClientRect().top<window.innerHeight-100){
-      el.classList.add("active");
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
     }
   });
-});
+},{threshold:.15});
+reveals.forEach(el=>observer.observe(el));
 </script>
 
 </body>
