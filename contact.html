@@ -26,19 +26,21 @@ nav{
   top:0;left:0;
   width:100%;
   background:rgba(11,28,51,.75);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  padding:14px 8%;
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  padding:10px 8%;
   display:flex;
   justify-content:space-between;
   align-items:center;
   z-index:1000;
-  box-shadow:0 8px 25px rgba(0,0,0,.25);
+  box-shadow:0 2px 6px rgba(0,0,0,.15);
 }
 
 .logo-wrap{display:flex;align-items:center;gap:10px;}
-.logo-wrap img{height:42px;}
-.logo-text{color:#fff;font-weight:700;font-size:1.05rem;white-space:nowrap;}
+.logo-wrap img{height:40px;}
+.logo-text{color:#fff;font-size:1.05rem;font-weight:700;white-space:nowrap;}
+
+.menu-btn{display:none;font-size:26px;color:#fff;cursor:pointer;}
 
 .nav-links{display:flex;}
 .nav-links a{
@@ -54,25 +56,29 @@ nav{
   border-bottom:2px solid var(--accent);
 }
 
-.menu-btn{display:none;font-size:26px;color:#fff;cursor:pointer;}
-
+/* MOBILE MENU */
 @media(max-width:768px){
   .menu-btn{display:block;}
+
   .nav-links{
     position:fixed;
     top:0;right:-100%;
     width:260px;height:100vh;
-    background:rgba(11,28,51,.92);
-    backdrop-filter:blur(12px);
+    background:rgba(11,28,51,.95);
+    backdrop-filter:blur(14px);
     flex-direction:column;
     padding-top:90px;
     transition:.35s ease;
   }
   .nav-links.open{right:0;}
   .nav-links a{margin:18px 0;padding-left:30px;}
+
+  .logo-wrap img{height:30px;}
+  .logo-text{font-size:.95rem;}
+  nav{padding:10px 6%;}
 }
 
-.nav-space{height:80px;}
+.nav-space{height:64px;}
 
 /* ================= PAGE HEADER ================= */
 .page-header{
@@ -80,7 +86,7 @@ nav{
   url("https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=80") center/cover;
   color:#fff;
   text-align:center;
-  padding:120px 10%;
+  padding:120px 10% 90px;
 }
 
 .page-header h1{
@@ -99,51 +105,37 @@ nav{
 /* ================= SECTIONS ================= */
 section{padding:90px 8%;}
 
-h2{
-  color:var(--navy);
-  font-size:2.2rem;
-  margin-bottom:18px;
-  text-align:center;
-}
-
-.sub{
-  text-align:center;
-  max-width:850px;
-  margin:0 auto 60px;
-  color:#555;
-}
+h2{text-align:center;color:var(--navy);margin-bottom:18px;font-size:2.2rem;}
+.sub{text-align:center;max-width:850px;margin:0 auto 60px;color:#555;}
 
 /* CONTACT GRID */
 .contact-grid{
   display:grid;
   grid-template-columns:1.1fr 1fr;
   gap:40px;
-  align-items:flex-start;
 }
 
-.info-box{
+.info-box,
+form{
   background:#fff;
-  padding:40px 30px;
+  padding:40px 32px;
   border-radius:14px;
   box-shadow:0 10px 30px rgba(0,0,0,.06);
 }
 
 .info-box h3{
   color:var(--blue);
-  margin-bottom:15px;
+  margin-bottom:18px;
 }
 
-.info-box p{margin-bottom:12px;}
+.info-box p{
+  margin-bottom:12px;
+  font-size:1rem;
+}
+
 .info-box strong{color:var(--navy);}
 
 /* FORM */
-form{
-  background:#fff;
-  padding:40px 30px;
-  border-radius:14px;
-  box-shadow:0 10px 30px rgba(0,0,0,.06);
-}
-
 form input,
 form textarea{
   width:100%;
@@ -154,7 +146,7 @@ form textarea{
   font-size:1rem;
 }
 
-form textarea{resize:none;height:130px;}
+form textarea{height:130px;resize:none;}
 
 form button{
   width:100%;
@@ -165,12 +157,12 @@ form button{
   border-radius:30px;
   font-weight:600;
   cursor:pointer;
-  transition:.3s;
+  transition:.35s ease;
 }
 
 form button:hover{
-  opacity:.9;
-  transform:translateY(-2px);
+  transform:translateY(-4px);
+  box-shadow:0 10px 20px rgba(0,0,0,.25);
 }
 
 /* ================= FOOTER ================= */
@@ -178,7 +170,6 @@ footer{
   background:#081425;
   color:#ccc;
   padding:60px 8% 30px;
-  font-size:.9rem;
 }
 
 .footer-grid{
@@ -187,11 +178,11 @@ footer{
   gap:40px;
 }
 
-.footer-grid h4{color:#fff;margin-bottom:14px;}
-.footer-links a{color:#ccc;text-decoration:none;display:block;margin-bottom:8px;}
-.footer-links a:hover{color:#fff;}
+footer h4{color:#fff;margin-bottom:14px;}
+footer a{color:#ccc;text-decoration:none;display:block;margin-bottom:8px;}
+footer a:hover{color:#fff;}
 
-.social-links{display:flex;gap:14px;margin-top:12px;}
+.social-links{display:flex;gap:14px;margin-top:14px;}
 .social-links a{
   width:38px;height:38px;
   background:#122544;
@@ -210,20 +201,19 @@ footer{
   opacity:.75;
 }
 
-/* ================= ANIMATION ================= */
-.reveal{
-  opacity:0;
-  transform:translateY(40px);
-  transition:.7s ease;
-}
-.reveal.active{opacity:1;transform:none;}
-
+/* MOBILE */
 @media(max-width:900px){
   .contact-grid{grid-template-columns:1fr;}
+}
+@media(max-width:768px){
   .page-header h1{font-size:2.2rem;}
   .footer-grid{grid-template-columns:1fr;text-align:center;}
   .social-links{justify-content:center;}
 }
+
+/* SCROLL ANIMATION */
+.reveal{opacity:0;transform:translateY(40px);transition:.9s ease;}
+.reveal.show{opacity:1;transform:none;}
 </style>
 </head>
 
@@ -248,32 +238,45 @@ footer{
 
 <div class="nav-space"></div>
 
-<div class="page-header">
+<!-- HERO -->
+<div class="page-header reveal">
   <h1>Contact Us</h1>
-  <p>Let’s discuss how we can support your hiring goals and career growth.</p>
+  <p>
+    Let’s discuss how we can support your hiring goals
+    and long-term growth.
+  </p>
 </div>
 
+<!-- CONTACT -->
 <section class="reveal">
   <h2>Get in Touch</h2>
-  <p class="sub">Reach out for recruitment support, partnerships, or career opportunities.</p>
+  <p class="sub">
+    Reach out to us for recruitment support, partnerships,
+    or career opportunities.
+  </p>
 
   <div class="contact-grid">
 
-    <div class="info-box">
+    <!-- INFO -->
+    <div class="info-box reveal">
       <h3>Contact Information</h3>
       <p><strong>Email:</strong> contact@taratalentsolutions.com</p>
       <p><strong>Careers:</strong> careers@taratalentsolutions.com</p>
-      <p><strong>Location:</strong> PAN India (Remote Operations)</p>
+      <p><strong>Operations:</strong> PAN India (Remote)</p>
       <p>Response time: <strong>within 24 working hours</strong></p>
     </div>
 
-    <form action="https://formspree.io/f/mzdznkgl" method="POST">
+    <!-- FORM -->
+    <form class="reveal" action="https://formspree.io/f/mzdznkgl" method="POST">
       <input type="text" name="name" placeholder="Your Full Name" required>
       <input type="email" name="email" placeholder="Your Email Address" required>
       <input type="text" name="subject" placeholder="Subject">
       <textarea name="message" placeholder="Your Message" required></textarea>
 
+      <!-- Hidden subject -->
       <input type="hidden" name="_subject" value="New Contact Inquiry - TARA Talent Solutions">
+
+      <!-- Honeypot -->
       <input type="text" name="_gotcha" style="display:none">
 
       <button type="submit">Send Message</button>
@@ -282,11 +285,12 @@ footer{
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div>
       <h4>TARA Talent Solutions</h4>
-      <p>A future-ready recruitment & hiring consultancy serving organizations across India.</p>
+      A future-ready recruitment & hiring consultancy serving organizations across India.
       <div class="social-links">
         <a href="https://www.linkedin.com/company/taratalentsolutions." target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png"></a>
         <a href="https://youtube.com/@taratalentsolutions" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"></a>
@@ -295,7 +299,7 @@ footer{
       </div>
     </div>
 
-    <div class="footer-links">
+    <div>
       <h4>Quick Links</h4>
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
@@ -303,8 +307,8 @@ footer{
       <a href="contact.html">Contact</a>
     </div>
 
-    <div class="footer-links">
-      <h4>Our Services</h4>
+    <div>
+      <h4>Services</h4>
       <a>Recruitment & Hiring</a>
       <a>Executive Search</a>
       <a>Campus Hiring</a>
@@ -313,7 +317,7 @@ footer{
   </div>
 
   <div class="footer-bottom">
-    © 2026 TARA Talent Solutions · Contact · PAN India
+    © 2026 TARA Talent Solutions · PAN India
   </div>
 </footer>
 
@@ -322,14 +326,16 @@ function toggleMenu(){
   document.getElementById("navLinks").classList.toggle("open");
 }
 
+/* Scroll reveal */
 const reveals=document.querySelectorAll(".reveal");
-window.addEventListener("scroll",()=>{
-  reveals.forEach(el=>{
-    if(el.getBoundingClientRect().top<window.innerHeight-100){
-      el.classList.add("active");
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
     }
   });
-});
+},{threshold:.15});
+reveals.forEach(el=>observer.observe(el));
 </script>
 
 </body>
